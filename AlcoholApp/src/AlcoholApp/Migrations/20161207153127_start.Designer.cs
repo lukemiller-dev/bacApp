@@ -5,12 +5,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using AlcoholApp.Data;
 
-namespace AlcoholApp.Data.Migrations
+namespace AlcoholApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20161207153127_start")]
+    partial class start
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.0-rtm-21431")
@@ -97,18 +98,17 @@ namespace AlcoholApp.Data.Migrations
 
             modelBuilder.Entity("AlcoholApp.Models.Glass", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int?>("AlcoholId");
-
                     b.Property<int>("NightId");
+
+                    b.Property<int>("AlcoholId");
+
+                    b.Property<int>("Id");
 
                     b.Property<DateTime>("TimeConsumed");
 
                     b.Property<decimal>("Volume");
 
-                    b.HasKey("Id");
+                    b.HasKey("NightId", "AlcoholId");
 
                     b.HasIndex("AlcoholId");
 
@@ -248,7 +248,8 @@ namespace AlcoholApp.Data.Migrations
                 {
                     b.HasOne("AlcoholApp.Models.Alcohol", "Alcohol")
                         .WithMany("Glasses")
-                        .HasForeignKey("AlcoholId");
+                        .HasForeignKey("AlcoholId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("AlcoholApp.Models.Night", "Night")
                         .WithMany("Glasses")

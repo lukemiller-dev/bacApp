@@ -23,7 +23,8 @@ namespace AlcoholApp.Data
         {
             builder.Entity<Alcohol>().HasMany(g => g.Glasses).WithOne(a => a.Alcohol);
             builder.Entity<Night>().HasMany(g => g.Glasses).WithOne(n => n.Night);
-            builder.Entity<ApplicationUser>().HasMany(n => n.Nights).WithOne(a => a.ApplicationUser); 
+            builder.Entity<ApplicationUser>().HasMany(n => n.Nights).WithOne(a => a.ApplicationUser);
+            builder.Entity<Glass>().HasKey(g => new { g.NightId, g.AlcoholId });
             base.OnModelCreating(builder);
             
             // Customize the ASP.NET Identity model and override the defaults if needed.
