@@ -66,5 +66,70 @@
 
 /*Template*/
 
+.template {
+    height: 700px;
+    background-color: #f2f2f2;
+}
 
+.accountDiv {
+    height: 600px;
+    width: 100%;
+    background-color: #ffcc99;
+    border-radius: 10px;
+    margin-top: 50px;
+}
+
+#favNav {  
+    background-color: #b33c00;
+}
+
+.navDrinks {
+    color: white;
+}
+
+#favNavTitle {
+    color: white;
+}
+
+#addDrink {
+    height: 35px;
+    width: 100px;
+    border: 2px solid white;
+    border-radius: 5px;
+    background-color: #b33c00;
+    color: white;
+}
+
+.drinkHeader {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.dropdown {
+    margin-top: 40px;
+    position: relative;
+    margin-left: 20px;
+}
+
+.headerNdropdown td {
+    margin-right: 20px;
+}
+
+#homeBeerIcon {
+    font-size: 200px;
+    margin-top: 50px;
+}
+
+.ozUnderIcon {
+    font-size: 30px;
+}
+
+#homeProgressBar {
+    width: 400px;
+}
+
+.progress {
+    width: 850px;
+    height: 40px;
+}
 
