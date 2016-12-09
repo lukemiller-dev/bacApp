@@ -1,31 +1,24 @@
 ﻿body {
 }
-.mainDiv{
-    background-color:#F7F2ED;
-    border: 1px solid black;
-    border-radius:3px;   
-    height: 400px;
-    width: 350px;
-    margin-right: auto;
-    margin-left: auto;
-    text-align: center;
+
+#formId{
+    text-align:center;
 }
 #globalId{
    width: 100%;
-   /*background-color:#FFAB57;*/
    margin-top:0px;
    border-top:0px;
+  
    
 }
 
 #globalId h1 {
     margin-right:30px;
-    margin-left:30px; 
-}
-
-#globalId legend {
+    margin-left:30px;
     
 }
+
+
 .facebookBtn{
     border:none;
     color:white; 
@@ -57,9 +50,7 @@
     font-size:16px;
     background-color:black;
 }
-#smallDivId{
-    text-align:center;
-}
+
 
 .personal{
     background-color:#F2ECE6;
@@ -67,4 +58,17 @@
     border-radius:5px;
     border:none;
     margin-bottom:10px;
+}
+.mainDiv {
+    background-color: #F7F2ED;
+    border: 1px solid black;
+    border-radius: 3px;
+    height: 400px;
+    width: 350px;
+    margin-right: auto;
+    margin-left: auto;
+    
+}
+.centAlign{
+    text-align:center;
 }
