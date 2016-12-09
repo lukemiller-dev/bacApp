@@ -1,0 +1,76 @@
+﻿
+body {  
+}
+.global{
+    text-align: center;
+}
+
+.modalFields{
+    border: 1px solid ;
+    height:35px;
+    width:250px;
+    border-radius:5px;
+    font-size:16px;
+}
+
+
+.loginBtn{
+    border:none;
+    height:35px;
+    width:250px;
+    border-radius:5px;
+    font-size:18px;
+    background-color:aqua;
+    text-align:center;
+
+}
+.password{
+    border: 1px solid ;
+    margin-top:4px;
+    height:35px;
+    width:250px;
+    border-radius:5px;
+    font-size:16px;
+}
+.regiBtn{
+    border:none;
+    color:white;    
+    margin-top:4px;
+    height:35px;
+    width:250px;
+    border-radius:5px;
+    font-size:16px;
+    background-color:#09B8E8;
+}
+.facebookBtn{
+    border:none;
+    color:white; 
+    margin-top:2px;
+    height:35px;
+    width:250px;
+    border-radius:5px;
+    font-size:16px;
+    background-color:#0A19C2;
+}
+.googleBtn{
+    border:none;
+    color:white; 
+    margin-top:2px;
+    height:35px;
+    width:250px;
+    border-radius:5px;
+    font-size:16px;
+    background-color:#E8093D;
+    
+}
+#facebookIcon{
+    color:white;
+    font-size:18px;
+    margin-right:5px;
+}
+#googleIcon{
+    color:white;
+    font-size:18px;
+    margin-right:5px;
+
+}
