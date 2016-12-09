@@ -4,7 +4,7 @@
         
         <center>
         <h1>Alcohol App</h1>
-        <h3>Helping people keep track of there alcohol consumption</h3>
+        <h3>Helping people keep track of their alcohol consumption</h3>
             <form method="get" action="/register">
         <button type="submit">Get Started</button>
             </form>
@@ -45,7 +45,7 @@
         
 
 <div class="template">
-    <div class="container">
+    <div class="container-fluid">
         <div class="accountDiv">
             <nav id="favNav" class="navbar navbar">
                 <div class="container-fluid">
@@ -71,36 +71,65 @@
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->
             </nav>
-            <center>
-            <table class="headerNdropdown">
-                <tr>
-            <td><h2 class="drinkHeader">Miller Light</h2></td>
-            <td><div class="dropdown">
-                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    Volume
-                    <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                </ul>
-            </div></td>
-                    </tr>
-                </table>
 
-                <i id="homeBeerIcon" class="fa fa-beer" aria-hidden="true"></i>
-                <p class="ozUnderIcon">12 oz</p>
+            
+            <div class="drinkNtally">
+                <div class="row">
+                    <div class="col-md-6">
+                        <center>
+                        <table class="headerNdropdown">
+                            <tr>
+                                <td><h2 class="drinkHeader">Miller Light</h2></td>
+                                <td>
+                                    <div class="dropdown">
+                                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                            Volume
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                            <li><a href="#">Action</a></li>
+                                            <li><a href="#">Another action</a></li>
+                                            <li><a href="#">Something else here</a></li>
+                                            <li role="separator" class="divider"></li>
+                                            <li><a href="#">Separated link</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                                <td></td>
+                            </tr>
+                        </table>
+                        <div class="row">
+                            <i id="homeBeerIcon" class="fa fa-beer" aria-hidden="true"></i>
+                            <p class="ozUnderIcon">12 oz</p>
 
-                <div class="progress">
-                    <div id="homeProgressBar" class="progress-bar" role="progressbar" aria-valuenow="70"
-                         aria-valuemin="0" aria-valuemax="100" style="width: 60%"><p class="bacLevel"></p>
-                       
+                        </div>
+                            </center>
+                    </div>
+
+                    <div class="col-md-6">
+                        
+                        <div class="drinkTally">
+                            <h3>Drink Tally</h3>
+                            <ol>
+                            <li><p class="drinkTallyP">7:00 pm <span>Jack Daniels 1.5 oz</span></p></li>
+                            <li><p class="drinkTallyP">7:08 pm <span>Captain Morgan 1.5 oz</span></p></li>
+                            <li><p class="drinkTallyP">7:30 pm <span>Miller Light 12 oz</span></p></li>
+                            <li><p class="drinkTallyP">7:45 pm <span>Miller Light 12 oz</span></p></li>
+                            </ol>
+                            <center>
+                            <button class="calculateBtn">Calculate BAC %</button>
+                            </center>
+                        </div>
+                            
                     </div>
                 </div>
-            </center>
+                <div class="row">
+                    <center>
+                        <p class="bacTitle">BAC %</p>
+                        <p class="bacPercent">.014%</p>
+                    </center>
+                </div>
+            </div>
           </div>           
         </div>
       </div>

@@ -11,31 +11,32 @@
 </head>
 <body ng-controller="AccountController as account">
     <div class="container-fluid">
-        <div class="navBarDiv">
         <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-            <div class="container">
-                <div class="col-md-2">
-                    <a class="navTitleLink" href="/"><i id="beerIcon" class="fa fa-beer" aria-hidden="true"></i><span id="navTitle">Alcohol App</span></a>
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <a class="navTitleLink" href="/"><i id="beerIcon" class="fa fa-beer" aria-hidden="true"></i><span id="navTitle"></span></a>
                 </div>
-                <div class="col-md-6">
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <form class="navbar-form navbar-right">
+                        <div class="form-group">
+                            <ul id="rightNav" class="nav navbar-nav">
+
+                                <li class="navList"><a ng-show="!account.isLoggedIn()" href="/register">Register</a></li>
+                                <li><button class="navLogin" ng-click="account.openModal()" ng-show="!account.isLoggedIn()">Login</button></li>
+                                <li><a href="/mainAccount" ng-show="account.isLoggedIn()" class="navList">Account</a></li>
+                                <li><a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()" class="navList">Logout</a></li>
+                                <li class="navList" id="userNameNav" ng-show="account.isLoggedIn()">
+                                    [{{account.getUserName()}}]
+                                </li>
+
+                            </ul>
+                        </div>
+                    </form>
                 </div>
-                <div class="col-md-4">
-                    <table class="navTable">
-                        <tr>
-                            <td><a class="navPs" href="/register">Register</a></td>
-                            <td><button class="navLogin" ng-click="account.openModal()" ng-show="!account.isLoggedIn()">Login</button></td>
-                            <td><a href="/mainAccount" ng-show="account.isLoggedIn()">Account</a></td>
-                            <td><a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a></td>
-                            <td ng-show="account.isLoggedIn()">
-                                [{{account.getUserName()}}]
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                </div>  
-                   
+
+            </div>
         </nav>
-        </div>
 
 
         <hr />

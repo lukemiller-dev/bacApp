@@ -4,7 +4,6 @@ body {
 }
 
 #mainNav {
-    color: brown;
     height: 70px;
 }
 
@@ -26,10 +25,12 @@ body {
 }
 
 #beerIcon {
-    font-size: 30px;
-    margin-top: 20px;
+    font-size: 50px;
+    margin-top: 10px;
     margin-right: 10px;
-    color: #ffb366;
+    color: #ff884d;
+    margin-left: 50px;
+   
 }
 
 .navPs {
@@ -41,10 +42,23 @@ body {
 }
 
 .navLogin {
+    margin-top: 10px;
     background-color: #f8f8f8;
-    border: 2px solid #ffb366;
+    border: 2px solid #ff884d;
     color: black;
     border-radius: 5px;
     height: 30px;
     width: 100px;
+    font-size: 15px;
+    margin-right: 100px;
 }
+
+.navList {
+    font-size: 15px;
+    color: black;
+}
+
+#rightNav a {
+    color: black;
+}
+
