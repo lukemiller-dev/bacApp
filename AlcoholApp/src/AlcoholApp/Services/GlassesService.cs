@@ -11,10 +11,12 @@ namespace AlcoholApp.Services
 {
     public class GlassesService
     {
+        //Injections
         private GlassesRepository _repo;
         private AlcoholsRepository _ARepo;
         private NightsRepository _NRepo;
 
+        //Constructor
         public GlassesService(GlassesRepository repo, AlcoholsRepository ARepo, NightsRepository NRepo)
         {
             _repo = repo;
@@ -22,6 +24,7 @@ namespace AlcoholApp.Services
             _NRepo = NRepo;
         }
 
+        //Get
         public IEnumerable<GlassDTO> ListGlasses()
         {
             var glasses = (from g in _repo.List()
@@ -58,6 +61,7 @@ namespace AlcoholApp.Services
             return glasses;
         }
 
+        //Add
         public void Add(GlassDTO glassDTO)
         {
             var glass = new Glass
@@ -68,6 +72,24 @@ namespace AlcoholApp.Services
                 Night = _NRepo.GetById(glassDTO.Night.Id).FirstOrDefault()      
             };
             _repo.Add(glass);
+        }
+
+        //Edit
+        public void Edit(GlassDTO glassDTO, int id)
+        {
+            var g = _repo.GetGlassById(id).FirstOrDefault();
+            //g.Alcohol = _ARepo.GetById(glassDTO.Alcohol.Id).FirstOrDefault();
+            g.TimeConsumed = glassDTO.TimeConsumed;
+            g.Volume = glassDTO.Volume;
+            //g.Night = _NRepo.GetById(glassDTO.Night.Id).FirstOrDefault();
+            _repo.Edit(g);
+        }
+
+        //Delete
+        public void Delete(int id)
+        {
+            var glass = _repo.GetGlassById(id).FirstOrDefault();
+            _repo.Delete(glass);
         }
     }
 }

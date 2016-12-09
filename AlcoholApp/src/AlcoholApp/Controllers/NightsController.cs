@@ -13,8 +13,10 @@ namespace AlcoholApp.Controllers
     [Route("api/[controller]")]
     public class NightsController : Controller
     {
+        //Injection
         public NightsService _service;
 
+        //Constructor
         public NightsController(NightsService service)
         {
             _service = service;
@@ -43,14 +45,16 @@ namespace AlcoholApp.Controllers
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, [FromBody]NightDTO nightDTO)
         {
+            _service.Edit(nightDTO, id);
         }
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            _service.Delete(id);       
         }
     }
 }

@@ -11,13 +11,16 @@ namespace AlcoholApp.Services
 {
     public class NightsService
     {
+        //Injection
         private NightsRepository _repo;
 
+        //Constructor
         public NightsService(NightsRepository repo)
         {
             _repo = repo;
         }
 
+        //Get
         public IEnumerable<NightDTO> ListNights()
         {
             var nights = (from n in _repo.List()
@@ -57,7 +60,8 @@ namespace AlcoholApp.Services
                 ).ToList();
             return nights;
         }
-
+        
+        //Add
         public void Add(NightDTO nightDTO)
         {
             var night = new Night
@@ -67,6 +71,22 @@ namespace AlcoholApp.Services
                 IsDriving = nightDTO.IsDriving
             };
             _repo.Add(night);
+        }
+
+        //Edit
+        public void Edit(NightDTO nightDTO, int id)
+        {
+            var n = _repo.GetById(id).FirstOrDefault();
+            n.StartTime = nightDTO.StartTime;
+            n.EndTime = nightDTO.EndTime;
+            n.IsDriving = nightDTO.IsDriving;
+        }
+
+        //Delete
+        public void Delete(int id)
+        {
+            var night = _repo.GetById(id).FirstOrDefault();
+            _repo.Delete(night);
         }
     }
 }

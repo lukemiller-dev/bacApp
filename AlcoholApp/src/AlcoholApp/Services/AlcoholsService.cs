@@ -1,5 +1,6 @@
 ﻿using AlcoholApp.Data;
 using AlcoholApp.Infrastructure;
+using AlcoholApp.Models;
 using AlcoholApp.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -10,13 +11,16 @@ namespace AlcoholApp.Services
 {
     public class AlcoholsService
     {
+        //Injection
         private AlcoholsRepository _repo;
 
+        //Constructor
         public AlcoholsService(AlcoholsRepository repo)
         {
             _repo = repo;
         }
 
+        //Get
         public IEnumerable<AlcoholDTO> ListAlcohols()
         {
             var alcohols = (from a in _repo.List()
@@ -52,6 +56,30 @@ namespace AlcoholApp.Services
                                 
                             }).ToList();
             return alcohols;
+        }
+
+        //Add
+        public void Add(AlcoholDTO alcoholDTO)
+        {
+            var alcohol = new Alcohol
+            {
+                ABV = alcoholDTO.ABV,
+                Brand = alcoholDTO.Brand,
+                Style = alcoholDTO.Style,
+                Type = alcoholDTO.Type
+            };
+            _repo.Add(alcohol);
+        }
+        
+        //Edit
+        public void Edit(AlcoholDTO alcoholDTO, int id)
+        {
+            var a = _repo.GetById(id).FirstOrDefault();
+            a.ABV = alcoholDTO.ABV;
+            a.Brand = alcoholDTO.Brand;
+            a.Style = alcoholDTO.Style;
+            a.Type = alcoholDTO.Type;
+               
         }
     }
 }
