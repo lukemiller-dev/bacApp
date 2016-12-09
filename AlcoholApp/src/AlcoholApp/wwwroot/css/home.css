@@ -7,7 +7,7 @@
 }
 
 .jumbotron{
-    color: #662900;
+    color: black;
     height: 600px;
     width: 100%;
     background-color: #fff;
@@ -27,14 +27,14 @@
     margin-top: 30px;
     height: 40px;
     width: 200px;
-    border: 2px solid #662900;
-    background-color: #fff;
+    border: 3px solid #b33c00;
+    background-color: transparent;
     border-radius: 5px;
     font-size: 18px;
 }
 
 .jumbotron button:hover {
-    background-color:#ffb366;
+    background-color:#b33c00;
     color: #fff;
 }
 
@@ -66,5 +66,134 @@
 
 /*Template*/
 
+.template {
+    height: 1200px;
+    background-color: #f2f2f2;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.accountDiv {
+    height: 800px;
+    width: 100%;
+    background-color: #ffddcc;
+    border-radius: 10px;
+    margin-top: 50px;
+}
+
+#favNav {  
+    background-color: #b33c00;
+}
+
+.navDrinks {
+    color: white;
+}
+
+#favNavTitle {
+    color: white;
+}
+
+#addDrink {
+    height: 35px;
+    width: 100px;
+    border: 2px solid white;
+    border-radius: 5px;
+    background-color: #b33c00;
+    color: white;
+}
+
+.drinkHeader {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.dropdown {
+    margin-top: 10px;
+    position: relative;
+    margin-left: 20px;
+}
+
+.headerNdropdown td {
+    margin-right: 20px;
+}
+
+#homeBeerIcon {
+    font-size: 200px;
+    margin-top: 50px;
+}
+
+.ozUnderIcon {
+    font-size: 30px;
+}
+
+#homeProgressBar {
+    padding-top: 10px;
+    height: 40px;
+    width: 400px;
+    background-color: #ff884d;
+    width: 60%
+}
+
+.progress {
+    width: 850px;
+    height: 40px;
+    margin-top: 40px;
+    margin-right: auto;
+    margin-left: auto;
+
+}
+
+.drinkTally {
+    height: 420px;
+    width: 370px;
+    background-color: #fff;
+    margin-top: 20px;
+    border-radius: 3px;
+    margin-right: auto;
+    margin-left: auto;
+    border: 3px solid #ff884d;
+    
+}
+
+.drinkTally h3 {
+    padding-top: 10px;
+    text-decoration: underline;
+    text-align: center;
+}
+
+.drinkTallyP {
+    font-size: 15px;
+}
+
+.calculateBtn {
+    height: 30px;
+    width: 200px;
+    background-color: #ff884d;
+    margin-right: auto;
+    margin-left: auto;
+    border: none;
+    border-radius: 15px;
+    color: #fff;
+    position: relative;
+}
+
+.bacTitle {
+    font-size: 40px;
+    margin-top: 20px;
+
+}
+
+.bacPercent {
+    margin-top: 20px;
+    font-size: 30px;
+    color: black;
+    border: 4px solid #ff884d;
+    border-radius: 20px;
+    height: 60px;
+    width: 220px;
+    padding-top: 5px;
+
+}
 
 
