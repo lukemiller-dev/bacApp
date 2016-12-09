@@ -5,12 +5,35 @@ namespace AlcoholApp.Controllers {
     }
 
     export class ModalController {
-        constructor(public $http: ng.IHttpService, public $state: ng.ui.IStateService, public $uibModalInstance: ng.ui.bootstrap.IModalServiceInstance) { }
+        public loginUser;
+
+        constructor(public $http: ng.IHttpService, public $state: ng.ui.IStateService, public $uibModalInstance: ng.ui.bootstrap.IModalServiceInstance, public accountService: AlcoholApp.Services.AccountService) { }
+        //added accountService and login method
+        public login() {
+            this.accountService.login(this.loginUser);
+        } 
 
         public closeModal() {
             this.$uibModalInstance.close();
         }
     }
+
+    export class AlcoholController {
+        public alcohols;
+
+        constructor(public $http: ng.IHttpService, public $state: ng.ui.IStateService) {
+            $http.get('api/alcohols').then((res) => {
+                this.alcohols = res.data;
+            })
+        }
+
+        public addAlcohol(alcohol) {
+            this.$http.post('api/alcohols', alcohol).then((res) => {
+                this.$state.reload();
+            })
+        }
+    }
+        
 
 
     export class SecretController {
