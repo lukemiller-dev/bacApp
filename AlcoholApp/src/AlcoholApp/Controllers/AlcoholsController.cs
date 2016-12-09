@@ -36,14 +36,16 @@ namespace AlcoholApp.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody]string value)
+        public void Post([FromBody]AlcoholDTO alcohol)
         {
+            _service.Add(alcohol);
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, [FromBody]AlcoholDTO alcoholDTO)
         {
+            _service.Edit(alcoholDTO, id);
         }
 
         // DELETE api/values/5

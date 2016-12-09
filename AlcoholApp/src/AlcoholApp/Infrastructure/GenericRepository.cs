@@ -34,5 +34,12 @@ namespace AlcoholApp.Infrastructure
             _db.Set<T>().Remove(value);
             _db.SaveChanges();
         }
+
+        //Edit
+        public void Edit(T value)
+        {
+            _db.Set<T>().Update(value);
+            _db.SaveChanges();
+        }
     }
 }
