@@ -1,0 +1,98 @@
+﻿<div class="mainAccount">
+    <div class="container-fluid">
+        <div class="mainAccountDiv">
+            <nav id="mAnav" class="navbar navbar">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <a class="navbar-brand" id="favNavTitle" href="#">Favorites</a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a class="navDrinks" href="#">Miller Light</a></li>
+                            <li><a class="navDrinks" href="#">Jack Daniels</a></li>
+                            <li><a class="navDrinks" href="#">Blue Moon</a></li>
+                            <li><a class="navDrinks" href="#">Captain Morgan Orginal Spiced Rum</a></li>
+                        </ul>
+                        
+                              
+
+                    </div><!-- /.navbar-collapse -->
+
+                </div><!-- /.container-fluid -->
+            </nav>
+
+            <section class="main">
+                <form class="search" method="post" action="index.html">
+                    <input type="text" name="q" placeholder="Search..." />
+                    <ul class="results">
+                        <li><a href="index.html">Search Result #1<br /><span>Description...</span></a></li>
+                        <li><a href="index.html">Search Result #2<br /><span>Description...</span></a></li>
+                        <li><a href="index.html">Search Result #3<br /><span>Description...</span></a></li>
+                        <li><a href="index.html">Search Result #4</a></li>
+                    </ul>
+                </form>
+            </section>                         
+
+            <div class="drinkNtally">
+                <div class="row">
+                    <div class="col-md-6">
+                        <center>
+                            <table class="headerNdropdown">
+                                <tr>
+                                    <td><h2 class="drinkHeader">Miller Light</h2></td>
+                                    <td>
+                                        <div class="dropdown">
+                                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                Volume
+                                                <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                                <li><a href="#">Action</a></li>
+                                                <li><a href="#">Another action</a></li>
+                                                <li><a href="#">Something else here</a></li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="#">Separated link</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                            <div class="row">
+                                <i id="homeBeerIcon" class="fa fa-beer" aria-hidden="true"></i>
+                                <p class="ozUnderIcon">12 oz</p>
+
+                            </div>
+                        </center>
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <div class="drinkTally">
+                            <h3>Drink Tally</h3>
+                            <ol>
+                                <li><p class="drinkTallyP">7:00 pm <span>Jack Daniels 1.5 oz</span></p></li>
+                                <li><p class="drinkTallyP">7:08 pm <span>Captain Morgan 1.5 oz</span></p></li>
+                                <li><p class="drinkTallyP">7:30 pm <span>Miller Light 12 oz</span></p></li>
+                                <li><p class="drinkTallyP">7:45 pm <span>Miller Light 12 oz</span></p></li>
+                            </ol>
+                            <center>
+                                <button class="calculateBtn">Calculate BAC %</button>
+                            </center>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <center>
+                        <p class="bacTitle">BAC %</p>
+                        <p class="bacPercent">.014%</p>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
