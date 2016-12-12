@@ -22,12 +22,12 @@
                     </li>
                 </ul>
 
-                <form class="registerFormng-submit=" controller.register()">
+                <form class="registerFormng-submit=" ng-submit="controller.register()" >
                     <div>
-                        <input class="personal" placeholder="First Name" />
+                        <input class="personal" placeholder="First Name" ng-model="controller.registerUser.firstName" />
                     </div>
                     <div>
-                        <input class="personal" placeholder="Last Name" />
+                        <input class="personal" placeholder="Last Name" ng-model="controller.registerUser.lastName" />
                     </div>
                     
                     <div>

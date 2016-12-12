@@ -32,6 +32,12 @@ namespace AlcoholApp.Controllers {
                 this.$state.reload();
             })
         }
+
+        public selectAlcohol(alcoholId) {
+            this.$http.get(`api/alcohols/${alcoholId}`).then((res) => {
+                this.$state.reload();
+            })
+        }
     }
         
 
