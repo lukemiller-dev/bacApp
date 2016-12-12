@@ -18,6 +18,10 @@ namespace AlcoholApp.Controllers {
         }
     }
 
+    export class MainAccountController {
+
+    }
+
     export class AlcoholController {
         public alcohols;
 

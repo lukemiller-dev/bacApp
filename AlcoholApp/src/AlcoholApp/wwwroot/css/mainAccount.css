@@ -1,0 +1,29 @@
+﻿body {
+}
+
+
+.mainAccountDiv {
+    height: 800px;
+    width: 100%;
+    background-color: #f2f2f2;
+    border: 2px solid black;
+    border-radius: 5px;
+    border-top: 0px;
+}
+
+#mAnav {
+    background-color: #b33c00;
+    width:100%;
+}
+
+.searchDrop td {
+    margin-right: 10px;
+}
+
+.searchInput {
+    margin-right: 20px;
+}
+
+
+
+
