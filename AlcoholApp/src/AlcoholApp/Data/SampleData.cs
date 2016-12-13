@@ -47,6 +47,29 @@ namespace AlcoholApp.Data
                 await userManager.CreateAsync(mike, "Secret123!");
             }
 
+            context.SaveChanges();
+
+            if (!context.Alcohols.Any())
+            {
+                context.Alcohols.AddRange(
+                new Alcohol
+                {
+                    Style = "Captain Morgan Spiced",
+                    Brand = "Captain Morgan",
+                    Type = "Spirit",
+                    ABV = 20m
+                },
+                new Alcohol
+                {
+                    Style = "Budweiser",
+                    Brand = "Annheiser Busch",
+                    Type = "Beer",
+                    ABV = 4.5m
+                }
+             );
+            }
+
+            context.SaveChanges();
 
         }
 

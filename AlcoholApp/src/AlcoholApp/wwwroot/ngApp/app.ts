@@ -13,6 +13,18 @@ namespace AlcoholApp {
                 controller: AlcoholApp.Controllers.HomeController,
                 controllerAs: 'controller'
             })
+            .state('addalcohol', {
+                url: '/addalcohol',
+                templateUrl: '/ngApp/views/addalcohol.html',
+                controller: AlcoholApp.Controllers.AlcoholController,
+                controllerAs: 'controller'
+            })
+            .state('mainAccount', {
+                url: '/mainAccount',
+                templateUrl: '/ngApp/views/mainAccount.html',
+                controller: AlcoholApp.Controllers.MainAccountController,
+                controllerAs: 'controller'
+            })
             .state('secret', {
                 url: '/secret',
                 templateUrl: '/ngApp/views/secret.html',

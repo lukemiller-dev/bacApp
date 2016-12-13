@@ -1,32 +1,58 @@
-<fieldset>
-    <legend>Login with a Social Provider</legend>
+<div class="modal-body">
+    <div class="global">
+        
+        <fieldset>
 
-    <ul>
-        <li ng-repeat="externalLogin in account.externalLogins">
-            <a target="_self" href="/api/account/ExternalLogin?provider={{externalLogin.authenticationScheme}}&returnUrl=/">{{externalLogin.displayName}}</a>
-        </li>
-    </ul>
+            <h3>Login with a Social Provider</h3>
 
-</fieldset>
+            <ul>
+                <li ng-repeat="externalLogin in account.externalLogins">
+                    <a target="_self" href="/api/account/ExternalLogin?provider={{externalLogin.authenticationScheme}}&returnUrl=/">{{externalLogin.displayName}}</a>
+                </li>
+            </ul>
 
-<fieldset>
-    <legend>Login Locally</legend>
-    <ul>
-        <li ng-repeat="error in controller.validationMessages">
-            {{error}}
-        </li>
-    </ul>
+        </fieldset>
 
-    <form ng-submit="controller.login()">
-        <div>
-            <label>Email:</label>
-            <input ng-model="controller.loginUser.email" />
-        </div>
-        <div>
-            <label>Password:</label>
-            <input ng-model="controller.loginUser.password" />
-        </div>
-        <input type="submit" value="Login" />
-        <a href="/register">Register</a>
-    </form>
-</fieldset>
+        <fieldset>
+            <legend>Login Locally</legend>
+            <ul>
+                <li ng-repeat="error in controller.validationMessages">
+                    {{error}}
+                </li>
+            </ul>
+
+            <form ng-submit="controller.login()">
+                <div>
+                    <input class="modalFields" placeholder="Email" ng-model="controller.loginUser.email" />
+                </div>
+
+                <!--<label>Password:</label>-->
+
+                <div>
+                    <input class="password" ng-model="controller.loginUser.password" placeholder="Password"/>
+                </div>
+                
+                <div>
+                    <button type="submit" class="regiBtn">Login</button>
+                </div>
+                    
+                    <!--<a href="/register">Register</a>-->
+                
+
+                <label>or</label>
+                
+                <div>
+                    <button class="facebookBtn" type="submit"><i id="facebookIcon"class="fa fa-facebook" aria-hidden="true"></i>
+                     Continue with Facebook</button>
+                </div>
+
+                <button class="googleBtn" type="submit"><i id="googleIcon" class="fa fa-google" aria-hidden="true"></i> Continue with Google</button>
+                
+
+               <h6>Don't have an account? Register>></h6>
+
+            </form>
+
+        </fieldset>
+    </div>
+</div>

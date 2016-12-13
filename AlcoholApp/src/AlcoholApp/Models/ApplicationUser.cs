@@ -9,5 +9,13 @@ namespace AlcoholApp.Models
     // Add profile data for application users by adding properties to the ApplicationUser class
     public class ApplicationUser : IdentityUser
     {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public DateTime BirthDate { get; set; }
+        public int Height { get; set; }
+        public int Weight { get; set; }
+        public bool IsMale { get; set; }
+        public ICollection<Night> Nights { get; set; }
+        public ICollection<Favorite> Favorites { get; set; }
     }
 }

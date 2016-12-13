@@ -1,0 +1,26 @@
+﻿<h2>Add Alcohol
+</h2>
+
+<form ng-submit="controller.addAlcohol(alcohol)">
+    <input placeholder="Type" ng-model="alcohol.type" />
+    <input placeholder="Brand" ng-model="alcohol.brand" />
+    <input placeholder="style" ng-model="alcohol.style" />
+    <input placeholder="ABV" ng-model="alcohol.aBV" />
+    <input type="submit" />
+
+</form>
+
+<ul>
+    <li ng-repeat="alcohol in controller.alcohols | filter:search">
+        {{alcohol.type}}<br />
+        {{alcohol.brand}}<br />
+        {{alcohol.style}}<br />
+        {{alcohol.abv}}
+    </li>
+</ul>
+
+<input ng-model="search"/>
+
+<select ng-model="glass.alcohol">
+    <option value="{{alcohol.id}}" ng-repeat="alcohol in controller.alcohols">{{alcohol.type}} {{alcohol.brand}} {{alcohol.style}} {{alcohol.abv}}</option>
+</select>

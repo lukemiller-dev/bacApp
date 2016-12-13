@@ -1,10 +1,11 @@
-using System;
+﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
+using AlcoholApp.Data;
 
-namespace AlcoholApp.Data.Migrations
+namespace AlcoholApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -14,6 +15,143 @@ namespace AlcoholApp.Data.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.0-rtm-21431")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("AlcoholApp.Models.Alcohol", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<decimal>("ABV");
+
+                    b.Property<string>("Brand");
+
+                    b.Property<string>("Style");
+
+                    b.Property<string>("Type");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Alcohols");
+                });
+
+            modelBuilder.Entity("AlcoholApp.Models.ApplicationUser", b =>
+                {
+                    b.Property<string>("Id");
+
+                    b.Property<int>("AccessFailedCount");
+
+                    b.Property<DateTime>("BirthDate");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken();
+
+                    b.Property<string>("Email")
+                        .HasAnnotation("MaxLength", 256);
+
+                    b.Property<bool>("EmailConfirmed");
+
+                    b.Property<string>("FirstName");
+
+                    b.Property<int>("Height");
+
+                    b.Property<bool>("IsMale");
+
+                    b.Property<string>("LastName");
+
+                    b.Property<bool>("LockoutEnabled");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasAnnotation("MaxLength", 256);
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasAnnotation("MaxLength", 256);
+
+                    b.Property<string>("PasswordHash");
+
+                    b.Property<string>("PhoneNumber");
+
+                    b.Property<bool>("PhoneNumberConfirmed");
+
+                    b.Property<string>("SecurityStamp");
+
+                    b.Property<bool>("TwoFactorEnabled");
+
+                    b.Property<string>("UserName")
+                        .HasAnnotation("MaxLength", 256);
+
+                    b.Property<int>("Weight");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasName("UserNameIndex");
+
+                    b.ToTable("AspNetUsers");
+                });
+
+            modelBuilder.Entity("AlcoholApp.Models.Favorite", b =>
+                {
+                    b.Property<int>("AlcoholId");
+
+                    b.Property<string>("UserId");
+
+                    b.Property<int>("Id");
+
+                    b.HasKey("AlcoholId", "UserId");
+
+                    b.HasIndex("AlcoholId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Favorites");
+                });
+
+            modelBuilder.Entity("AlcoholApp.Models.Glass", b =>
+                {
+                    b.Property<int>("NightId");
+
+                    b.Property<int>("AlcoholId");
+
+                    b.Property<int>("Id");
+
+                    b.Property<DateTime>("TimeConsumed");
+
+                    b.Property<decimal>("Volume");
+
+                    b.HasKey("NightId", "AlcoholId");
+
+                    b.HasIndex("AlcoholId");
+
+                    b.HasIndex("NightId");
+
+                    b.ToTable("Glasses");
+                });
+
+            modelBuilder.Entity("AlcoholApp.Models.Night", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("EndTime");
+
+                    b.Property<bool>("IsDriving");
+
+                    b.Property<DateTime>("StartTime");
+
+                    b.Property<string>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Nights");
+                });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole", b =>
                 {
@@ -122,53 +260,37 @@ namespace AlcoholApp.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("AlcoholApp.Models.ApplicationUser", b =>
+            modelBuilder.Entity("AlcoholApp.Models.Favorite", b =>
                 {
-                    b.Property<string>("Id");
+                    b.HasOne("AlcoholApp.Models.Alcohol", "Alcohol")
+                        .WithMany("Favorites")
+                        .HasForeignKey("AlcoholId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
-                    b.Property<int>("AccessFailedCount");
+                    b.HasOne("AlcoholApp.Models.ApplicationUser", "AppUser")
+                        .WithMany("Favorites")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
 
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken();
+            modelBuilder.Entity("AlcoholApp.Models.Glass", b =>
+                {
+                    b.HasOne("AlcoholApp.Models.Alcohol", "Alcohol")
+                        .WithMany("Glasses")
+                        .HasForeignKey("AlcoholId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
-                    b.Property<string>("Email")
-                        .HasAnnotation("MaxLength", 256);
+                    b.HasOne("AlcoholApp.Models.Night", "Night")
+                        .WithMany("Glasses")
+                        .HasForeignKey("NightId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
 
-                    b.Property<bool>("EmailConfirmed");
-
-                    b.Property<bool>("LockoutEnabled");
-
-                    b.Property<DateTimeOffset?>("LockoutEnd");
-
-                    b.Property<string>("NormalizedEmail")
-                        .HasAnnotation("MaxLength", 256);
-
-                    b.Property<string>("NormalizedUserName")
-                        .HasAnnotation("MaxLength", 256);
-
-                    b.Property<string>("PasswordHash");
-
-                    b.Property<string>("PhoneNumber");
-
-                    b.Property<bool>("PhoneNumberConfirmed");
-
-                    b.Property<string>("SecurityStamp");
-
-                    b.Property<bool>("TwoFactorEnabled");
-
-                    b.Property<string>("UserName")
-                        .HasAnnotation("MaxLength", 256);
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NormalizedEmail")
-                        .HasName("EmailIndex");
-
-                    b.HasIndex("NormalizedUserName")
-                        .IsUnique()
-                        .HasName("UserNameIndex");
-
-                    b.ToTable("AspNetUsers");
+            modelBuilder.Entity("AlcoholApp.Models.Night", b =>
+                {
+                    b.HasOne("AlcoholApp.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany("Nights")
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRoleClaim<string>", b =>

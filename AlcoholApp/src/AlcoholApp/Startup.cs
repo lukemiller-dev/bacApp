@@ -14,7 +14,7 @@ using System.IO;
 using AlcoholApp.Data;
 using AlcoholApp.Models;
 using AlcoholApp.Services;
-
+using AlcoholApp.Infrastructure;
 
 namespace AlcoholApp
 {
@@ -55,11 +55,25 @@ namespace AlcoholApp
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
-            
 
-            
-                        // add security policies
-                        services.AddAuthorization(options =>
+            // My services and repositories
+            services.AddScoped<GlassesRepository>();
+            services.AddScoped<NightsRepository>();
+            services.AddScoped<AlcoholsRepository>();
+            services.AddScoped<AppUsersRepository>();
+            services.AddScoped<FavoritesRepository>();
+
+            services.AddScoped<GlassesService>();
+            services.AddScoped<NightsService>();
+            services.AddScoped<AlcoholsService>();
+            services.AddScoped<AppUsersService>();
+            services.AddScoped<FavoritesService>();
+
+
+
+
+            // add security policies
+            services.AddAuthorization(options =>
                         {
                             options.AddPolicy("AdminOnly", policy => policy.RequireClaim("IsAdmin"));
                         });

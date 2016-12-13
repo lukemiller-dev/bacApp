@@ -4,21 +4,45 @@
     <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" />
     <base href="/" />
+    <link href="~/css/site.css" rel="stylesheet" />
+    <link href="~/css/home.css" rel="stylesheet" />
+    <link href="~/css/register.css" rel="stylesheet" />
+    <link href="~/css/login.css" rel="stylesheet" />
+    <link href="~/css/mainAccount.css" rel="stylesheet" />
+    <link href="~/css/search.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/8f7cf61998.js"></script>
+
 </head>
 <body ng-controller="AccountController as account">
-    <div class="container">
-        <h1>AlcoholApp</h1>
-        <div>
-          <a href="/">Home</a> /
-           <a href="/about">About</a>
+    <div class="container-fluid">
+        <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <a class="navTitleLink" href="/"><i id="beerIcon" class="fa fa-beer" aria-hidden="true"></i><span id="navTitle"></span></a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <form class="navbar-form navbar-right">
+                        <div class="form-group">
+                            <ul id="rightNav" class="nav navbar-nav">
 
-           / <a href="/secret">Secret</a> /
-           <a href="/login" ng-show="!account.isLoggedIn()">Login</a>
-           <a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a>
-           <div ng-show="account.isLoggedIn()">
-               [{{account.getUserName()}}]
-           </div> 
-        </div>
+                                <li class="navList"><a ng-show="!account.isLoggedIn()" href="/register">Register</a></li>
+                                <li><button class="navLogin" ng-click="account.openModal()" ng-show="!account.isLoggedIn()">Login</button></li>
+                                <li><a href="/mainAccount" ng-show="account.isLoggedIn()" class="navList">Account</a></li>
+                                <li><a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()" class="navList">Logout</a></li>
+                                <li class="navList" id="userNameNav" ng-show="account.isLoggedIn()">
+                                    [{{account.getUserName()}}]
+                                </li>
+
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </nav>
+
+
         <hr />
 
         <ui-view></ui-view>

@@ -24,10 +24,14 @@ namespace AlcoholApp.Controllers {
             return this.accountService.getExternalLogins();
         }
 
-        constructor(private accountService: AlcoholApp.Services.AccountService, private $location: ng.ILocationService) {
+        constructor(private accountService: AlcoholApp.Services.AccountService, private $location: ng.ILocationService, public $state: ng.ui.IStateService, public $uibModal: ng.ui.bootstrap.IModalService, public ModalService: AlcoholApp.Services.ModalService) {
             this.getExternalLogins().then((results) => {
                 this.externalLogins = results;
             });
+        }
+
+        public openModal(html) {
+            this.ModalService.openModal("login.html");
         }
     }
 
