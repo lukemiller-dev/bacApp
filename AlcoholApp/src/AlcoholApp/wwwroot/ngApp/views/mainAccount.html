@@ -11,30 +11,39 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li><a class="navDrinks" href="#">Miller Light</a></li>
-                            <li><a class="navDrinks" href="#">Jack Daniels</a></li>
-                            <li><a class="navDrinks" href="#">Blue Moon</a></li>
-                            <li><a class="navDrinks" href="#">Captain Morgan Orginal Spiced Rum</a></li>
+                            <li ng-repeat="favorite in controller.favorites"><a class="navDrinks" href="#">{{favorite.style}}</a></li>
                         </ul>
-                        
-                              
+                        <div class="navbar-form navbar-right">
 
+
+                            <section id="main">
+                                <div class="search">
+
+                                    <input class="searchInputField" type="text" placeholder="Search..." ng-click="controller.dropDownToggle = true"/>
+                                    <ul class="results" ng-show="controller.dropDownToggle">
+
+                                        <li ng-repeat="drink in controller.drinks" ng-click="controller.addFav(drink)">
+                                            <a>
+                                                {{drink.style}}
+                                                <br />
+                                                <span>{{drink.type}}, {{drink.abv}}%</span>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+
+                                </div>
+
+                            </section>
+
+
+
+
+                        </div>
                     </div><!-- /.navbar-collapse -->
-
                 </div><!-- /.container-fluid -->
             </nav>
 
-            <section class="main">
-                <form class="search" method="post" action="index.html">
-                    <input type="text" name="q" placeholder="Search..." />
-                    <ul class="results">
-                        <li><a href="index.html">Search Result #1<br /><span>Description...</span></a></li>
-                        <li><a href="index.html">Search Result #2<br /><span>Description...</span></a></li>
-                        <li><a href="index.html">Search Result #3<br /><span>Description...</span></a></li>
-                        <li><a href="index.html">Search Result #4</a></li>
-                    </ul>
-                </form>
-            </section>                         
 
             <div class="drinkNtally">
                 <div class="row">

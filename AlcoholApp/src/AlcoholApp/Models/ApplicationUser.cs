@@ -16,5 +16,6 @@ namespace AlcoholApp.Models
         public int Weight { get; set; }
         public bool IsMale { get; set; }
         public ICollection<Night> Nights { get; set; }
+        public ICollection<Favorite> Favorites { get; set; }
     }
 }

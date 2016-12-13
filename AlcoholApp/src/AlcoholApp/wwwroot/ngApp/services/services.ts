@@ -10,5 +10,6 @@ namespace AlcoholApp.Services {
             });
         }
     }
+ 
     angular.module("AlcoholApp").service("ModalService", ModalService);
  }

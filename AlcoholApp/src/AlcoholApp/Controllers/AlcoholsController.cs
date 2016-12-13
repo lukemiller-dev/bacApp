@@ -27,11 +27,18 @@ namespace AlcoholApp.Controllers
             return _service.ListAlcohols();
         }
 
+       [HttpGet("unsaved")]
+       public IEnumerable<AlcoholDTO> GetUnsaved()
+        {
+            return _service.ListUnsavedAlcohols(User.Identity.Name);
+        }
+
+
         // GET api/values/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public AlcoholDTO Get(int id)
         {
-            return "value";
+            return _service.ListId(id);
         }
 
         // POST api/values
@@ -41,12 +48,12 @@ namespace AlcoholApp.Controllers
             _service.Add(alcohol);
         }
 
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]AlcoholDTO alcoholDTO)
-        {
-            _service.Edit(alcoholDTO, id);
-        }
+        //// PUT api/values/5
+        //[HttpPut("{id}")]
+        //public void Put(int id, [FromBody]AlcoholDTO alcoholDTO)
+        //{
+        //    _service.Edit(alcoholDTO, id);
+        //}
 
         // DELETE api/values/5
         [HttpDelete("{id}")]

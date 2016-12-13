@@ -14,5 +14,6 @@ namespace AlcoholApp.ViewModels
         public string Style { get; set; }
         public decimal ABV { get; set; }
         public ICollection<GlassDTO> Glasses { get; set; }
+        public ICollection<FavoriteDTO> Favorites { get; set; }
     }
 }

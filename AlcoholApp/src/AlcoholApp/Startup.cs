@@ -61,11 +61,13 @@ namespace AlcoholApp
             services.AddScoped<NightsRepository>();
             services.AddScoped<AlcoholsRepository>();
             services.AddScoped<AppUsersRepository>();
+            services.AddScoped<FavoritesRepository>();
 
             services.AddScoped<GlassesService>();
             services.AddScoped<NightsService>();
             services.AddScoped<AlcoholsService>();
             services.AddScoped<AppUsersService>();
+            services.AddScoped<FavoritesService>();
 
 
 

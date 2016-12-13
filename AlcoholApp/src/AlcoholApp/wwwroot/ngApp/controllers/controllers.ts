@@ -19,7 +19,38 @@ namespace AlcoholApp.Controllers {
     }
 
     export class MainAccountController {
+        private drinks;
+        private drinkId;
+        private favorites;
+        private favoriteId;
+        public dropDownToggle;
+        constructor(public $http: ng.IHttpService, public $state: ng.ui.IStateService) {
+            this.dropDownToggle = false;
+            $http.get('api/alcohols/unsaved').then((res) => {
+                this.drinks = res.data;
+            })
+            $http.get('api/favorites').then((res) => {
+                this.favorites = res.data;
+            })
+        }
 
+        public getDrinkId(id) {
+            console.log(id);
+            this.dropDownToggle = false;
+            this.$http.get(`api/alcohols/${id}`).then((res) => {
+                this.drinkId = res.data;
+                console.log(this.drinkId);
+            })
+        }
+
+        public addFav(drink) {
+            this.$http.post('api/favorites', drink).then((res) => {
+                this.favoriteId = res.data;
+                console.log(this.favoriteId);
+            })
+        }
+
+        
     }
 
     export class AlcoholController {

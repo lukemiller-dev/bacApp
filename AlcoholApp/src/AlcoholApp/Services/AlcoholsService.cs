@@ -13,11 +13,45 @@ namespace AlcoholApp.Services
     {
         //Injection
         private AlcoholsRepository _repo;
+        private FavoritesService _favService;
 
         //Constructor
-        public AlcoholsService(AlcoholsRepository repo)
+
+        public AlcoholsService(AlcoholsRepository repo, FavoritesService favService)
         {
             _repo = repo;
+            _favService = favService;
+        }
+
+        //GetInNav 
+
+            public AlcoholDTO ListId(int id)
+        {
+            var alcoholId = _repo.GetById(id);
+            return new AlcoholDTO
+            {
+                Id = alcoholId.Id,
+                ABV = alcoholId.ABV,
+                Brand = alcoholId.Brand,
+                Style = alcoholId.Style,
+                Type = alcoholId.Type
+            };   
+        }
+
+        public IEnumerable<AlcoholDTO> ListUnsavedAlcohols(string userName)
+        {
+            var favorites = _favService.GetFavorites(userName);
+            var alcohols = (from a in _repo.List()
+                            where !favorites.Contains(a)
+                            select new AlcoholDTO
+                            {
+                                Id = a.Id,
+                                ABV = a.ABV,
+                                Brand = a.Brand,
+                                Style = a.Style,
+                                Type = a.Type
+                            });
+            return alcohols;
         }
 
         //Get
@@ -72,14 +106,14 @@ namespace AlcoholApp.Services
         }
         
         //Edit
-        public void Edit(AlcoholDTO alcoholDTO, int id)
-        {
-            var a = _repo.GetById(id).FirstOrDefault();
-            a.ABV = alcoholDTO.ABV;
-            a.Brand = alcoholDTO.Brand;
-            a.Style = alcoholDTO.Style;
-            a.Type = alcoholDTO.Type;
+        //public void Edit(AlcoholDTO alcoholDTO, int id)
+        //{
+        //    var a = _repo.GetById(id).FirstOrDefault();
+        //    a.ABV = alcoholDTO.ABV;
+        //    a.Brand = alcoholDTO.Brand;
+        //    a.Style = alcoholDTO.Style;
+        //    a.Type = alcoholDTO.Type;
                
-        }
+        //}
     }
 }

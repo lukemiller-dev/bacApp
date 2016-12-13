@@ -68,7 +68,7 @@ namespace AlcoholApp.Services
             {
                 Volume = glassDTO.Volume,
                 TimeConsumed = glassDTO.TimeConsumed,
-                Alcohol = _ARepo.GetById(glassDTO.Alcohol.Id).FirstOrDefault(),
+                Alcohol = _ARepo.GetById(glassDTO.Alcohol.Id),
                 Night = _NRepo.GetById(glassDTO.Night.Id).FirstOrDefault()      
             };
             _repo.Add(glass);

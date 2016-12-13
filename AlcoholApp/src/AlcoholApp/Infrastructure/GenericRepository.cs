@@ -1,4 +1,5 @@
 ﻿using AlcoholApp.Data;
+using AlcoholApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,13 @@ namespace AlcoholApp.Infrastructure
         public GenericRepository(ApplicationDbContext db)
         {
             _db = db;
+        }
+
+        //Get User by UserName
+
+        public ApplicationUser GetUserByUserName(string userName)
+        {
+            return _db.Users.FirstOrDefault(u => u.UserName == userName);
         }
 
         //Get

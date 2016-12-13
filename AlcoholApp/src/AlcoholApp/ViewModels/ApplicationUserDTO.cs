@@ -15,5 +15,6 @@ namespace AlcoholApp.ViewModels
         public int Weight { get; set; }
         public bool IsMale { get; set; }
         public ICollection<NightDTO> Nights { get; set; }
+        public ICollection<FavoriteDTO> Favorites { get; set; }
     }
 }

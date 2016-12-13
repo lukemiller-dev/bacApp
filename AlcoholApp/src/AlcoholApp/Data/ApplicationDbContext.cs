@@ -13,6 +13,7 @@ namespace AlcoholApp.Data
         public DbSet<Alcohol> Alcohols { get; set; }
         public DbSet<Glass> Glasses { get; set; }
         public DbSet<Night> Nights { get; set; }
+        public DbSet<Favorite> Favorites { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
@@ -25,6 +26,7 @@ namespace AlcoholApp.Data
             builder.Entity<Night>().HasMany(g => g.Glasses).WithOne(n => n.Night);
             builder.Entity<ApplicationUser>().HasMany(n => n.Nights).WithOne(a => a.ApplicationUser);
             builder.Entity<Glass>().HasKey(g => new { g.NightId, g.AlcoholId });
+            builder.Entity<Favorite>().HasKey(f => new { f.AlcoholId, f.UserId });
             base.OnModelCreating(builder);
             
             // Customize the ASP.NET Identity model and override the defaults if needed.

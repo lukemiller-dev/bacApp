@@ -84,26 +84,17 @@
 
 #favNav {  
     background-color: #b33c00;
-    position:absolute;
 }
 
 .navDrinks {
     color: white;
+    font-size: 15px;
 }
 
 #favNavTitle {
     color: white;
 }
 
-#addDrink {
-    height: 35px;
-    width: 100px;
-    border: 2px solid white;
-    border-radius: 5px;
-    background-color: #b33c00;
-    color: white;
-   
-}
 
 .drinkHeader {
     text-align: center;
