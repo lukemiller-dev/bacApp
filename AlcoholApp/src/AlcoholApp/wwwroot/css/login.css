@@ -11,7 +11,13 @@ body {
     width:250px;
     border-radius:5px;
     font-size:16px;
+    
 }
+
+::-webkit-input-placeholder {
+    padding-left: 20px;
+}
+
 
 
 .loginBtn{
