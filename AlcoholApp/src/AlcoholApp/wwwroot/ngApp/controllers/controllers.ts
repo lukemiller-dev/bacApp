@@ -2,6 +2,8 @@ namespace AlcoholApp.Controllers {
 
     export class HomeController {
         constructor(public $http: ng.IHttpService, public $state: ng.ui.IStateService, public $uibModal: ng.ui.bootstrap.IModalService, public ModalService: AlcoholApp.Services.ModalService) { }
+
+
     }
 
     export class ModalController {
@@ -19,7 +21,19 @@ namespace AlcoholApp.Controllers {
     }
 
     export class MainAccountController {
-
+        public alcoholInfo;
+        public alcohols;
+        constructor(public $http: ng.IHttpService, public $state: ng.ui.IStateService) {
+            this.$http.get('api/alcohols').then((res) => {
+                this.alcohols = res.data;
+            })
+        }
+        public selectAlcohol(alcoholId) {
+            this.$http.get(`api/alcohols/${alcoholId}`).then((res) => {
+                this.alcoholInfo = res.data;
+                //this.$state.reload();
+            })
+        }
     }
 
     export class AlcoholController {
@@ -37,11 +51,7 @@ namespace AlcoholApp.Controllers {
             })
         }
 
-        public selectAlcohol(alcoholId) {
-            this.$http.get(`api/alcohols/${alcoholId}`).then((res) => {
-                this.$state.reload();
-            })
-        }
+        
     }
         
 
