@@ -92,6 +92,22 @@ namespace AlcoholApp.Services
             return alcohols;
         }
 
+        //Get By Id
+
+        public AlcoholDTO SelectAlcohols(int id)
+        {
+            var alcohols = (from a in _repo.GetById(id)
+                            select new AlcoholDTO
+                            {
+                                Id = a.Id,
+                                Type = a.Type,
+                                Brand = a.Brand,
+                                Style = a.Style,
+                                ABV = a.ABV
+                            }).FirstOrDefault();
+            return alcohols;
+        }
+
         //Add
         public void Add(AlcoholDTO alcoholDTO)
         {

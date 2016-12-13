@@ -11,13 +11,15 @@
 </form>
 
 <ul>
-    <li ng-repeat="alcohol in controller.alcohols">
+    <li ng-repeat="alcohol in controller.alcohols | filter:search">
         {{alcohol.type}}<br />
         {{alcohol.brand}}<br />
         {{alcohol.style}}<br />
         {{alcohol.abv}}
     </li>
 </ul>
+
+<input ng-model="search"/>
 
 <select ng-model="glass.alcohol">
     <option value="{{alcohol.id}}" ng-repeat="alcohol in controller.alcohols">{{alcohol.type}} {{alcohol.brand}} {{alcohol.style}} {{alcohol.abv}}</option>

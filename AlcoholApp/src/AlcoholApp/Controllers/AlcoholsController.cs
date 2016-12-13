@@ -38,7 +38,7 @@ namespace AlcoholApp.Controllers
         [HttpGet("{id}")]
         public AlcoholDTO Get(int id)
         {
-            return _service.ListId(id);
+            return _service.SelectAlcohols(id);
         }
 
         // POST api/values

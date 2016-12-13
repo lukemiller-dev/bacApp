@@ -12,13 +12,14 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
                             <li ng-repeat="favorite in controller.favorites"><a class="navDrinks" href="#">{{favorite.style}}</a></li>
+
+                            <li ng-repeat="alcohol in controller.alcohols"><a class="navDrinks" href="#" ng-click="controller.selectAlcohol(alcohol.id)">{{alcohol.brand}}</a></li>
                         </ul>
                         <div class="navbar-form navbar-right">
 
 
                             <section id="main">
                                 <div class="search">
-
                                     <input class="searchInputField" type="text" placeholder="Search..." ng-click="controller.dropDownToggle = true"/>
                                     <ul class="results" ng-show="controller.dropDownToggle">
 
@@ -51,7 +52,8 @@
                         <center>
                             <table class="headerNdropdown">
                                 <tr>
-                                    <td><h2 class="drinkHeader">Miller Light</h2></td>
+                                    <td><h2 class="drinkHeader">{{controller.alcoholInfo.brand}}
+</h2></td>
                                     <td>
                                         <div class="dropdown">
                                             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">

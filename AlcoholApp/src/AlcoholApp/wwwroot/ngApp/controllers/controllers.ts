@@ -2,6 +2,8 @@ namespace AlcoholApp.Controllers {
 
     export class HomeController {
         constructor(public $http: ng.IHttpService, public $state: ng.ui.IStateService, public $uibModal: ng.ui.bootstrap.IModalService, public ModalService: AlcoholApp.Services.ModalService) { }
+
+
     }
 
     export class ModalController {
@@ -24,6 +26,8 @@ namespace AlcoholApp.Controllers {
         private favorites;
         private favoriteId;
         public dropDownToggle;
+        public alcoholInfo;
+        public alcohols;
         constructor(public $http: ng.IHttpService, public $state: ng.ui.IStateService) {
             this.dropDownToggle = false;
             $http.get('api/alcohols/unsaved').then((res) => {
@@ -32,6 +36,13 @@ namespace AlcoholApp.Controllers {
             $http.get('api/favorites').then((res) => {
                 this.favorites = res.data;
             })
+            
+        public selectAlcohol(alcoholId) {
+            this.$http.get(`api/alcohols/${alcoholId}`).then((res) => {
+                this.alcoholInfo = res.data;
+                //this.$state.reload();
+            })
+        }
         }
 
         public getDrinkId(id) {
@@ -67,6 +78,8 @@ namespace AlcoholApp.Controllers {
                 this.$state.reload();
             })
         }
+
+        
     }
         
 
