@@ -21,17 +21,17 @@
                     </li>
                 </ul>
 
-                <form class="registerFormng-submit=" controller.register()" id="formId">
+                <form class="registerForm" ng-submit="controller.register()" id="formId">
                     <div>
-                        <input class="personal" placeholder="First Name" />
+                        <input class="personal" ng-model="controller.registerUser.firstName" placeholder="First Name" />
                     </div>
                     
                     <div>
-                        <input class="personal" placeholder="Last Name" />
+                        <input class="personal" ng-model="controller.registerUser.lastName" placeholder="Last Name"/>
                     </div>
                     
                     <div>
-                       <input class="personal" placeholder="Email" ng-     model="controller.registerUser.email" />
+                       <input class="personal" placeholder="Email" ng-model="controller.registerUser.email" />
                     </div>
                     
                     <div>
@@ -42,7 +42,7 @@
                         <input class="personal" placeholder="Confirm Password:" ng-model="controller.registerUser.confirmPassword" />
                     </div>
                     
-                    <button class="regiBtn" type="submit" value="Submit" >Submit</button>
+                    <button class="regiBtn" type="submit">Submit</button>
                     <div id="smallDivId"><label>or</label>
                     </div>
                     
