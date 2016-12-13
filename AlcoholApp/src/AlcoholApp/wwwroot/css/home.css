@@ -84,6 +84,7 @@
 
 #favNav {  
     background-color: #b33c00;
+    position:absolute;
 }
 
 .navDrinks {
@@ -101,6 +102,7 @@
     border-radius: 5px;
     background-color: #b33c00;
     color: white;
+   
 }
 
 .drinkHeader {

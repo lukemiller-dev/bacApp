@@ -18,6 +18,10 @@ namespace AlcoholApp.Controllers {
         }
     }
 
+    export class MainAccountController {
+
+    }
+
     export class AlcoholController {
         public alcohols;
 
@@ -29,6 +33,12 @@ namespace AlcoholApp.Controllers {
 
         public addAlcohol(alcohol) {
             this.$http.post('api/alcohols', alcohol).then((res) => {
+                this.$state.reload();
+            })
+        }
+
+        public selectAlcohol(alcoholId) {
+            this.$http.get(`api/alcohols/${alcoholId}`).then((res) => {
                 this.$state.reload();
             })
         }
