@@ -11,9 +11,7 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li ng-repeat="favorite in controller.favorites"><a class="navDrinks" href="#">{{favorite.style}}</a></li>
-
-                            <li ng-repeat="alcohol in controller.alcohols"><a class="navDrinks" href="#" ng-click="controller.selectAlcohol(alcohol.id)">{{alcohol.brand}}</a></li>
+                            <li ng-repeat="favorite in controller.favorites"><a ng-click="controller.selectAlcohol(favorite.id)" class="navDrinks" href="#">{{favorite.style}}</a><i class="fa fa-window-close" ng-click="controller.deleteFav(favorite.id)" aria-hidden="true"></i></li>
                         </ul>
                         <div class="navbar-form navbar-right">
 

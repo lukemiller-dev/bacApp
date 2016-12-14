@@ -40,8 +40,8 @@ namespace AlcoholApp.Services
 
         public IEnumerable<AlcoholDTO> ListUnsavedAlcohols(string userName)
         {
-            var favorites = _favService.GetFavorites(userName);
-            var alcohols = (from a in _repo.List()
+            IEnumerable<Alcohol> favorites = _favService.GetRelations(userName);
+            var alcohols = (from a in _repo.List().AsEnumerable()
                             where !favorites.Contains(a)
                             select new AlcoholDTO
                             {
@@ -50,7 +50,8 @@ namespace AlcoholApp.Services
                                 Brand = a.Brand,
                                 Style = a.Style,
                                 Type = a.Type
-                            });
+                            }).ToList();
+
             return alcohols;
         }
 
@@ -96,7 +97,8 @@ namespace AlcoholApp.Services
 
         public AlcoholDTO SelectAlcohols(int id)
         {
-            var alcohols = (from a in _repo.GetById(id)
+            var alcohols = (from a in _repo.List()
+                            where a.Id == id
                             select new AlcoholDTO
                             {
                                 Id = a.Id,

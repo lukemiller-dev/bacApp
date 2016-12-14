@@ -45,6 +45,13 @@ namespace AlcoholApp.Services
             return favorites;
         }
 
+        public IQueryable<Alcohol> GetRelations(string userName)
+        {
+            return (from f in _repo.List()
+                    where f.AppUser.UserName == userName
+                    select f.Alcohol);
+        }
+
         public IEnumerable<Alcohol> GetFavorites(string userName)
         {
             var favorites = (from f in _repo.List()
@@ -56,9 +63,15 @@ namespace AlcoholApp.Services
                                  Brand = f.Alcohol.Brand,
                                  Style = f.Alcohol.Style,
                                  Type = f.Alcohol.Type
-                             });
+                             }).ToList();
 
             return favorites;
+        }
+
+        public void DeleteFav(string userId, int alcId)
+        {
+            var favorite = _repo.GetFavoriteById(userId, alcId);
+            _repo.Delete(favorite);
         }
     }
 }

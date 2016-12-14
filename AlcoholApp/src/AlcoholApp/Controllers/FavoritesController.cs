@@ -48,6 +48,9 @@ namespace AlcoholApp.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            _service.DeleteFav(User.Identity.Name, id);
+          
+            
         }
     }
 }

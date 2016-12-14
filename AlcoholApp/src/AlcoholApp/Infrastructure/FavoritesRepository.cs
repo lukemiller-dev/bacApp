@@ -15,10 +15,10 @@ namespace AlcoholApp.Infrastructure
         }
 
 
-        public Favorite GetFavoriteById(int id)
+        public Favorite GetFavoriteById(string userId, int alcId)
         {
-            return (from f in _db.Favorites where f.Id == id select f).FirstOrDefault();
-            
+            return (from f in _db.Favorites where ((f.AppUser.UserName == userId) && (f.AlcoholId == alcId)) select f).FirstOrDefault();
+
         }
 
     }

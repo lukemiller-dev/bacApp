@@ -13,7 +13,7 @@ namespace AlcoholApp.Controllers {
         //added accountService and login method
         public login() {
             this.accountService.login(this.loginUser);
-        } 
+        }
 
         public closeModal() {
             this.$uibModalInstance.close();
@@ -36,14 +36,15 @@ namespace AlcoholApp.Controllers {
             $http.get('api/favorites').then((res) => {
                 this.favorites = res.data;
             })
-            
+        }
+
         public selectAlcohol(alcoholId) {
             this.$http.get(`api/alcohols/${alcoholId}`).then((res) => {
                 this.alcoholInfo = res.data;
                 //this.$state.reload();
             })
         }
-        }
+
 
         public getDrinkId(id) {
             console.log(id);
@@ -56,13 +57,19 @@ namespace AlcoholApp.Controllers {
 
         public addFav(drink) {
             this.$http.post('api/favorites', drink).then((res) => {
-                this.favoriteId = res.data;
+                this.$state.reload();
                 console.log(this.favoriteId);
             })
-        }
-
-        
     }
+
+        public deleteFav(id) {
+            this.$http.delete(`api/favorites/${id}`).then((res) => {
+                this.$state.reload();
+            })
+        } 
+
+
+} 
 
     export class AlcoholController {
         public alcohols;

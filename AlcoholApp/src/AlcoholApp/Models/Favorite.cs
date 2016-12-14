@@ -8,7 +8,6 @@ namespace AlcoholApp.Models
 {
     public class Favorite
     {
-        public int Id { get; set; }
         public string UserId { get; set; }
         [ForeignKey("UserId")]
         public ApplicationUser AppUser { get; set; }
