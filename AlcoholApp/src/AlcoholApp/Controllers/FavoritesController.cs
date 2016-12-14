@@ -33,9 +33,21 @@ namespace AlcoholApp.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody]AlcoholDTO alcDTO)
+        public IActionResult Post([FromBody]AlcoholDTO alcDTO)
         {
-            _service.AddFav(alcDTO.Id, User.Identity.Name);
+            if(!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            if (_service.Check(User.Identity.Name) == false)
+            {
+                return BadRequest("Too many Favorites (max. 4)");
+            }
+            else
+            {
+                _service.AddFav(alcDTO.Id, User.Identity.Name);
+                return Ok();
+            }
         }
 
         // PUT api/values/5
