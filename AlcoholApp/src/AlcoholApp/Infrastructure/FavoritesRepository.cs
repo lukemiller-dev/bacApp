@@ -18,7 +18,11 @@ namespace AlcoholApp.Infrastructure
         public Favorite GetFavoriteById(string userId, int alcId)
         {
             return (from f in _db.Favorites where ((f.AppUser.UserName == userId) && (f.AlcoholId == alcId)) select f).FirstOrDefault();
+        }
 
+        public IEnumerable<Favorite> GetFavoriteByUser(string userName)
+        {
+            return (from f in _db.Favorites where f.AppUser.UserName == userName select f).ToList();
         }
 
     }

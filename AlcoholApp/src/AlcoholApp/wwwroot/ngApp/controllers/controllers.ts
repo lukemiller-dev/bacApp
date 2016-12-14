@@ -28,6 +28,7 @@ namespace AlcoholApp.Controllers {
         public dropDownToggle;
         public alcoholInfo;
         public alcohols;
+        public reason;
         constructor(public $http: ng.IHttpService, public $state: ng.ui.IStateService) {
             this.dropDownToggle = false;
             $http.get('api/alcohols/unsaved').then((res) => {
@@ -58,8 +59,10 @@ namespace AlcoholApp.Controllers {
         public addFav(drink) {
             this.$http.post('api/favorites', drink).then((res) => {
                 this.$state.reload();
-                console.log(this.favoriteId);
+            }).catch((reason) => {
+                this.reason = reason.data;
             })
+            
     }
 
         public deleteFav(id) {

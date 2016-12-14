@@ -18,15 +18,28 @@ namespace AlcoholApp.Services
 
         public void AddFav(int alcoholId, string userName)
         {
+            var listFav = _repo.GetFavoriteByUser(userName);
             var user = _repo.GetUserByUserName(userName);
             var newFav = new Favorite
             {
                 UserId = user.Id,
                 AlcoholId = alcoholId
-            };
+            };        
+                _repo.Add(newFav);          
+        }
+        
 
-            _repo.Add(newFav);  
-                         
+        public bool Check(string userName)
+        {
+
+            var listFav = _repo.GetFavoriteByUser(userName);
+            if(listFav.Count() < 4)
+            {
+                return true;
+            } else
+            {
+                return false;
+            }
         }
 
         public IEnumerable<AlcoholDTO> GetFavoritesDtos(string userName)
