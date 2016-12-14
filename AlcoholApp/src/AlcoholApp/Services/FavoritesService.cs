@@ -19,12 +19,15 @@ namespace AlcoholApp.Services
         public void AddFav(int alcoholId, string userName)
         {
             var user = _repo.GetUserByUserName(userName);
+            var favorites = _repo.List();
+
             var newFav = new Favorite
             {
                 UserId = user.Id,
                 AlcoholId = alcoholId
             };
 
+           
             _repo.Add(newFav);  
                          
         }
