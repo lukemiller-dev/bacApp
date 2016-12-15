@@ -39,11 +39,14 @@ namespace AlcoholApp.Services
         {
             var listFav = _repo.GetFavoriteByUser(userName);
             var user = _repo.GetUserByUserName(userName);
+            var favorites = _repo.List();
+
             var newFav = new Favorite
             {
                 UserId = user.Id,
                 AlcoholId = alcoholId
             };        
+           
                 _repo.Add(newFav);          
         }
         

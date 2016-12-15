@@ -140,6 +140,7 @@ namespace AlcoholApp.Services
                 Style = alcoholDTO.Style,
                 Type = alcoholDTO.Type
             };
+
             _repo.Add(alcohol);
         }
         
