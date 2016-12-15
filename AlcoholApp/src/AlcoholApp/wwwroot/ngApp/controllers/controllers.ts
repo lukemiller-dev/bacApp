@@ -29,6 +29,7 @@ namespace AlcoholApp.Controllers {
         public alcoholInfo;
         public alcohols;
         public reason;
+        public volume = null;
         constructor(public $http: ng.IHttpService, public $state: ng.ui.IStateService) {
             this.dropDownToggle = false;
             $http.get('api/alcohols/unsaved').then((res) => {
@@ -42,17 +43,6 @@ namespace AlcoholApp.Controllers {
         public selectAlcohol(alcoholId) {
             this.$http.get(`api/alcohols/${alcoholId}`).then((res) => {
                 this.alcoholInfo = res.data;
-                //this.$state.reload();
-            })
-        }
-
-
-        public getDrinkId(id) {
-            console.log(id);
-            this.dropDownToggle = false;
-            this.$http.get(`api/alcohols/${id}`).then((res) => {
-                this.drinkId = res.data;
-                console.log(this.drinkId);
             })
         }
 
@@ -61,17 +51,32 @@ namespace AlcoholApp.Controllers {
                 this.$state.reload();
             }).catch((reason) => {
                 this.reason = reason.data;
-            })
-            
+                alert(this.reason);
+            })          
     }
+
+        public check() {
+            if (this.volume == null) {
+                return true;
+            } else {
+                return false;
+            }
+        }
 
         public deleteFav(id) {
             this.$http.delete(`api/favorites/${id}`).then((res) => {
                 this.$state.reload();
             })
-        } 
+        }
 
 
+        public search(text) {
+            if (text == "") {
+                this.dropDownToggle = false;
+            } else {
+                this.dropDownToggle = true;
+            }
+        }
 } 
 
     export class AlcoholController {

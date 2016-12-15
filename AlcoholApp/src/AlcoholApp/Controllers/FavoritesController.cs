@@ -31,6 +31,7 @@ namespace AlcoholApp.Controllers
             return "value";
         }
 
+
         // POST api/values
         [HttpPost]
         public IActionResult Post([FromBody]AlcoholDTO alcDTO)

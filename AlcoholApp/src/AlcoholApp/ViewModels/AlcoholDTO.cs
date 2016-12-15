@@ -13,6 +13,7 @@ namespace AlcoholApp.ViewModels
         public string Brand { get; set; }
         public string Style { get; set; }
         public decimal ABV { get; set; }
+        public List<decimal> Volumes { get; set; }
         public ICollection<GlassDTO> Glasses { get; set; }
         public ICollection<FavoriteDTO> Favorites { get; set; }
     }

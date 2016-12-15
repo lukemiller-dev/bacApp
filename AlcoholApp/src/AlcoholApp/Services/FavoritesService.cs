@@ -16,6 +16,25 @@ namespace AlcoholApp.Services
             _repo = repo;
         }
 
+        public List<decimal> GetAlcoholTypeVolumes(string type)
+        {
+            var beer =  new List<decimal> { 8, 12, 16 };
+            var spirit = new List<decimal> { 1.5m, 3, 4.5m };
+            var wine = new List<decimal> { 5, 12, 16 };
+
+            switch (type)
+            {
+                case "Beer":
+                        return beer;
+                case "Spirit":
+                    return spirit;
+                case "Wine":
+                    return wine;
+                default:
+                    return wine;
+            }
+        }
+
         public void AddFav(int alcoholId, string userName)
         {
             var listFav = _repo.GetFavoriteByUser(userName);
@@ -33,17 +52,15 @@ namespace AlcoholApp.Services
         {
 
             var listFav = _repo.GetFavoriteByUser(userName);
-            if(listFav.Count() < 4)
-            {
-                return true;
-            } else
-            {
-                return false;
-            }
+
+            return (listFav.Count() < 4);
+
         }
+
 
         public IEnumerable<AlcoholDTO> GetFavoritesDtos(string userName)
         {
+            
             var favorites = (from f in _repo.List()
                              where f.AppUser.UserName == userName
                              select new AlcoholDTO
@@ -52,7 +69,8 @@ namespace AlcoholApp.Services
                                  ABV = f.Alcohol.ABV,
                                  Brand = f.Alcohol.Brand,
                                  Style = f.Alcohol.Style,
-                                 Type = f.Alcohol.Type
+                                 Type = f.Alcohol.Type,
+                                 Volumes = GetAlcoholTypeVolumes(f.Alcohol.Type)
                              });
 
             return favorites;

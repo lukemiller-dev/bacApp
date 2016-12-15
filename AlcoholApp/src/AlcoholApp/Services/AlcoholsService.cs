@@ -23,9 +23,28 @@ namespace AlcoholApp.Services
             _favService = favService;
         }
 
+        public List<decimal> GetAlcoholTypeVolumes(string type)
+        {
+            var beer = new List<decimal> { 8, 12, 16 };
+            var spirit = new List<decimal> { 1.5m, 3, 4.5m };
+            var wine = new List<decimal> { 5, 12, 16 };
+
+            switch (type)
+            {
+                case "Beer":
+                    return beer;
+                case "Spirit":
+                    return spirit;
+                case "Wine":
+                    return wine;
+                default:
+                    return null;
+            }
+        }
+
         //GetInNav 
 
-            public AlcoholDTO ListId(int id)
+        public AlcoholDTO ListId(int id)
         {
             var alcoholId = _repo.GetById(id);
             return new AlcoholDTO
@@ -105,7 +124,8 @@ namespace AlcoholApp.Services
                                 Type = a.Type,
                                 Brand = a.Brand,
                                 Style = a.Style,
-                                ABV = a.ABV
+                                ABV = a.ABV,
+                                Volumes = GetAlcoholTypeVolumes(a.Type)
                             }).FirstOrDefault();
             return alcohols;
         }

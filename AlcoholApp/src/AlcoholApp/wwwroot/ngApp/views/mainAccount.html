@@ -7,34 +7,26 @@
                     <div class="navbar-header">
                         <a class="navbar-brand" id="favNavTitle" href="#">Favorites</a>
                     </div>
-
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
                             <li ng-repeat="favorite in controller.favorites"><a ng-click="controller.selectAlcohol(favorite.id)" class="navDrinks" href="#">{{favorite.style}}</a><i class="fa fa-window-close" ng-click="controller.deleteFav(favorite.id)" aria-hidden="true"></i></li>
                         </ul>
                         <div class="navbar-form navbar-right">
-
                             <section id="main">
                                 <div class="search">
-                                    <input class="searchInputField" type="text" placeholder="Search..." ng-click="controller.dropDownToggle = true"/>
+                                    <input ng-model="search" class="searchInputField" type="text" placeholder="Search..." ng-keydown="controller.search(search)" />
                                     <ul class="results" ng-show="controller.dropDownToggle">
-
-                                        <li ng-repeat="drink in controller.drinks" ng-click="controller.addFav(drink)">
+                                        <li ng-repeat="drink in controller.drinks | filter: search | limitTo:4" ng-click="controller.addFav(drink)">
                                             <a>
                                                 {{drink.style}}
                                                 <br />
                                                 <span>{{drink.type}}, {{drink.abv}}%</span>
                                             </a>
                                         </li>
-
                                     </ul>
-
                                 </div>
-
                             </section>
-
-
 
 
                         </div>
@@ -42,44 +34,39 @@
                 </div><!-- /.container-fluid -->
             </nav>
 
-
-            <div class="drinkNtally">
+            <div ng-click="controller.dropDownToggle = false" class="drinkNtally">
                 <div class="row">
                     <div class="col-md-6">
                         <center>
                             <table class="headerNdropdown">
                                 <tr>
-                                    <td><h2 class="drinkHeader">{{controller.alcoholInfo.brand}}
-</h2></td>
-                                    <td>{{controller.reason}}</td>
+                                    <td>
+                                        <h2 class="drinkHeader">
+                                            {{controller.alcoholInfo.style}}
+                                        </h2>
+                                    </td>
+
                                     <td>
                                         <div class="dropdown">
-                                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                                Volume
-                                                <span class="caret"></span>
+                                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Volume<span class="caret"></span>
                                             </button>
                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                                <li><a href="#">Action</a></li>
-                                                <li><a href="#">Another action</a></li>
-                                                <li><a href="#">Something else here</a></li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="#">Separated link</a></li>
+                                                <li ng-repeat="v in controller.alcoholInfo.volumes">
+                                                    <a ng-click="controller.volume = v">{{v}} oz</a>
+                                                </li>
                                             </ul>
                                         </div>
                                     </td>
-                                    <td></td>
+
                                 </tr>
                             </table>
                             <div class="row">
                                 <i id="homeBeerIcon" class="fa fa-beer" aria-hidden="true"></i>
-                                <p class="ozUnderIcon">12 oz</p>
-
+                                <p class="ozUnderIcon" ng-hide="controller.check()">{{controller.volume}} oz</p>
                             </div>
                         </center>
                     </div>
-
                     <div class="col-md-6">
-
                         <div class="drinkTally">
                             <h3>Drink Tally</h3>
                             <ol>
@@ -92,7 +79,6 @@
                                 <button class="calculateBtn">Calculate BAC %</button>
                             </center>
                         </div>
-
                     </div>
                 </div>
                 <div class="row">
