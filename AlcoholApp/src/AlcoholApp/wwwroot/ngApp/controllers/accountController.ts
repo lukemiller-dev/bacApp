@@ -44,7 +44,7 @@ namespace AlcoholApp.Controllers {
 
         public login() {
             this.accountService.login(this.loginUser).then(() => {
-                this.$location.path('/');
+                this.$location.path('/login');
             }).catch((results) => {
                 this.validationMessages = results;
             });
@@ -52,6 +52,8 @@ namespace AlcoholApp.Controllers {
 
         constructor(private accountService: AlcoholApp.Services.AccountService, private $location: ng.ILocationService) { }
     }
+
+    angular.module('AlcoholApp').controller('LoginController', LoginController);
 
 
     export class RegisterController {

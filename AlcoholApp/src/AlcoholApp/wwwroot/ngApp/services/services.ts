@@ -5,7 +5,7 @@ namespace AlcoholApp.Services {
             this.$uibModal.open({
                 templateUrl: `/ngApp/views/${html}`,
                 controller: AlcoholApp.Controllers.ModalController,
-                controllerAs: 'controller',
+                controllerAs: 'modal',
                 size: 'md'
             });
         }
