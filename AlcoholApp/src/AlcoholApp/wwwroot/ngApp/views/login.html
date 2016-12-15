@@ -21,7 +21,7 @@
                 </li>
             </ul>
 
-            <form ng-submit="controller.login()">
+            <form ng-controller="LoginController as controller" ng-submit="controller.login()">
                 <div>
                     <input class="modalFields" placeholder="Email" ng-model="controller.loginUser.email" />
                 </div>
@@ -29,13 +29,14 @@
                 <!--<label>Password:</label>-->
 
                 <div>
-                    <input class="password" ng-model="controller.loginUser.password" placeholder="Password"/>
+                    <input class="password" ng-model="controller.loginUser.password" placeholder="Password" />
                 </div>
-                
+
                 <div>
-                    <button type="submit" class="regiBtn">Login</button>
+                    <input onclick="window.location.href='/mainAccount'" ng-click="modal.closeModal()" type="submit" class="regiBtn" value="Log In" />
+                  
                 </div>
-                    
+            
                     <!--<a href="/register">Register</a>-->
                 
 
@@ -49,9 +50,9 @@
                 <button class="googleBtn" type="submit"><i id="googleIcon" class="fa fa-google" aria-hidden="true"></i> Continue with Google</button>
                 
 
-               <h6>Don't have an account? Register>></h6>
+               <h6>Don't have an account? Register></h6>
 
-            </form>
+           </form>
 
         </fieldset>
     </div>

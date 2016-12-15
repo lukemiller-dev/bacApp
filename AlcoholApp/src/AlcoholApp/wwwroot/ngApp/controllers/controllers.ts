@@ -6,14 +6,11 @@ namespace AlcoholApp.Controllers {
 
     }
 
+
     export class ModalController {
         public loginUser;
 
-        constructor(public $http: ng.IHttpService, public $state: ng.ui.IStateService, public $uibModalInstance: ng.ui.bootstrap.IModalServiceInstance, public accountService: AlcoholApp.Services.AccountService) { }
-        //added accountService and login method
-        public login() {
-            this.accountService.login(this.loginUser);
-        }
+        constructor(public $http: ng.IHttpService, public $state: ng.ui.IStateService, public $uibModalInstance: ng.ui.bootstrap.IModalServiceInstance) { }
 
         public closeModal() {
             this.$uibModalInstance.close();
