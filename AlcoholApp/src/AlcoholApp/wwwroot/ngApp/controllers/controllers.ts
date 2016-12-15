@@ -30,6 +30,7 @@ namespace AlcoholApp.Controllers {
         public alcohols;
         public reason;
         public volume = null;
+        public glass;
         constructor(public $http: ng.IHttpService, public $state: ng.ui.IStateService) {
             this.dropDownToggle = false;
             $http.get('api/alcohols/unsaved').then((res) => {
@@ -38,6 +39,9 @@ namespace AlcoholApp.Controllers {
             $http.get('api/favorites').then((res) => {
                 this.favorites = res.data;
             })
+            //$http.get('api/glasses').then((res) => {
+            //    this.glass = res.data;
+            //})
         }
 
         public selectAlcohol(alcoholId) {
