@@ -27,33 +27,9 @@ namespace AlcoholApp.Services
                                 BirthDate = a.BirthDate,
                                 Height = a.Height,
                                 Weight = a.Weight,
-                                IsMale = a.IsMale,
-                                Nights = (from n in a.Nights
-                                          select new NightDTO
-                                          {
-                                              EndTime = n.EndTime,
-                                              StartTime = n.StartTime,
-                                              Id = n.Id,
-                                              IsDriving = n.IsDriving,
-                                              Glasses = (from g in n.Glasses
-                                                         select new GlassDTO
-                                                         {
-                                                             Id = g.Id,
-                                                             TimeConsumed = g.TimeConsumed,
-                                                             Volume = g.Volume,
-                                                             Alcohol = new AlcoholDTO
-                                                             {
-                                                                 Id = g.Alcohol.Id,
-                                                                 ABV = g.Alcohol.ABV,
-                                                                 Brand = g.Alcohol.Brand,
-                                                                 Style = g.Alcohol.Style,
-                                                                 Type = g.Alcohol.Type,
-                                                                
-                                                             }
-                                                         }).ToList()
-                                          }).ToList()
+                                IsMale = a.IsMale
+                            });
 
-                            }).ToList();
             return appUsers;
         }
     }

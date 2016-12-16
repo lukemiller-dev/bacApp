@@ -10,7 +10,7 @@ namespace AlcoholApp.ViewModels
         public int Id { get; set; }
         public decimal Volume { get; set; }
         public DateTime TimeConsumed { get; set; }
-        public NightDTO Night { get; set; }
+      
         public AlcoholDTO Alcohol { get; set; }
     }
 }
