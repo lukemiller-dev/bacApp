@@ -44,7 +44,7 @@ namespace AlcoholApp.Controllers {
 
         public login() {
             this.accountService.login(this.loginUser).then(() => {
-                this.$location.path('/login');
+                this.$location.path('/');
             }).catch((results) => {
                 this.validationMessages = results;
             });
@@ -63,6 +63,7 @@ namespace AlcoholApp.Controllers {
         public register() {
             this.accountService.register(this.registerUser).then(() => {
                 this.$location.path('/');
+                
             }).catch((results) => {
                 this.validationMessages = results;
             });

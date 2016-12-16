@@ -11,7 +11,7 @@ namespace AlcoholApp.Controllers {
         public loginUser;
 
         constructor(public $http: ng.IHttpService, public $state: ng.ui.IStateService, public $uibModalInstance: ng.ui.bootstrap.IModalServiceInstance) { }
-
+        
         public closeModal() {
             this.$uibModalInstance.close();
         }

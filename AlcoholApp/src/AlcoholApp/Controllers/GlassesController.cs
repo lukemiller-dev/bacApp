@@ -22,17 +22,17 @@ namespace AlcoholApp.Controllers
         
         // GET: api/values
         [HttpGet]
-        public IEnumerable<GlassDTO> Get()
+        public IEnumerable<GlassDTO> Get(int nightId)
         {
-            return _service.ListGlasses();
+            return _service.GetGlassesDtos(nightId);
         }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
+        //// GET api/values/5
+        //[HttpGet("{id}")]
+        //public string Get(int id)
+        //{
+        //    return "value";
+        //}
 
         // POST api/values
         [HttpPost]
