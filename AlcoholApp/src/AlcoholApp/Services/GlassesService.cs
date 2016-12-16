@@ -14,44 +14,18 @@ namespace AlcoholApp.Services
         //Injections
         private GlassesRepository _repo;
         private AlcoholsRepository _ARepo;
-        private NightsRepository _NRepo;
+       
 
         //Constructor
-        public GlassesService(GlassesRepository repo, AlcoholsRepository ARepo, NightsRepository NRepo)
+        public GlassesService(GlassesRepository repo, AlcoholsRepository ARepo)
         {
             _repo = repo;
             _ARepo = ARepo;
-            _NRepo = NRepo;
+           
         }
 
         //Get
-        public IEnumerable<GlassDTO> GetGlassesDtos(int nightId)
-        {
-            var glasses = (from g in _repo.List()
-                           where g.NightId == nightId
-                           select new GlassDTO
-                           {
-                               Id = g.Id,
-                               TimeConsumed = g.TimeConsumed,
-                               Volume = g.Volume,
-                               Night = new NightDTO
-                               {
-                                   Id = g.NightId
-                               },
-                               Alcohol = new AlcoholDTO
-                               {
-                                   Id = g.AlcoholId,
-                                   ABV = g.Alcohol.ABV,
-                                   Brand = g.Alcohol.Brand,
-                                   Style = g.Alcohol.Style,
-                                   Type = g.Alcohol.Type,
-
-                               }
-
-
-                           }).ToList();
-            return glasses;
-        }
+       
 
         //Add
         public void Add(GlassDTO glassDTO)
@@ -60,8 +34,8 @@ namespace AlcoholApp.Services
             {
                 Volume = glassDTO.Volume,
                 TimeConsumed = glassDTO.TimeConsumed,
-                Alcohol = _ARepo.GetById(glassDTO.Alcohol.Id),
-                Night = _NRepo.GetById(glassDTO.Night.Id).FirstOrDefault()
+                Alcohol = _ARepo.GetById(glassDTO.Alcohol.Id)
+               
             };
             _repo.Add(glass);
         }
