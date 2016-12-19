@@ -85,21 +85,28 @@ namespace AlcoholApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Nights",
+                name: "Glasses",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    EndTime = table.Column<DateTime>(nullable: false),
-                    IsDriving = table.Column<bool>(nullable: false),
-                    StartTime = table.Column<DateTime>(nullable: false),
-                    UserId = table.Column<string>(nullable: true)
+                    AlcoholId = table.Column<int>(nullable: false),
+                    IsFavorite = table.Column<bool>(nullable: false),
+                    TimeConsumed = table.Column<DateTime>(nullable: false),
+                    UserId = table.Column<string>(nullable: true),
+                    Volume = table.Column<double>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Nights", x => x.Id);
+                    table.PrimaryKey("PK_Glasses", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Nights_AspNetUsers_UserId",
+                        name: "FK_Glasses_Alcohols_AlcoholId",
+                        column: x => x.AlcoholId,
+                        principalTable: "Alcohols",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Glasses_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
@@ -192,33 +199,6 @@ namespace AlcoholApp.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "Glasses",
-                columns: table => new
-                {
-                    NightId = table.Column<int>(nullable: false),
-                    AlcoholId = table.Column<int>(nullable: false),
-                    Id = table.Column<int>(nullable: false),
-                    TimeConsumed = table.Column<DateTime>(nullable: false),
-                    Volume = table.Column<decimal>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Glasses", x => new { x.NightId, x.AlcoholId });
-                    table.ForeignKey(
-                        name: "FK_Glasses_Alcohols_AlcoholId",
-                        column: x => x.AlcoholId,
-                        principalTable: "Alcohols",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Glasses_Nights_NightId",
-                        column: x => x.NightId,
-                        principalTable: "Nights",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
             migrationBuilder.CreateIndex(
                 name: "EmailIndex",
                 table: "AspNetUsers",
@@ -236,13 +216,8 @@ namespace AlcoholApp.Migrations
                 column: "AlcoholId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Glasses_NightId",
+                name: "IX_Glasses_UserId",
                 table: "Glasses",
-                column: "NightId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Nights_UserId",
-                table: "Nights",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
@@ -298,9 +273,6 @@ namespace AlcoholApp.Migrations
 
             migrationBuilder.DropTable(
                 name: "Alcohols");
-
-            migrationBuilder.DropTable(
-                name: "Nights");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

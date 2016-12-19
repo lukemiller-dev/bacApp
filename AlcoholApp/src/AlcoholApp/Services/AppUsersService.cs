@@ -29,7 +29,6 @@ namespace AlcoholApp.Services
                                 Weight = a.Weight,
                                 IsMale = a.IsMale
                             });
-
             return appUsers;
         }
     }

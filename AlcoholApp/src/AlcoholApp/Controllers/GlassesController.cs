@@ -14,42 +14,76 @@ namespace AlcoholApp.Controllers
     public class GlassesController : Controller
     {
         public GlassesService _service;
-
-        public GlassesController(GlassesService service)
-        {
+        public GlassesController(GlassesService service) {
             _service = service;
         }
-        
         // GET: api/values
         [HttpGet]
-        
+        public IEnumerable<AlcoholDTO> Get()
+        {
+            return _service.GetFavorites(User.Identity.Name);
+        }
 
-        //// GET api/values/5
-        //[HttpGet("{id}")]
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
+        //Get False Glasses
+        [HttpGet("falseGlasses")]
+        public IEnumerable<GlassDTO> GetFalseGlasses()
+        {
+            return _service.GetGlassByUserNotFavorite(User.Identity.Name);
+        }
+
+        // GET api/values/5
+        [HttpGet("{id}")]
+        public string Get(int id)
+        {
+            return "value";
+        }
+
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody]GlassDTO glass)
+        public IActionResult Post([FromBody]AlcoholDTO alcDTO)
         {
-            _service.Add(glass);
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            //if (_service.Check(User.Identity.Name) == false)
+            //{
+            //    return BadRequest("Too many Favorites (max. 4)");
+            //}
+            else
+            {
+                _service.AddFav(alcDTO.Id, User.Identity.Name);
+                return Ok();
+            }
         }
+
+        //Add new glasses
+        [HttpPost("newGlasses/{volume}")]
+        public void Post(double volume, [FromBody]AlcoholDTO alcDto)
+        {
+            _service.Add(User.Identity.Name, volume, alcDto.Id);
+        }
+        //Get Glasses
+
+        [HttpGet("glassDtos")]
+        public IEnumerable<GlassDTO> GetGlass()
+        {
+            return _service.GetGlassDtos(User.Identity.Name);
+        } 
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]GlassDTO glassDTO)
+        public void Put(int id, [FromBody]string value)
         {
-            _service.Edit(glassDTO, id);
         }
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            _service.Delete(id);
+            _service.DeleteFav(User.Identity.Name, id);        
+            
         }
     }
 }

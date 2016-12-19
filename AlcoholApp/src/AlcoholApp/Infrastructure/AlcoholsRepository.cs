@@ -16,9 +16,9 @@ namespace AlcoholApp.Infrastructure
         }
 
         //GetById
-        public Alcohol GetById(int id)
+        public IQueryable<Alcohol> GetById(int id)
         {
-            return (from a in _db.Alcohols where a.Id == id select a).FirstOrDefault();
+            return (from a in _db.Alcohols where a.Id == id select a);
         }
 
         //GetByType

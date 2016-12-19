@@ -60,8 +60,9 @@
 
                                 </tr>
                             </table>
+
                             <div class="row">
-                                <i id="homeBeerIcon" class="fa fa-beer" aria-hidden="true"></i>
+                                <i id="homeBeerIcon" class="fa fa-beer" aria-hidden="true" ng-click="controller.addGlass()"></i>
                                 <p class="ozUnderIcon" ng-hide="controller.check()">{{controller.volume}} oz</p>
                             </div>
                         </center>
@@ -70,14 +71,10 @@
                         <div class="drinkTally">
                             <h3>Drink Tally</h3>
                             <ol>
-                                <li><p class="drinkTallyP">7:00 pm <span>Jack Daniels 1.5 oz</span></p></li>
-                                <li><p class="drinkTallyP">7:08 pm <span>Captain Morgan 1.5 oz</span></p></li>
-                                <li><p class="drinkTallyP">7:30 pm <span>Miller Light 12 oz</span></p></li>
-                                <li><p class="drinkTallyP">7:45 pm <span>Miller Light 12 oz</span></p></li>
+                                <li ng-repeat="glass in controller.fGlasses"><p class="drinkTallyP">{{glass.timeConsumed | date: 'short'}} <span>{{glass.alcohol.style}} {{glass.volume}}</span></p></li>
+                               
                             </ol>
-                            <center>
-                                <button class="calculateBtn">Calculate BAC %</button>
-                            </center>
+                          
                         </div>
                     </div>
                 </div>
