@@ -8,6 +8,7 @@ namespace AlcoholApp.ViewModels
 {
     public class GlassDTO
     {
+        public int Id { get; set; }
         public double Volume { get; set; }
         public DateTime TimeConsumed { get; set; }
         public bool IsFavorite { get; set; }

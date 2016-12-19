@@ -139,20 +139,27 @@ namespace AlcoholApp.Services
            return falseGlasses;
         }
 
-      //GetGlassTrue
-      //public IEnumerable<GlassDTO> GetGlassByUserTrue(string userName)
-      //  {
-      //      var trueGlasses = (from tg in _repo.GetGlassByUserFavorite(userName) select new GlassDTO
-      //      {
-      //          TimeConsumed = tg.TimeConsumed,
-      //          Volume = tg.Volume,
-      //          IsFavorite = tg.IsFavorite,
-      //          Alcohol = new AlcoholDTO
-      //          {
-      //              ABV = fg.Alcohol
-      //          }
-      //      })
-      //  }  
+        //GetGlassTrue
+        public IEnumerable<GlassDTO> GetGlassByUserTrue(string userName)
+        {
+            var trueGlasses = (from tg in _repo.GetGlassByUserFavorite(userName)
+                               select new GlassDTO
+                               {
+                                   Id = tg.Id,
+                                   TimeConsumed = tg.TimeConsumed,
+                                   Volume = tg.Volume,
+                                   IsFavorite = tg.IsFavorite,
+                                   Alcohol = new AlcoholDTO
+                                   {
+                                       ABV = tg.Alcohol.ABV,
+                                       Brand = tg.Alcohol.Brand,
+                                       Id = tg.Alcohol.Id,
+                                       Style = tg.Alcohol.Style,
+                                       Type = tg.Alcohol.Type
+                                   }
+                               }).ToList();
+            return trueGlasses;
+        }
 
 
         //Add
