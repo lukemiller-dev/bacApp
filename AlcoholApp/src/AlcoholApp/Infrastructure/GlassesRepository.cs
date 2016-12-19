@@ -17,7 +17,7 @@ namespace AlcoholApp.Infrastructure
 
         public Glass GetGlassById(string userId, int alcId)
         {
-            return (from f in _db.Glasses where ((f.AppUser.UserName == userId) && (f.AlcoholId == alcId)) select f).FirstOrDefault();
+            return (from f in _db.Glasses where (f.Id == alcId) select f).FirstOrDefault();
         }
 
         public IQueryable<Glass> GetGlassByUserNotFavorite(string userName)
@@ -25,9 +25,9 @@ namespace AlcoholApp.Infrastructure
             return (from f in _db.Glasses where (f.AppUser.UserName == userName) && (f.IsFavorite == false) select f);
         }
 
-        public IEnumerable<Glass> GetGlassByUserFavorite(string userName)
+        public IQueryable<Glass> GetGlassByUserFavorite(string userName)
         {
-            return (from g in _db.Glasses where ((g.AppUser.UserName == userName) && (g.IsFavorite == true)) select g).ToList();
+            return (from g in _db.Glasses where ((g.AppUser.UserName == userName) && (g.IsFavorite == true)) select g);
         }
 
         public IEnumerable<Glass> GetGlassByUser(string userName)

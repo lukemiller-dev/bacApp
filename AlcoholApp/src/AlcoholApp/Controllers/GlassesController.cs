@@ -31,6 +31,13 @@ namespace AlcoholApp.Controllers
             return _service.GetGlassByUserNotFavorite(User.Identity.Name);
         }
 
+        //Get True Glasses 
+        [HttpGet("trueGlasses")]
+        public IEnumerable<GlassDTO> GetTrueGlasses()
+        {
+            return _service.GetGlassByUserTrue(User.Identity.Name);
+        }
+
         // GET api/values/5
         [HttpGet("{id}")]
         public string Get(int id)

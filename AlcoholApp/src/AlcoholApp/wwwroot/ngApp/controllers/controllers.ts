@@ -29,10 +29,12 @@ namespace AlcoholApp.Controllers {
         public volume = null;
         public glasses;
         public fGlasses;
+        public tGlasses;
        
 
         constructor(public $http: ng.IHttpService, public $state: ng.ui.IStateService) {
             this.dropDownToggle = false;
+           
             $http.get('api/alcohols/unsaved').then((res) => {
                 this.drinks = res.data;
             })           
@@ -41,6 +43,9 @@ namespace AlcoholApp.Controllers {
             })
             $http.get('api/glasses/falseGlasses').then((res) => {
                 this.fGlasses = res.data;
+            })
+            $http.get('api/glasses/trueGlasses').then((res) => {
+                this.tGlasses = res.data;
             })
         }
 
