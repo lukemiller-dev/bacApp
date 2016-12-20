@@ -118,12 +118,13 @@ namespace AlcoholApp.Services
             return glasses;
         }
 
-        //GetGlassFalse
+        ////GetGlassFalse
         public IEnumerable<GlassDTO> GetGlassByUserNotFavorite(string userName)
         {
             var falseGlasses = (from fg in _repo.GetGlassByUserNotFavorite(userName)
                                 select new GlassDTO
-                                {
+                                {   
+                                    Id=fg.Id,   
                                     TimeConsumed = fg.TimeConsumed,
                                     Volume = fg.Volume,
                                     IsFavorite = fg.IsFavorite,
