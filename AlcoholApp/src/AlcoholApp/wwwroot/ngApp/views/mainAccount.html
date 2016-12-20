@@ -27,8 +27,6 @@
                                     </ul>
                                 </div>
                             </section>
-
-
                         </div>
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->
@@ -70,6 +68,13 @@
                     <div class="col-md-6">
                         <div class="drinkTally">
                             <h3>Drink Tally</h3>
+                            <table>
+                                <tr>
+                                    <td><input class="weight" placeholder="Enter Weight" ng-model="controller.weight" /></td>
+                                    <td><button ng-click="controller.setWeight()">Submit</button></td>
+                                </tr>
+                            </table>
+                           
                             <ol>
                                 <li ng-repeat="glass in controller.fGlasses"><p class="drinkTallyP">{{glass.timeConsumed | date: 'short'}} <span>{{glass.alcohol.style}} {{glass.volume}}</span></p></li>
                                

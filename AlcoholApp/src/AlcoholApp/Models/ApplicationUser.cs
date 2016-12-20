@@ -15,6 +15,7 @@ namespace AlcoholApp.Models
         public int Height { get; set; }
         public int Weight { get; set; }
         public bool IsMale { get; set; }
+        public double BAC { get; set; }
        
         public ICollection<Glass> Glasses { get; set; }
     }

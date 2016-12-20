@@ -26,5 +26,10 @@ namespace AlcoholApp.Infrastructure
         {
             return from a in _db.Alcohols where a.Type == type select a;
         }
+
+        //public IQueryable<Alcohol> GetABV(decimal abv)
+        //{
+        //    return from a in _db.Alcohols where a.ABV == abv select a;
+        //}
     }
 }

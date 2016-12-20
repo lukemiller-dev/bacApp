@@ -13,5 +13,7 @@ namespace AlcoholApp.Infrastructure
         {
             _db = db;
         }
+        
+      
     }
 }

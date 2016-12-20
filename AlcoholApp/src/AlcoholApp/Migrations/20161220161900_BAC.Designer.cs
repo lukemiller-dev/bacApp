@@ -8,9 +8,10 @@ using AlcoholApp.Data;
 namespace AlcoholApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20161220161900_BAC")]
+    partial class BAC
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.0-rtm-21431")
@@ -40,7 +41,7 @@ namespace AlcoholApp.Migrations
 
                     b.Property<int>("AccessFailedCount");
 
-                    b.Property<double>("BAC");
+                    b.Property<decimal>("BAC");
 
                     b.Property<DateTime>("BirthDate");
 
