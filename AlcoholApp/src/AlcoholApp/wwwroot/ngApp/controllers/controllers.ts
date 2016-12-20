@@ -30,6 +30,9 @@ namespace AlcoholApp.Controllers {
         public glasses;
         public fGlasses;
         public tGlasses;
+        public appUsers;
+        public weight;
+        public bac;
        
 
         constructor(public $http: ng.IHttpService, public $state: ng.ui.IStateService) {
@@ -46,6 +49,9 @@ namespace AlcoholApp.Controllers {
             })
             $http.get('api/glasses/trueGlasses').then((res) => {
                 this.tGlasses = res.data;
+            })
+            $http.get('api/appUsers/BAC').then((res) => {
+                this.bac = res.data;
             })
         }
 
@@ -91,6 +97,13 @@ namespace AlcoholApp.Controllers {
             } else {
                 this.dropDownToggle = true;
             }
+        }
+
+        public setWeight() {
+            this.$http.put(`api/appUsers/weight`, this.weight).then((res) => {
+                console.log(this.weight);
+                this.$state.reload();
+            })
         }
 } 
 

@@ -11,7 +11,7 @@ namespace AlcoholApp.Models
         public string Type { get; set; }
         public string Brand { get; set; }
         public string Style { get; set; }
-        public decimal ABV { get; set; }
+        public double ABV { get; set; }
         public ICollection<Glass> Glasses { get; set; }
     }
 }
