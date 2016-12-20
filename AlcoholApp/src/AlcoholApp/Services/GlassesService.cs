@@ -119,24 +119,25 @@ namespace AlcoholApp.Services
         }
 
         ////GetGlassFalse
-        //public IEnumerable<GlassDTO> GetGlassByUserNotFavorite(string userName)
-        //{
-        //    var falseGlasses = (from fg in _repo.GetGlassByUserNotFavorite(userName)
-        //                        select new GlassDTO
-        //                        {
-        //                            TimeConsumed = fg.TimeConsumed,
-        //                            Volume = fg.Volume,
-        //                            IsFavorite = fg.IsFavorite,
-        //                            Alcohol = new AlcoholDTO
-        //                            {
-        //                                ABV = fg.Alcohol.ABV,
-        //                                Brand = fg.Alcohol.Brand,
-        //                                Id = fg.Alcohol.Id,
-        //                                Style = fg.Alcohol.Style,
-        //                                Type = fg.Alcohol.Type
-        //                            }
-        //                        }).ToList();
-           return falseGlasses;
+        public IEnumerable<GlassDTO> GetGlassByUserNotFavorite(string userName)
+        {
+            var falseGlasses = (from fg in _repo.GetGlassByUserNotFavorite(userName)
+                                select new GlassDTO
+                                {   
+                                    Id=fg.Id,   
+                                    TimeConsumed = fg.TimeConsumed,
+                                    Volume = fg.Volume,
+                                    IsFavorite = fg.IsFavorite,
+                                    Alcohol = new AlcoholDTO
+                                    {
+                                        ABV = fg.Alcohol.ABV,
+                                        Brand = fg.Alcohol.Brand,
+                                        Id = fg.Alcohol.Id,
+                                        Style = fg.Alcohol.Style,
+                                        Type = fg.Alcohol.Type
+                                    }
+                                }).ToList();
+            return falseGlasses;
         }
 
         //GetGlassTrue
