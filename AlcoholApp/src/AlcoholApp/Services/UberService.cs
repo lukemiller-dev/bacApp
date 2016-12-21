@@ -16,8 +16,15 @@ namespace AlcoholApp.Services
 
             //Uber Login
 
-            var url = Common.FormatAuthorizeUrl(ResponseTypes.Code, "bcOz4z-GbY3kIGEha6wWMfzbZDOCZNdB", HttpUtility.UrlEncode("YOURCALLBACKURL"));
+            string url = Common.FormatAuthorizeUrl(ResponseTypes.Code, "bcOz4z-GbY3kIGEha6wWMfzbZDOCZNdB", HttpUtility.UrlEncode("YOURCALLBACKURL"));
+
+            //var tw 
+
+            
+
             return Redirect(url);
+
+            //HttpR.Redirect(url,false);
 
             //Access Token Authentication
 
