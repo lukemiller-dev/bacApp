@@ -65,6 +65,9 @@
                             </div>
                         </center>
                     </div>
+
+                    <!-- WEIGHT INPUT TABLE -->
+
                     <div class="col-md-6">
                         <div class="drinkTally">
                             <h3>Drink Tally</h3>
@@ -73,7 +76,24 @@
                                     <td><input class="weight" placeholder="Enter Weight" ng-model="controller.weight" /></td>
                                     <td><button ng-click="controller.setWeight()">Submit</button></td>
                                 </tr>
+                              
                             </table>
+
+                            <!-- PROGRESS BAR -->
+
+                            <i class="fa fa-exclamation-triangle" aria-hidden="true" ng-show="controller.checkBAC()"></i>
+
+                            <div>
+                                <label>Current Value</label>
+                                <input type="number" ng-model="curVal" min="0" max="100">
+
+                                <br><br>
+
+                                <progress value="{{controller.bac}}" max="{{controller.maxVal}}"></progress>
+
+                            </div>
+
+                            <!-- DRINK TALLY -->
                            
                             <ol>
                                 <li ng-repeat="glass in controller.fGlasses"><p class="drinkTallyP">{{glass.timeConsumed | date: 'short'}} <span>{{glass.alcohol.style}} {{glass.volume}}</span></p></li>

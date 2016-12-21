@@ -20,9 +20,9 @@ namespace AlcoholApp.Services
 
             //var tw 
 
-            
+             
 
-            return Redirect(url);
+            //return Redirect(url);
 
             //HttpR.Redirect(url,false);
 

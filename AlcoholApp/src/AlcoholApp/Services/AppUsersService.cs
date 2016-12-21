@@ -49,7 +49,16 @@ namespace AlcoholApp.Services
             //var timeList = _repo.AppUserNotFavorite(userName).FirstOrDefault().Glasses.ToList();
             var timeList = _repo.GlassesToAdd(userName).ToList();
             var length = timeList.Count;
-            TimeSpan timeFrame =DateTime.Now -  timeList[0].TimeConsumed;          
+            //TimeSpan timeFrame =DateTime.Now -  timeList[0].TimeConsumed;
+            TimeSpan timeFrame;  
+            if(length == 0)
+            {
+                return 0;
+            }else
+            {
+                timeFrame = DateTime.Now - timeList[0].TimeConsumed;
+
+            }
             var weight = user.Weight;
            
             double value = 0;

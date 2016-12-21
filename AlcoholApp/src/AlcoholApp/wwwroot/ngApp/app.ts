@@ -65,13 +65,16 @@ namespace AlcoholApp {
 
         // Enable HTML5 navigation
         $locationProvider.html5Mode(true);
-    });
+    })
 
-    
+
+
+
     angular.module('AlcoholApp').factory('authInterceptor', (
         $q: ng.IQService,
         $window: ng.IWindowService,
         $location: ng.ILocationService
+
     ) =>
         ({
             request: function (config) {
@@ -86,12 +89,11 @@ namespace AlcoholApp {
                 return $q.reject(rejection);
             }
         })
-    );
+    )
 
     angular.module('AlcoholApp').config(function ($httpProvider) {
         $httpProvider.interceptors.push('authInterceptor');
     });
-
     
 
 }

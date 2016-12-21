@@ -17,6 +17,10 @@ namespace AlcoholApp.Controllers {
         }
     }
 
+    /**
+     * MAIN ACCOUNT CONTROLLER
+     */
+
     export class MainAccountController {
         private drinks;
         private drinkId;
@@ -33,6 +37,7 @@ namespace AlcoholApp.Controllers {
         public appUsers;
         public weight;
         public bac;
+        public bacBool;
        
 
         constructor(public $http: ng.IHttpService, public $state: ng.ui.IStateService) {
@@ -105,15 +110,32 @@ namespace AlcoholApp.Controllers {
                 this.$state.reload();
             })
         }
+
+        public checkBAC() {
+            if (this.bac >= 0.08) {
+                return this.bacBool = true;
+            }
+            else {
+                return this.bacBool = false;
+            }
+        }
+
+
 } 
 
     export class AlcoholController {
         public alcohols;
-
-        constructor(public $http: ng.IHttpService, public $state: ng.ui.IStateService) {
+        public bac;
+        public maxVal;
+        public bacBool;
+        constructor(public $http: ng.IHttpService, public $state: ng.ui.IStateService,public $scope:ng.IScope) {
             $http.get('api/alcohols').then((res) => {
                 this.alcohols = res.data;
-            })
+            });
+            $http.get('api/appUsers/BAC').then((res) => {
+                this.bac = res.data;
+            });
+            this.maxVal = 0.4;
         }
 
         public addAlcohol(alcohol) {
@@ -121,6 +143,8 @@ namespace AlcoholApp.Controllers {
                 this.$state.reload();
             })
         }
+
+        
 
         
     }
