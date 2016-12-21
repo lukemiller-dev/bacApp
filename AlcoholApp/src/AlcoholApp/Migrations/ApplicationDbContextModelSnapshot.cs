@@ -21,7 +21,7 @@ namespace AlcoholApp.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<decimal>("ABV");
+                    b.Property<double>("ABV");
 
                     b.Property<string>("Brand");
 

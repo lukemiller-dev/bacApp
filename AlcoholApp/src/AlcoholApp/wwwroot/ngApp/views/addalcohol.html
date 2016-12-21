@@ -24,3 +24,5 @@
 <select ng-model="glass.alcohol">
     <option value="{{alcohol.id}}" ng-repeat="alcohol in controller.alcohols">{{alcohol.type}} {{alcohol.brand}} {{alcohol.style}} {{alcohol.abv}}</option>
 </select>
+
+<progress value="{{controller.bac}}" max="{{controller.maxVal}}"></progress>

@@ -65,6 +65,9 @@
                             </div>
                         </center>
                     </div>
+
+                    <!-- WEIGHT INPUT TABLE -->
+
                     <div class="col-md-6">
                         <div class="drinkTally">
                             <h3>Drink Tally</h3>
@@ -72,11 +75,29 @@
                                 <tr>
                                     <td><input class="weight" placeholder="Enter Weight" ng-model="controller.weight" /></td>
                                     <td><button ng-click="controller.setWeight()">Submit</button></td>
+                                    <td><button ng-click="controller.deleteAllFalseGs()" class="btn-default">FLN</button></td>
                                 </tr>
+                              
                             </table>
+
+                            <!-- PROGRESS BAR -->
+
+                            <i class="fa fa-exclamation-triangle" aria-hidden="true" ng-show="controller.checkBAC()"></i>
+
+                            <div>
+                                <label>Current Value</label>
+                                <input type="number" ng-model="curVal" min="0" max="100">
+
+                                <br><br>
+
+                                <progress value="{{controller.bac}}" max="{{controller.maxVal}}"></progress>
+
+                            </div>
+
+                            <!-- DRINK TALLY -->
                            
                             <ol>
-                                <li ng-repeat="glass in controller.fGlasses"><p class="drinkTallyP">{{glass.timeConsumed | date: 'short'}} <span>{{glass.alcohol.style}} {{glass.volume}}</span></p></li>
+                                <li ng-repeat="glass in controller.fGlasses"><p class="drinkTallyP">{{glass.timeConsumed | date: 'short'}} <span>{{glass.alcohol.style}} {{glass.volume}}</span></p><i ng-click="controller.deleteFalseG(glass.id)" class="fa fa-window-close" aria-hidden="true"></i></li>
                                
                             </ol>
                           
@@ -85,8 +106,9 @@
                 </div>
                 <div class="row">
                     <center>
-                        <p class="bacTitle">BAC %</p>
-                        <p class="bacPercent">.014%</p>
+                        <p class="bacTitle">BAC%</p>
+                        <p class="bacPercent">{{controller.bac | number:2}}</p>
+
                     </center>
                 </div>
             </div>

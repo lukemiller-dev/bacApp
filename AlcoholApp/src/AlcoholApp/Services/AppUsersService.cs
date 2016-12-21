@@ -41,28 +41,39 @@ namespace AlcoholApp.Services
             _repo.Edit(user);
         }
 
-        public void GetBAC(string userName)
+        public double GetBAC(string userName)
         {
             var user = (from b in _repo.GetUserByUserName(userName) select b).FirstOrDefault();
             var userB = (from b in _repo.GetUserByUserName(userName) select b);
 
-            var timeList = user.Glasses.Where(g => g.IsFavorite == false).OrderBy(x => x).ToList();
-            var length = user.Glasses.Where(g => g.IsFavorite == false).Count();
-            TimeSpan timeFrame = timeList[length-1].TimeConsumed -  timeList[0].TimeConsumed;          
+            //var timeList = _repo.AppUserNotFavorite(userName).FirstOrDefault().Glasses.ToList();
+            var timeList = _repo.GlassesToAdd(userName).ToList();
+            var length = timeList.Count;
+            //TimeSpan timeFrame =DateTime.Now -  timeList[0].TimeConsumed;
+            TimeSpan timeFrame;  
+            if(length == 0)
+            {
+                return 0;
+            }else
+            {
+                timeFrame = DateTime.Now - timeList[0].TimeConsumed;
+
+            }
             var weight = user.Weight;
-            var consumedOZ = user.Glasses.Where(a => a.IsFavorite == false).Sum(x => x.Volume);
+           
             double value = 0;
 
             for(int i = 0; i < length; i++)
             {
-                var ABV = userB.FirstOrDefault().Glasses.ToList()[i].Alcohol.ABV;
+                //var ABV = timeList[i].Alcohol.ABV;
+                var ABV = _alcRepo.GetById(timeList[i].AlcoholId).FirstOrDefault().ABV;
 
-                var Volume = userB.FirstOrDefault().Glasses.ToList()[i].Volume;
+                var Volume = timeList[i].Volume;
 
-                value = consumedOZ * ABV * 0.075;
+                value = value + Volume * ABV * 0.075;
                                
             }
-            user.BAC = ((value) / weight) - (timeFrame.Hours * 0.015);
+            return user.BAC = ((value) / weight) - (( timeFrame.Hours * 60 + timeFrame.Minutes)/60 * 0.015);
          
         }
     }

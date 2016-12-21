@@ -22,7 +22,17 @@ namespace AlcoholApp.Infrastructure
 
         public IQueryable<Glass> GetGlassByUserNotFavorite(string userName)
         {
-            return (from f in _db.Glasses where (f.AppUser.UserName == userName) && (f.IsFavorite == false) select f);
+            return (from f in _db.Glasses where (f.AppUser.UserName == userName) && (f.IsFavorite == false) orderby f.TimeConsumed descending select f);
+        }
+
+        public Glass GetNDeleteFalse(string userId, int glassId)
+        {
+           return (from g in _db.Glasses where (g.Id == glassId) select g).FirstOrDefault();
+        }
+
+        public IQueryable<Glass> DeleteAllFalseGlasses(string userName)
+        {
+            return (from g in _db.Glasses where (g.AppUser.UserName == userName) && (g.IsFavorite == false) select g);
         }
 
         public IQueryable<Glass> GetGlassByUserFavorite(string userName)
