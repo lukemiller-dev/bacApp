@@ -57,14 +57,14 @@ namespace AlcoholApp.Data
                     Style = "Captain Morgan Spiced",
                     Brand = "Captain Morgan",
                     Type = "Spirit",
-                    ABV = 20m
+                    ABV = 20d
                 },
                 new Alcohol
                 {
                     Style = "Budweiser",
                     Brand = "Annheiser Busch",
                     Type = "Beer",
-                    ABV = 4.5m
+                    ABV = 4.5d
                 }
              );
             }

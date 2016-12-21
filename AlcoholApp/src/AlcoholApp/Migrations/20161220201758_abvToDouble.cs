@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace AlcoholApp.Migrations
 {
-    public partial class start : Migration
+    public partial class abvToDouble : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -15,7 +15,7 @@ namespace AlcoholApp.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    ABV = table.Column<decimal>(nullable: false),
+                    ABV = table.Column<double>(nullable: false),
                     Brand = table.Column<string>(nullable: true),
                     Style = table.Column<string>(nullable: true),
                     Type = table.Column<string>(nullable: true)
@@ -31,6 +31,7 @@ namespace AlcoholApp.Migrations
                 {
                     Id = table.Column<string>(nullable: false),
                     AccessFailedCount = table.Column<int>(nullable: false),
+                    BAC = table.Column<double>(nullable: false),
                     BirthDate = table.Column<DateTime>(nullable: false),
                     ConcurrencyStamp = table.Column<string>(nullable: true),
                     Email = table.Column<string>(maxLength: 256, nullable: true),

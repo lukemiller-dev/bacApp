@@ -29,9 +29,9 @@ namespace AlcoholApp.Controllers
 
         // GET api/values/5
         [HttpGet("BAC")]
-        public void Get(int id)
+        public double GetBac()
         {
-             _service.GetBAC(User.Identity.Name);
+            return _service.GetBAC(User.Identity.Name);
         }
 
         // POST api/values

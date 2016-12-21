@@ -8,8 +8,8 @@ using AlcoholApp.Data;
 namespace AlcoholApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20161219223716_start")]
-    partial class start
+    [Migration("20161220201758_abvToDouble")]
+    partial class abvToDouble
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -22,7 +22,7 @@ namespace AlcoholApp.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<decimal>("ABV");
+                    b.Property<double>("ABV");
 
                     b.Property<string>("Brand");
 
@@ -40,6 +40,8 @@ namespace AlcoholApp.Migrations
                     b.Property<string>("Id");
 
                     b.Property<int>("AccessFailedCount");
+
+                    b.Property<double>("BAC");
 
                     b.Property<DateTime>("BirthDate");
 
