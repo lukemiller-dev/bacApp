@@ -105,6 +105,18 @@ namespace AlcoholApp.Controllers {
                 this.$state.reload();
             })
         }
+
+        public deleteFalseG(id) {
+            this.$http.delete(`api/glasses/false/${id}`).then((res) => {
+                this.$state.reload();
+            })
+        }
+
+        public deleteAllFalseGs() {
+            this.$http.delete('api/glasses/allFalse').then((res) => {
+                this.$state.reload();
+            })
+        }
 } 
 
     export class AlcoholController {

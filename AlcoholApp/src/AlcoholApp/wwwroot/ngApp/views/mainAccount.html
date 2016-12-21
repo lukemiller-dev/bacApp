@@ -72,11 +72,12 @@
                                 <tr>
                                     <td><input class="weight" placeholder="Enter Weight" ng-model="controller.weight" /></td>
                                     <td><button ng-click="controller.setWeight()">Submit</button></td>
+                                    <td><button ng-click="controller.deleteAllFalseGs()" class="btn-default">FLN</button></td>
                                 </tr>
                             </table>
                            
                             <ol>
-                                <li ng-repeat="glass in controller.fGlasses"><p class="drinkTallyP">{{glass.timeConsumed | date: 'short'}} <span>{{glass.alcohol.style}} {{glass.volume}}</span></p></li>
+                                <li ng-repeat="glass in controller.fGlasses"><p class="drinkTallyP">{{glass.timeConsumed | date: 'short'}} <span>{{glass.alcohol.style}} {{glass.volume}}</span></p><i ng-click="controller.deleteFalseG(glass.id)" class="fa fa-window-close" aria-hidden="true"></i></li>
                                
                             </ol>
                           
