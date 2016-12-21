@@ -13,7 +13,7 @@ namespace AlcoholApp.Services
         private GlassesRepository _repo;
         private AppUsersRepository _AppUserRepo;
         private AlcoholsRepository _AlcRepo;
-        
+
         public GlassesService(GlassesRepository repo, AppUsersRepository AppUserRepo, AlcoholsRepository AlcRepo)
         {
             _repo = repo;
@@ -23,14 +23,14 @@ namespace AlcoholApp.Services
 
         public List<decimal> GetAlcoholTypeVolumes(string type)
         {
-            var beer =  new List<decimal> { 8, 12, 16 };
+            var beer = new List<decimal> { 8, 12, 16 };
             var spirit = new List<decimal> { 1.5m, 3, 4.5m };
             var wine = new List<decimal> { 5, 12, 16 };
 
             switch (type)
             {
                 case "Beer":
-                        return beer;
+                    return beer;
                 case "Spirit":
                     return spirit;
                 case "Wine":
@@ -51,10 +51,10 @@ namespace AlcoholApp.Services
                 IsFavorite = true,
                 UserId = user.Id,
                 AlcoholId = alcoholId
-            };                   
-                _repo.Add(newFav);          
+            };
+            _repo.Add(newFav);
         }
-        
+
 
         //public bool Check(string userName)
         //{
@@ -65,7 +65,7 @@ namespace AlcoholApp.Services
 
         public IEnumerable<AlcoholDTO> GetFavorites(string userName)
         {
-            
+
             var favorites = (from f in _repo.List()
                              where f.AppUser.UserName == userName
                              select new AlcoholDTO
@@ -88,7 +88,7 @@ namespace AlcoholApp.Services
                     select f.Alcohol);
         }
 
-      
+
 
         public void DeleteFav(string userId, int alcId)
         {
@@ -113,7 +113,7 @@ namespace AlcoholApp.Services
                                    Id = g.Alcohol.Id,
                                    Style = g.Alcohol.Style,
                                    Type = g.Alcohol.Type,
-                               }                              
+                               }
                            });
             return glasses;
         }
@@ -123,8 +123,8 @@ namespace AlcoholApp.Services
         {
             var falseGlasses = (from fg in _repo.GetGlassByUserNotFavorite(userName)
                                 select new GlassDTO
-                                {   
-                                    Id=fg.Id,   
+                                {
+                                    Id = fg.Id,
                                     TimeConsumed = fg.TimeConsumed,
                                     Volume = fg.Volume,
                                     IsFavorite = fg.IsFavorite,
@@ -168,14 +168,32 @@ namespace AlcoholApp.Services
         {
             var glass = new Glass
             {
-                Volume = volume, 
+                Volume = volume,
                 TimeConsumed = DateTime.Now,
                 Alcohol = _AlcRepo.GetById(alcId).FirstOrDefault(),
                 AppUser = _AppUserRepo.GetUserByUserName(userId).FirstOrDefault(),
-                IsFavorite=false
+                IsFavorite = false
 
             };
             _repo.Add(glass);
+        }
+
+
+        public void DeleteFalseGlass(string userId, int glassId)
+        {
+            var glass = _repo.GetNDeleteFalse(userId, glassId);
+            _repo.Delete(glass);
+        }
+
+        public void DeleteAllFalseGlasses(string userName)
+        {
+            
+            var falseGlasses = _repo.DeleteAllFalseGlasses(userName).ToList();
+            for (int i = 0; i < falseGlasses.Count(); i++)
+            {
+                _repo.Delete(falseGlasses[i]);
+            }
+           
         }
     }
 }

@@ -89,8 +89,22 @@ namespace AlcoholApp.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            _service.DeleteFav(User.Identity.Name, id);        
-            
+            _service.DeleteFav(User.Identity.Name, id);                    
+        }
+
+        //DELETE from false list
+        [HttpDelete("false/{id}")]
+        public void DeleteFalse(int id)
+        {
+            _service.DeleteFalseGlass(User.Identity.Name, id);
+        }
+
+        //DELETE all false glasses
+        [HttpDelete("allFalse")]
+        public void DeleteAllFalseGlasses()
+        {
+            _service.DeleteAllFalseGlasses(User.Identity.Name);
+
         }
     }
 }
