@@ -28,10 +28,10 @@ namespace AlcoholApp.Controllers
         }
 
         // GET api/values/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("BAC")]
+        public double GetBac()
         {
-            return "value";
+            return _service.GetBAC(User.Identity.Name);
         }
 
         // POST api/values
@@ -41,9 +41,10 @@ namespace AlcoholApp.Controllers
         }
 
         // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        [HttpPut("weight")]
+        public void Put([FromBody] int weight)
         {
+            _service.SetWeight(weight, User.Identity.Name);
         }
 
         // DELETE api/values/5

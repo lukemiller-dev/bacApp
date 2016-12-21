@@ -13,5 +13,24 @@ namespace AlcoholApp.Infrastructure
         {
             _db = db;
         }
+        
+        public IQueryable<ApplicationUser> AppUserNotFavorite(string userName)
+        {
+            return from a in _db.Users
+                   where a.UserName == userName
+                   from g in a.Glasses
+                   where g.IsFavorite == false
+                   select a;
+        }
+
+        public IQueryable<Glass> GlassesToAdd(string userName)
+        {
+            return from a in _db.Users
+                   where a.UserName == userName
+                   from g in a.Glasses
+                   where g.IsFavorite == false
+                   select g;
+        }
+      
     }
 }

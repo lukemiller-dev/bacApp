@@ -13,14 +13,14 @@ namespace AlcoholApp.Services
     {
         //Injection
         private AlcoholsRepository _repo;
-        private FavoritesService _favService;
+        private GlassesService _glassService;
 
         //Constructor
 
-        public AlcoholsService(AlcoholsRepository repo, FavoritesService favService)
+        public AlcoholsService(AlcoholsRepository repo, GlassesService glassService)
         {
             _repo = repo;
-            _favService = favService;
+            _glassService = glassService;
         }
 
         public List<decimal> GetAlcoholTypeVolumes(string type)
@@ -46,7 +46,7 @@ namespace AlcoholApp.Services
 
         public AlcoholDTO ListId(int id)
         {
-            var alcoholId = _repo.GetById(id);
+            var alcoholId = _repo.GetById(id).FirstOrDefault();
             return new AlcoholDTO
             {
                 Id = alcoholId.Id,
@@ -59,7 +59,7 @@ namespace AlcoholApp.Services
 
         public IEnumerable<AlcoholDTO> ListUnsavedAlcohols(string userName)
         {
-            IEnumerable<Alcohol> favorites = _favService.GetRelations(userName);
+            IEnumerable<Alcohol> favorites = _glassService.GetRelations(userName);
             var alcohols = (from a in _repo.List().AsEnumerable()
                             where !favorites.Contains(a)
                             select new AlcoholDTO
@@ -85,28 +85,7 @@ namespace AlcoholApp.Services
                                 Brand = a.Brand,
                                 Style = a.Style,
                                 ABV = a.ABV,
-                                //Glasses = (from g in a.Glasses select new GlassDTO
-                                //{
-                                //    Id = g.Id,
-                                //    TimeConsumed = g.TimeConsumed,
-                                //    Volume = g.Volume,
-                                //    Night = new NightDTO
-                                //    {
-                                //        ApplicationUser = new ApplicationUserDTO
-                                //        {
-                                //            BirthDate = g.Night.ApplicationUser.BirthDate,
-                                //            FirstName = g.Night.ApplicationUser.FirstName,
-                                //            Height = g.Night.ApplicationUser.Height,
-                                //            IsMale = g.Night.ApplicationUser.IsMale,
-                                //            LastName = g.Night.ApplicationUser.LastName,
-                                //            Weight = g.Night.ApplicationUser.Weight
-                                //        },
-                                //        EndTime = g.Night.EndTime,
-                                //        Id = g.Night.Id,
-                                //        IsDriving = g.Night.IsDriving,
-                                //        StartTime = g.Night.StartTime
-                                //    }
-                                //}).ToList()
+                              
                                 
                             }).ToList();
             return alcohols;

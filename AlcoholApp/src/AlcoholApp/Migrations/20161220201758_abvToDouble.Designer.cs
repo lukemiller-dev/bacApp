@@ -8,8 +8,8 @@ using AlcoholApp.Data;
 namespace AlcoholApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20161213152513_favorites")]
-    partial class favorites
+    [Migration("20161220201758_abvToDouble")]
+    partial class abvToDouble
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -22,7 +22,7 @@ namespace AlcoholApp.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<decimal>("ABV");
+                    b.Property<double>("ABV");
 
                     b.Property<string>("Brand");
 
@@ -40,6 +40,8 @@ namespace AlcoholApp.Migrations
                     b.Property<string>("Id");
 
                     b.Property<int>("AccessFailedCount");
+
+                    b.Property<double>("BAC");
 
                     b.Property<DateTime>("BirthDate");
 
@@ -96,60 +98,28 @@ namespace AlcoholApp.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("AlcoholApp.Models.Favorite", b =>
-                {
-                    b.Property<int>("AlcoholId");
-
-                    b.Property<string>("UserId");
-
-                    b.HasKey("AlcoholId", "UserId");
-
-                    b.HasIndex("AlcoholId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Favorites");
-                });
-
             modelBuilder.Entity("AlcoholApp.Models.Glass", b =>
-                {
-                    b.Property<int>("NightId");
-
-                    b.Property<int>("AlcoholId");
-
-                    b.Property<int>("Id");
-
-                    b.Property<DateTime>("TimeConsumed");
-
-                    b.Property<decimal>("Volume");
-
-                    b.HasKey("NightId", "AlcoholId");
-
-                    b.HasIndex("AlcoholId");
-
-                    b.HasIndex("NightId");
-
-                    b.ToTable("Glasses");
-                });
-
-            modelBuilder.Entity("AlcoholApp.Models.Night", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("EndTime");
+                    b.Property<int>("AlcoholId");
 
-                    b.Property<bool>("IsDriving");
+                    b.Property<bool>("IsFavorite");
 
-                    b.Property<DateTime>("StartTime");
+                    b.Property<DateTime>("TimeConsumed");
 
                     b.Property<string>("UserId");
 
+                    b.Property<double>("Volume");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("AlcoholId");
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Nights");
+                    b.ToTable("Glasses");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole", b =>
@@ -259,19 +229,6 @@ namespace AlcoholApp.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("AlcoholApp.Models.Favorite", b =>
-                {
-                    b.HasOne("AlcoholApp.Models.Alcohol", "Alcohol")
-                        .WithMany("Favorites")
-                        .HasForeignKey("AlcoholId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("AlcoholApp.Models.ApplicationUser", "AppUser")
-                        .WithMany("Favorites")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
             modelBuilder.Entity("AlcoholApp.Models.Glass", b =>
                 {
                     b.HasOne("AlcoholApp.Models.Alcohol", "Alcohol")
@@ -279,16 +236,8 @@ namespace AlcoholApp.Migrations
                         .HasForeignKey("AlcoholId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("AlcoholApp.Models.Night", "Night")
+                    b.HasOne("AlcoholApp.Models.ApplicationUser", "AppUser")
                         .WithMany("Glasses")
-                        .HasForeignKey("NightId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("AlcoholApp.Models.Night", b =>
-                {
-                    b.HasOne("AlcoholApp.Models.ApplicationUser", "ApplicationUser")
-                        .WithMany("Nights")
                         .HasForeignKey("UserId");
                 });
 

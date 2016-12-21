@@ -10,7 +10,7 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li ng-repeat="favorite in controller.favorites"><a ng-click="controller.selectAlcohol(favorite.id)" class="navDrinks" href="#">{{favorite.style}}</a><i class="fa fa-window-close" ng-click="controller.deleteFav(favorite.id)" aria-hidden="true"></i></li>
+                            <li ng-repeat="favorite in controller.tGlasses"><a ng-click="controller.selectAlcohol(favorite.alcohol.id)" class="navDrinks" href="#">{{favorite.alcohol.style}}</a><i class="fa fa-window-close" ng-click="controller.deleteFav(favorite.id)" aria-hidden="true"></i></li>
                         </ul>
                         <div class="navbar-form navbar-right">
                             <section id="main">
@@ -27,8 +27,6 @@
                                     </ul>
                                 </div>
                             </section>
-
-
                         </div>
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->
@@ -60,8 +58,9 @@
 
                                 </tr>
                             </table>
+
                             <div class="row">
-                                <i id="homeBeerIcon" class="fa fa-beer" aria-hidden="true"></i>
+                                <i id="homeBeerIcon" class="fa fa-beer" aria-hidden="true" ng-click="controller.addGlass()"></i>
                                 <p class="ozUnderIcon" ng-hide="controller.check()">{{controller.volume}} oz</p>
                             </div>
                         </center>
@@ -69,22 +68,26 @@
                     <div class="col-md-6">
                         <div class="drinkTally">
                             <h3>Drink Tally</h3>
+                            <table>
+                                <tr>
+                                    <td><input class="weight" placeholder="Enter Weight" ng-model="controller.weight" /></td>
+                                    <td><button ng-click="controller.setWeight()">Submit</button></td>
+                                </tr>
+                            </table>
+                           
                             <ol>
-                                <li><p class="drinkTallyP">7:00 pm <span>Jack Daniels 1.5 oz</span></p></li>
-                                <li><p class="drinkTallyP">7:08 pm <span>Captain Morgan 1.5 oz</span></p></li>
-                                <li><p class="drinkTallyP">7:30 pm <span>Miller Light 12 oz</span></p></li>
-                                <li><p class="drinkTallyP">7:45 pm <span>Miller Light 12 oz</span></p></li>
+                                <li ng-repeat="glass in controller.fGlasses"><p class="drinkTallyP">{{glass.timeConsumed | date: 'short'}} <span>{{glass.alcohol.style}} {{glass.volume}}</span></p></li>
+                               
                             </ol>
-                            <center>
-                                <button class="calculateBtn">Calculate BAC %</button>
-                            </center>
+                          
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <center>
-                        <p class="bacTitle">BAC %</p>
-                        <p class="bacPercent">.014%</p>
+                        <p class="bacTitle">BAC%</p>
+                        <p class="bacPercent">{{controller.bac | number:2}}</p>
+
                     </center>
                 </div>
             </div>

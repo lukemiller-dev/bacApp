@@ -21,7 +21,7 @@ namespace AlcoholApp.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<decimal>("ABV");
+                    b.Property<double>("ABV");
 
                     b.Property<string>("Brand");
 
@@ -39,6 +39,8 @@ namespace AlcoholApp.Migrations
                     b.Property<string>("Id");
 
                     b.Property<int>("AccessFailedCount");
+
+                    b.Property<double>("BAC");
 
                     b.Property<DateTime>("BirthDate");
 
@@ -95,21 +97,6 @@ namespace AlcoholApp.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("AlcoholApp.Models.Favorite", b =>
-                {
-                    b.Property<int>("AlcoholId");
-
-                    b.Property<string>("UserId");
-
-                    b.HasKey("AlcoholId", "UserId");
-
-                    b.HasIndex("AlcoholId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Favorites");
-                });
-
             modelBuilder.Entity("AlcoholApp.Models.Glass", b =>
                 {
                     b.Property<int>("Id")
@@ -117,13 +104,19 @@ namespace AlcoholApp.Migrations
 
                     b.Property<int>("AlcoholId");
 
+                    b.Property<bool>("IsFavorite");
+
                     b.Property<DateTime>("TimeConsumed");
 
-                    b.Property<decimal>("Volume");
+                    b.Property<string>("UserId");
+
+                    b.Property<double>("Volume");
 
                     b.HasKey("Id");
 
                     b.HasIndex("AlcoholId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Glasses");
                 });
@@ -235,25 +228,16 @@ namespace AlcoholApp.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("AlcoholApp.Models.Favorite", b =>
-                {
-                    b.HasOne("AlcoholApp.Models.Alcohol", "Alcohol")
-                        .WithMany("Favorites")
-                        .HasForeignKey("AlcoholId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("AlcoholApp.Models.ApplicationUser", "AppUser")
-                        .WithMany("Favorites")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
             modelBuilder.Entity("AlcoholApp.Models.Glass", b =>
                 {
                     b.HasOne("AlcoholApp.Models.Alcohol", "Alcohol")
                         .WithMany("Glasses")
                         .HasForeignKey("AlcoholId")
                         .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("AlcoholApp.Models.ApplicationUser", "AppUser")
+                        .WithMany("Glasses")
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRoleClaim<string>", b =>

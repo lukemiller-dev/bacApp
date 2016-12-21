@@ -18,9 +18,9 @@ namespace AlcoholApp.Infrastructure
 
         //Get User by UserName
 
-        public ApplicationUser GetUserByUserName(string userName)
+        public IQueryable<ApplicationUser> GetUserByUserName(string userName)
         {
-            return _db.Users.FirstOrDefault(u => u.UserName == userName);
+            return from u in _db.Users where u.UserName == userName select u;
         }
 
         //Get

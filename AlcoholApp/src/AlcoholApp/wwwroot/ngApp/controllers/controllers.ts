@@ -27,18 +27,38 @@ namespace AlcoholApp.Controllers {
         public alcohols;
         public reason;
         public volume = null;
-        public glass;
+        public glasses;
+        public fGlasses;
+        public tGlasses;
+        public appUsers;
+        public weight;
+        public bac;
+       
+
         constructor(public $http: ng.IHttpService, public $state: ng.ui.IStateService) {
             this.dropDownToggle = false;
+           
             $http.get('api/alcohols/unsaved').then((res) => {
                 this.drinks = res.data;
-            })
-            $http.get('api/favorites').then((res) => {
+            })           
+            $http.get('api/glasses').then((res) => {
                 this.favorites = res.data;
             })
-            //$http.get('api/glasses').then((res) => {
-            //    this.glass = res.data;
-            //})
+            $http.get('api/glasses/falseGlasses').then((res) => {
+                this.fGlasses = res.data;
+            })
+            $http.get('api/glasses/trueGlasses').then((res) => {
+                this.tGlasses = res.data;
+            })
+            $http.get('api/appUsers/BAC').then((res) => {
+                this.bac = res.data;
+            })
+        }
+
+        public addGlass() {
+            this.$http.post(`api/glasses/newGlasses/${this.volume}`, this.alcoholInfo).then((res) => {
+                this.$state.reload();
+            })
         }
 
         public selectAlcohol(alcoholId) {
@@ -48,7 +68,7 @@ namespace AlcoholApp.Controllers {
         }
 
         public addFav(drink) {
-            this.$http.post('api/favorites', drink).then((res) => {
+            this.$http.post('api/glasses', drink).then((res) => {
                 this.$state.reload();
             }).catch((reason) => {
                 this.reason = reason.data;
@@ -65,7 +85,7 @@ namespace AlcoholApp.Controllers {
         }
 
         public deleteFav(id) {
-            this.$http.delete(`api/favorites/${id}`).then((res) => {
+            this.$http.delete(`api/glasses/${id}`).then((res) => {
                 this.$state.reload();
             })
         }
@@ -77,6 +97,13 @@ namespace AlcoholApp.Controllers {
             } else {
                 this.dropDownToggle = true;
             }
+        }
+
+        public setWeight() {
+            this.$http.put(`api/appUsers/weight`, this.weight).then((res) => {
+                console.log(this.weight);
+                this.$state.reload();
+            })
         }
 } 
 

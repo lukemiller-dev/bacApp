@@ -57,17 +57,15 @@ namespace AlcoholApp
             services.AddTransient<ISmsSender, AuthMessageSender>();
 
             // My services and repositories
-            services.AddScoped<GlassesRepository>();
-         
+            services.AddScoped<GlassesRepository>();        
             services.AddScoped<AlcoholsRepository>();
             services.AddScoped<AppUsersRepository>();
-            services.AddScoped<FavoritesRepository>();
+            
 
-            services.AddScoped<GlassesService>();
-          
+            services.AddScoped<GlassesService>();         
             services.AddScoped<AlcoholsService>();
             services.AddScoped<AppUsersService>();
-            services.AddScoped<FavoritesService>();
+            
 
 
 

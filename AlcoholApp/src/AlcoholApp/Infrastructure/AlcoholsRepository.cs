@@ -16,9 +16,9 @@ namespace AlcoholApp.Infrastructure
         }
 
         //GetById
-        public Alcohol GetById(int id)
+        public IQueryable<Alcohol> GetById(int id)
         {
-            return (from a in _db.Alcohols where a.Id == id select a).FirstOrDefault();
+            return (from a in _db.Alcohols where a.Id == id select a);
         }
 
         //GetByType
@@ -26,5 +26,10 @@ namespace AlcoholApp.Infrastructure
         {
             return from a in _db.Alcohols where a.Type == type select a;
         }
+
+        //public IQueryable<Alcohol> GetABV(decimal abv)
+        //{
+        //    return from a in _db.Alcohols where a.ABV == abv select a;
+        //}
     }
 }
