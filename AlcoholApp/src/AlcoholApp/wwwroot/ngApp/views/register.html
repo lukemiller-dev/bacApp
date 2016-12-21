@@ -4,16 +4,7 @@
         
         <div class="mainDiv">
 
-            
-
-                <h5 class="centAlign"><b> Welcome to Alcohol App</b></h5>
-                <ul>
-                    <li ng-repeat="externalLogin in account.externalLogins">
-                        <a target="_self" href="{{externalLogin.url}}">{{externalLogin.name}}</a>
-                    </li>
-                </ul>
-
-                <h4 class="centAlign"><b>Local Registration</b> </h4>
+                <h4 class="regiHeader"><b>Local Registration</b> </h4>
                 
                 <ul>
                     <li ng-repeat="message in controller.validationMessages">
@@ -58,7 +49,11 @@
                     </div>
 
                 </form>
-           
+            <ul>
+                <li ng-repeat="externalLogin in account.externalLogins">
+                    <a target="_self" href="{{externalLogin.url}}">{{externalLogin.name}}</a>
+                </li>
+            </ul>
             
 
             
