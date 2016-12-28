@@ -24,6 +24,13 @@ namespace AlcoholApp.Controllers
             return _service.GetFavorites(User.Identity.Name);
         }
 
+        //Get icons
+        [HttpGet("icons")]
+        public string GetImg(string type)
+        {
+            return _service.GetDrinkIcons(type);
+        } 
+
         //Get False Glasses
         [HttpGet("falseGlasses")]
         public IEnumerable<GlassDTO> GetFalseGlasses()
@@ -71,6 +78,8 @@ namespace AlcoholApp.Controllers
         {
             _service.Add(User.Identity.Name, volume, alcDto.Id);
         }
+
+
         //Get Glasses
 
         [HttpGet("glassDtos")]

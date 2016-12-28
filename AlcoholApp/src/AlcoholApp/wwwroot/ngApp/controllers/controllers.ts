@@ -39,6 +39,7 @@ namespace AlcoholApp.Controllers {
         public bac;
         public bacBool;
         public maxVal;
+        public icon;
        
 
         constructor(public $http: ng.IHttpService, public $state: ng.ui.IStateService) {
@@ -56,6 +57,7 @@ namespace AlcoholApp.Controllers {
             $http.get('api/glasses/trueGlasses').then((res) => {
                 this.tGlasses = res.data;
             })
+          
             $http.get('api/appUsers/BAC').then((res) => {
                 this.bac = res.data;
             })
