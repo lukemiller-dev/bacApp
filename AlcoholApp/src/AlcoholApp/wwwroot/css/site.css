@@ -45,13 +45,14 @@ body {
     background-color: #f8f8f8;
     border: 2px solid #ff884d;
     color: black;
-    border-radius: 5px;
+    border-radius: 2px;
     height: 30px;
     width: 100px;
     font-size: 15px;
     margin-right: 100px;
 }
-
+.navLogin{
+    border: 1px solid #80bfff;
 .navList {
     font-size: 15px;
     color: black;

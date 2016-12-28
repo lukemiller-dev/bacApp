@@ -1,12 +1,12 @@
 ﻿body {
-    background-color:#f2f2f2;
+    background-color: #f2f2f2;
 }
 
 .navBarDiv {
     background-color: #662900;
 }
 
-.jumbotron{
+.jumbotron {
     color: black;
     height: 600px;
     width: 100%;
@@ -17,13 +17,14 @@
 
 .layer {
     background-color: rgba(191, 127, 63, 0.5);
-     position: absolute;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    font-family:'Orbitron', sans-serif;
+    font-family: 'Orbitron', sans-serif;
 }
+
 .jumbotron h1 {
     text-align: center;
 }
@@ -42,16 +43,16 @@
     font-size: 18px;
 }
 
-.jumbotron button:hover {
-    background-color:#b33c00;
-    color: #fff;
-}
+    .jumbotron button:hover {
+        background-color: #b33c00;
+        color: #fff;
+    }
 
-#GetId{   
-    background-color:#ffebcc;
-    border-color:black;
-    border-width:1px; 
-    font-family:'Arial Rounded MT';  
+#GetId {
+    background-color: #ffebcc;
+    border-color: black;
+    border-width: 1px;
+    font-family: 'Arial Rounded MT';
 }
 
 /*MidSec*/
@@ -59,7 +60,7 @@
 .midSec {
     width: 100%;
     height: 350px;
-    background-color:#b33c00;
+    background-color: #b33c00;
 }
 
 #midSecIcons {
@@ -70,8 +71,8 @@
 
 .midSec h3 {
     color: #fff;
-    text-decoration:underline;
-    text-align: center; 
+    text-decoration: underline;
+    text-align: center;
 }
 
 .midSecPs {
@@ -83,23 +84,23 @@
 /*Template*/
 
 .template {
-    height: 500px;
+    height: 670px;
     background-color: #f2f2f2;
     width: 100%;
     margin-right: auto;
     margin-left: auto;
-    margin-top:0px;
+    margin-top: 0px;
 }
 
 .accountDiv {
-    height: 525px;
+    height: 625px;
     width: 100%;
     background-color: #ffddcc;
     border-radius: 0px;
     margin-top: 50px;
 }
 
-#favNav {  
+#favNav {
     background-color: #b33c00;
 }
 
@@ -127,14 +128,18 @@
 .headerNdropdown td {
     margin-right: 20px;
 }
-
+#beerDiv{
+    margin-right:20px;
+}
 #homeBeerIcon {
     font-size: 200px;
     margin-top: 50px;
+    margin-left: 300px;
 }
 
 .ozUnderIcon {
     font-size: 30px;
+    padding-left:350px;
 }
 
 #homeProgressBar {
@@ -142,7 +147,7 @@
     height: 40px;
     width: 400px;
     background-color: #ff884d;
-    width: 60%
+    width: 60%;
 }
 
 .progress {
@@ -151,27 +156,25 @@
     margin-top: 40px;
     margin-right: auto;
     margin-left: auto;
-
 }
 
 .drinkTally {
-    height: 330px;
+    height: 300px;
     width: 310px;
-    background-color:#f2f2f2;
+    background-color: #f2f2f2;
     margin-top: 20px;
     border-radius: 3px;
     margin-right: auto;
-    margin-left: auto;
+    margin-left: 20px;
     border: 1px solid black;
-    
 }
 
-.drinkTally h3 {
-    padding-top: 10px;
-    text-decoration: underline;
-    text-align: center;
-    border-color:black;
-}
+    .drinkTally h3 {
+        padding-top: 10px;
+        text-decoration: underline;
+        text-align: center;
+        border-color: black;
+    }
 
 .drinkTallyP {
     font-size: 15px;
@@ -180,66 +183,62 @@
 
 
 .bacPercent {
-    text-align:center;
+    text-align: center;
     margin-top: 20px;
-    font-size: 25px;
+    font-size: 100px;
     color: black;
-    border: 2px solid #ff884d;
+    border: 2px solid black;
     border-radius: 5px;
-    height: 50px;
-    width: 210px;
-    padding-top: 13px;
-
+    height: 100px;
+    width: 500px;
+    padding-top: 37px;
 }
 
 /*Progress Bar*/
 
 
 
- .progress {
-     margin-top: 150px;
-     float: left;     
-    width: 250px;
-    height: 50px;
-    padding-top: 1.75px;
-   -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
-  transform: rotate(-90deg);
-}
- 
-
- .progress-bar-danger {
-    width: 65%;    
+.progress {
+    text-align:justify;
+    margin-top: 35px;
+    width: 500px;
+    height: 19px;
+    border:2px solid black;
+    margin-right:auto;   
 }
 
-/*PreFooter*/
+.spanProg{
+   text-align:right;
+}
 
 
-.preFooterDiv{
+
+.preFooterDiv {
     position: relative;
-    text-align:center;
-    height:150px;
+    text-align: center;
+    height: 150px;
     width: 100%;
-    background-color:#ce937e;
-    border-color:#f1e0da;   
+    background-color: #ce937e;
+    border-color: #f1e0da;
 }
-#preFooterBtn{ 
-    font-size:25px;   
-    height:40px;
+
+#preFooterBtn {
+    font-size: 25px;
+    height: 40px;
     margin-top: 10px;
     width: 200px;
-    background-color:#ffebcc;
-    border-color:black;
-    border-width:1px;  
+    background-color: #ffebcc;
+    border-color: black;
+    border-width: 1px;
 }
 
 .preFooterH {
     vertical-align: middle;
-   
-   
 }
-.foot{
-    height:100px;
-    width:auto;
-    text-align:center;
-    background-color:#f2f2f2;
+
+.foot {
+    height: 100px;
+    width: auto;
+    text-align: center;
+    background-color: #f2f2f2;
 }

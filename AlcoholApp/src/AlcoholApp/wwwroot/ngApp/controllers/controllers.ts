@@ -154,7 +154,12 @@ namespace AlcoholApp.Controllers {
                 this.$state.reload();
             })
         }
-
+        public deleteAlco(id)
+        {
+            this.$http.delete(`api/Alcohols/${id}`).then((res) => {
+                this.$state.reload();
+            });
+        }
         
 
         

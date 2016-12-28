@@ -27,6 +27,13 @@ namespace AlcoholApp.Infrastructure
             return from a in _db.Alcohols where a.Type == type select a;
         }
 
+        
+
+        //internal void Delete(IQueryable<Alcohol> alcohol)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
         //public IQueryable<Alcohol> GetABV(decimal abv)
         //{
         //    return from a in _db.Alcohols where a.ABV == abv select a;

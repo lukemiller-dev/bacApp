@@ -66,9 +66,13 @@
     border-radius:2px;
     border:1px solid #e1e8ed;
     margin-bottom:10px;
+    text-indent:20px;
+    
+    
 }
 .personal:focus{
     border: 1px solid #80bfff;
+    
     
 }
 .mainDiv {

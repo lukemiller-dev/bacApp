@@ -8,7 +8,7 @@ using AlcoholApp.Data;
 namespace AlcoholApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20161221160128_start")]
+    [Migration("20161221190359_start")]
     partial class start
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

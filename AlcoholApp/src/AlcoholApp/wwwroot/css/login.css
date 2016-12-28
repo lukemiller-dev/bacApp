@@ -7,13 +7,18 @@
     border: 1px solid ;
     height:35px;
     width:250px;
-    border-radius:5px;
+    border-radius:2px;
     font-size:16px;
+    text-indent:20px;
     
 }
+.modalFields {
+    border: 1px solid #80bfff;
+}
 
-::-webkit-input-placeholder {
-    padding-left: 20px;
+/*::-webkit-input-placeholder {
+    padding-left: 20px;*/
+    
 }
 
 
@@ -33,8 +38,12 @@
     margin-top:4px;
     height:35px;
     width:250px;
-    border-radius:5px;
+    border-radius:2px;
     font-size:16px;
+    text-indent:20px;
+}
+.password {
+    border: 1px solid #80bfff;
 }
 .regiBtn{
     border:none;
@@ -42,9 +51,12 @@
     margin-top:4px;
     height:35px;
     width:250px;
-    border-radius:5px;
+    border-radius:2px;
     font-size:16px;
     background-color:#09B8E8;
+}
+.regiBtn {
+    border: 1px solid #80bfff;
 }
 .facebookBtn{
     border:none;
@@ -52,9 +64,12 @@
     margin-top:2px;
     height:35px;
     width:250px;
-    border-radius:5px;
+    border-radius:2px;
     font-size:16px;
     background-color:#0A19C2;
+}
+.facebookBtn{
+    border: 1px solid #80bfff;
 }
 .googleBtn{
     border:none;
@@ -62,10 +77,13 @@
     margin-top:2px;
     height:35px;
     width:250px;
-    border-radius:5px;
+    border-radius:2px;
     font-size:16px;
     background-color:#E8093D;
     
+}
+.googleBtn{
+    border: 1px solid #80bfff;
 }
 #facebookIcon{
     color:white;

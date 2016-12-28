@@ -133,5 +133,13 @@ namespace AlcoholApp.Services
         //    a.Type = alcoholDTO.Type;
                
         //}
+
+        public void Delete(int id)
+        {
+            var alcohol = _repo.GetById(id).FirstOrDefault();
+            _repo.Delete(alcohol);
+
+
+        }
     }
 }
