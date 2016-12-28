@@ -18,7 +18,8 @@
         {{alcohol.style}}<br />
         {{alcohol.abv}}
         <input ng-click="controller.deleteAlco(alcohol.id)" type="button" value="Delete" />
-
+        <!--edit-->
+        <a ui-sref="update({id:alcohol.id})">Edit</a>
     </li>
 
 </ul>

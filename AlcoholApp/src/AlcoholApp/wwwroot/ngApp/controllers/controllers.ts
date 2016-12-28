@@ -183,5 +183,20 @@ namespace AlcoholApp.Controllers {
     export class AboutController {
         public message = 'Hello from the about page!';
     }
-
+    export class EditController {
+        public alcohols;
+        constructor(public $http: ng.IHttpService, public $stateparams:
+            ng.ui.IStateParamsService, public $state: ng.ui.IStateService) {
+            $http.get(`/api/Alcohols/${$stateparams["id"]}`).then((res) => {
+                this.alcohols = res.data;
+            });
+        }
+        public editAlcohol()
+        {
+            this.$http.put(`/api/Alcohols/${this.$stateparams["id"]}`, this.alcohols).then((res) => {
+                this.$state.go('addalcohol');
+            });
+        }
+            
+    }
 }

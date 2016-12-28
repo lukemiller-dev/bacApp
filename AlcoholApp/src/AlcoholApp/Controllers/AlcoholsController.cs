@@ -48,6 +48,12 @@ namespace AlcoholApp.Controllers
             _service.Add(alcohol);
         }
 
+        // PUT api/values/5
+        [HttpPut("{id}")]
+        public void Put(int id, [FromBody]AlcoholDTO value)
+        {
+            _service.editAlcohol(id,value);
+        }
         //// PUT api/values/5
         //[HttpPut("{id}")]
         //public void Put(int id, [FromBody]AlcoholDTO alcoholDTO)

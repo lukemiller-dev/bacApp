@@ -141,5 +141,14 @@ namespace AlcoholApp.Services
 
 
         }
+        public void editAlcohol(int id,AlcoholDTO Alco)
+        {
+            var alc = _repo.GetById(id).FirstOrDefault();
+            alc.ABV = Alco.ABV;
+            alc.Brand = Alco.Brand;
+            alc.Style = Alco.Style;
+            alc.Type = Alco.Type;
+            _repo.Edit(alc);
+        }
     }
 }

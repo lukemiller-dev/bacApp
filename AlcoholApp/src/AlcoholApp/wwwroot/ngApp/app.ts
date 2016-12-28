@@ -54,6 +54,14 @@ namespace AlcoholApp {
                 templateUrl: '/ngApp/views/about.html',
                 controller: AlcoholApp.Controllers.AboutController,
                 controllerAs: 'controller'
+                
+            })
+
+            .state('update', {
+                url: '/update/:id',
+                templateUrl: '/ngApp/views/details.html',
+                controller: AlcoholApp.Controllers.EditController,
+                controllerAs:'controller'
             })
             .state('notFound', {
                 url: '/notFound',
