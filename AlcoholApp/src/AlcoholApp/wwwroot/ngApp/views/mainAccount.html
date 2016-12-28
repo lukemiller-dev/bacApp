@@ -10,7 +10,7 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li ng-repeat="favorite in controller.tGlasses"><a ng-click="controller.selectAlcohol(favorite.alcohol.id)" class="navDrinks" href="#">{{favorite.alcohol.style}}</a><i class="fa fa-window-close" ng-click="controller.deleteFav(favorite.id)" aria-hidden="true"></i></li>
+                            <li ng-repeat="favorite in controller.tGlasses"><a ng-click="controller.selectAlcohol(favorite.alcohol.id)" class="navDrinks" href="#">{{favorite.alcohol.style}}</a><i id="navDelete" class="fa fa-window-close" ng-click="controller.deleteFav(favorite.id)" aria-hidden="true"></i></li>
                         </ul>
                         <div class="navbar-form navbar-right">
                             <section id="main">
@@ -32,86 +32,116 @@
                 </div><!-- /.container-fluid -->
             </nav>
 
-            <div ng-click="controller.dropDownToggle = false" class="drinkNtally">
-                <div class="row">
-                    <div class="col-md-6">
-                        <center>
-                            <table class="headerNdropdown">
-                                <tr>
-                                    <td>
-                                        <h2 class="drinkHeader">
-                                            {{controller.alcoholInfo.style}}
-                                        </h2>
-                                    </td>
-
-                                    <td>
-                                        <div class="dropdown">
-                                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Volume<span class="caret"></span>
-                                            </button>
-                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                                <li ng-repeat="v in controller.alcoholInfo.volumes">
-                                                    <a ng-click="controller.volume = v">{{v}} oz</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </td>
-
-                                </tr>
-                            </table>
-
-                            <div class="row">
-                                <i id="homeBeerIcon" class="fa fa-beer" aria-hidden="true" ng-click="controller.addGlass()"></i>
-                                <p class="ozUnderIcon" ng-hide="controller.check()">{{controller.volume}} oz</p>
-                            </div>
-                        </center>
+            <div class="row">
+                <div class="col-md-12">
+                    
+                    <center>
+                        <table>
+                            <tr>
+                        <td><input class="weight" placeholder="Enter Weight" ng-model="controller.weight" /></td>
+                        <td><button class="weightBtn" ng-click="controller.setWeight()"></button></td>
+                        <td><p class="bacAccountPercent">{{controller.bac | number:2}}%</p></td>
+                        </table>
+                    </center>
                     </div>
+                </div>
 
-                    <!-- WEIGHT INPUT TABLE -->
+         
+                   <div class="row"> 
+                       <div class="col-md-3"></div> 
+                       <div class="col-md-6">                                         
+                  
+                        <div class="exclamationDiv">
+                        <ul class="iconList">
+                                                    
+                        <li ng-show="controller.checkBAC()"><i id="exclamation" class="fa fa-exclamation-triangle" aria-hidden="true"></i>Do Not Drive!</li>
+                               
+                                <li class="skull"><img class="skull" src="../../images/skull3.png" height="50" width="50" /></li>             
+                                
+                            </ul>
+                            <!--<table>
+                                <tr>
+                                    <td class="skull"><img src="../../images/skull3.png" height="50" width="50" /></td>
+                                </tr>
+                            </table>-->
+                                </div>
+                           <div class="pBar">
+                               <progress value="{{controller.bac}}" max="{{controller.maxVal}}" style="color: #f2f2f2; background-color:#f2f2f2; text-align: center"></progress>
+                              
+                           </div>
+                           </div>
+                       <div class="col-md-3"></div>
+                             </div>                         
+                         
+                     
+                     
+               
+              
+               
+            
+            <!--<div class="bottomBorder"></div>-->
 
-                    <div class="col-md-6">
+            <div class="row">
+                <div class="selectedDiv">
+                <div class="col-md-6 col-sm-6">
+                    <center>
+                        <table class="selectedDrinkTable">
+                            <tr>
+                                <td>
+                                    <h2 class="selectedHeader">
+                                        {{controller.alcoholInfo.style}}
+                                    </h2>
+                                </td>
+
+                                <td>
+                                    <div class="selectedDropdown">
+                                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                            Volume<span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                            <li ng-repeat="v in controller.alcoholInfo.volumes">
+                                                <a ng-click="controller.volume = v">{{v}} oz</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+
+                            </tr>
+                        </table>
+
+                        <div class="row">
+                            <i id="selectedIcon" class="fa fa-beer" aria-hidden="true" ng-click="controller.addGlass()"></i>
+                            <p class="ozP" ng-hide="controller.check()">{{controller.volume}} oz</p>
+                        </div>
+                    </center>
+
+                   
+                </div>
+
+                <div class="col-md-6 col-sm-6">
+               
                         <div class="drinkTally">
                             <h3>Drink Tally</h3>
                             <table>
                                 <tr>
-                                    <td><input class="weight" placeholder="Enter Weight" ng-model="controller.weight" /></td>
-                                    <td><button ng-click="controller.setWeight()">Submit</button></td>
+                                    
                                     <td><button ng-click="controller.deleteAllFalseGs()" class="btn-default">FLN</button></td>
                                 </tr>
                               
                             </table>
 
-                            <!-- PROGRESS BAR -->
-
-                            <i class="fa fa-exclamation-triangle" aria-hidden="true" ng-show="controller.checkBAC()"></i>
-
-                            <div>
-                                <label>Current Value</label>
-                                <input type="number" ng-model="curVal" min="0" max="100">
-
-                                <br><br>
-
-                                <progress value="{{controller.bac}}" max="{{controller.maxVal}}"></progress>
-
-                            </div>
+                           
 
                             <!-- DRINK TALLY -->
                            
-                            <ol>
+                            <ul>
                                 <li ng-repeat="glass in controller.fGlasses"><p class="drinkTallyP">{{glass.timeConsumed | date: 'short'}} <span>{{glass.alcohol.style}} {{glass.volume}}</span></p><i ng-click="controller.deleteFalseG(glass.id)" class="fa fa-window-close" aria-hidden="true"></i></li>
                                
-                            </ol>
-                          
+                            </ul>
+                          </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <center>
-                        <p class="bacTitle">BAC%</p>
-                        <p class="bacPercent">{{controller.bac | number:2}}</p>
-
-                    </center>
-                </div>
-            </div>
+                 </div>
+             </div>
         </div>
     </div>
-</div>

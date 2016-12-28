@@ -207,8 +207,10 @@
 }
  
 
- .progress-bar-danger {
-    width: 65%;    
+ .progressBarRed {
+    background-color: rgba(100,50,100,.60);
+    width: 65%;  
+    height: 50px;  
 }
 
 /*PreFooter*/
