@@ -209,6 +209,9 @@
 
 .spanProg{
    text-align:right;
+    background-color: rgba(100,50,100,.60);
+    width: 65%;  
+    height: 50px;  
 }
 
 
