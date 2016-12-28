@@ -42,6 +42,26 @@ namespace AlcoholApp.Services
             }
         }
 
+
+        public string GetDrinkIcons(string type)
+        {
+            var beerI = "http://i.imgur.com/Vjrcg7e.png";
+            var spiritI = "http://i.imgur.com/986C8hy.png";
+            var wineI = "http://i.imgur.com/Go2pKGt.png";
+
+            switch (type)
+            {
+                case "Beer":
+                    return beerI;
+                case "Spirit":
+                    return spiritI;
+                case "Wine":
+                    return wineI;
+                default:
+                    return beerI;
+            }
+        }
+
         //GetInNav 
 
         public AlcoholDTO ListId(int id)
@@ -104,6 +124,7 @@ namespace AlcoholApp.Services
                                 Brand = a.Brand,
                                 Style = a.Style,
                                 ABV = a.ABV,
+                                Icon = GetDrinkIcons(a.Type),
                                 Volumes = GetAlcoholTypeVolumes(a.Type)
                             }).FirstOrDefault();
             return alcohols;

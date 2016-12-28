@@ -40,6 +40,28 @@ namespace AlcoholApp.Services
             }
         }
 
+        public string GetDrinkIcons(string type)
+        {
+            var beerI = "http://imgur.com/Vjrcg7e";
+            var spiritI = "http://imgur.com/986C8hy";
+            var wineI = "http://imgur.com/Go2pKGt";
+
+            switch (type)
+            {
+                case "Beer":
+                    return beerI;
+                case "Spirit":
+                    return spiritI;
+                case "Wine":
+                    return wineI;
+                default:
+                    return beerI;
+                
+            }
+
+
+        }
+
         public void AddFav(int alcoholId, string userName)
         {
             var listFav = _repo.GetGlassByUser(userName);

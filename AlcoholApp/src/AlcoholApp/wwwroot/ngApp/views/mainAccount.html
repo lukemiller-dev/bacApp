@@ -36,6 +36,7 @@
                 <div class="col-md-12">
                     
                     <center>
+
                         <table>
                             <tr>
                         <td><input class="weight" placeholder="Enter Weight" ng-model="controller.weight" /></td>
@@ -110,7 +111,7 @@
                         </table>
 
                         <div class="row">
-                            <i id="selectedIcon" class="fa fa-beer" aria-hidden="true" ng-click="controller.addGlass()"></i>
+                            <img height="200" width="200" ng-src="{{controller.alcoholInfo.icon}}" ng-click="controller.addGlass()" />
                             <p class="ozP" ng-hide="controller.check()">{{controller.volume}} oz</p>
                         </div>
                     </center>
