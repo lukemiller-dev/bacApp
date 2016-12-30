@@ -11,7 +11,7 @@ namespace AlcoholApp.Controllers {
         public loginUser;
 
         constructor(public $http: ng.IHttpService, public $state: ng.ui.IStateService, public $uibModalInstance: ng.ui.bootstrap.IModalServiceInstance) { }
-        
+
         public closeModal() {
             this.$uibModalInstance.close();
         }
@@ -40,14 +40,21 @@ namespace AlcoholApp.Controllers {
         public bacBool;
         public maxVal;
         public icon;
+        public defIcon = false;
+        public defDrink = false;
+        public skull;
+        public falling;
+        public merked;
+        public blackout;
+        public firstValB;
        
 
-        constructor(public $http: ng.IHttpService, public $state: ng.ui.IStateService) {
+        constructor(public $http: ng.IHttpService, public $state: ng.ui.IStateService, public $scope) {
             this.dropDownToggle = false;
-           
+
             $http.get('api/alcohols/unsaved').then((res) => {
                 this.drinks = res.data;
-            })           
+            })
             $http.get('api/glasses').then((res) => {
                 this.favorites = res.data;
             })
@@ -57,7 +64,7 @@ namespace AlcoholApp.Controllers {
             $http.get('api/glasses/trueGlasses').then((res) => {
                 this.tGlasses = res.data;
             })
-          
+
             $http.get('api/appUsers/BAC').then((res) => {
                 this.bac = res.data;
             })
@@ -73,7 +80,15 @@ namespace AlcoholApp.Controllers {
         public selectAlcohol(alcoholId) {
             this.$http.get(`api/alcohols/${alcoholId}`).then((res) => {
                 this.alcoholInfo = res.data;
-            })
+                this.defIcon = true;
+                this.defDrink = true;
+                //this.firstValB = this.alcoholInfo.volumes[0];
+                //console.log(this.firstValB);
+                this.volume = this.alcoholInfo.volumes[0];
+
+            });
+
+            this.firstValB = this.alcoholInfo.volumes[0];
         }
 
         public addFav(drink) {
@@ -82,11 +97,11 @@ namespace AlcoholApp.Controllers {
             }).catch((reason) => {
                 this.reason = reason.data;
                 alert(this.reason);
-            })          
-    }
+            })
+        }
 
         public check() {
-            if (this.volume == null) {
+            if (this.defIcon && this.defDrink) {
                 return true;
             } else {
                 return false;
@@ -112,15 +127,48 @@ namespace AlcoholApp.Controllers {
             this.$http.put(`api/appUsers/weight`, this.weight).then((res) => {
                 console.log(this.weight);
                 this.$state.reload();
+
             })
         }
 
         public checkBAC() {
-            if (this.bac >= 0.08) {
+            if (this.bac > 0.07) {
                 return this.bacBool = true;
             }
             else {
                 return this.bacBool = false;
+            }
+        }
+
+        public showSkull() {
+            if (this.bac > .19) {
+                return this.skull = true;
+            } else {
+                return this.skull = false;
+            }
+        }
+
+        public showFalling() {
+            if (this.bac > .11) {
+                return this.falling = true;
+            } else {
+                return this.falling = false;
+            }
+        }
+
+        public showMerked() {
+            if (this.bac > .14) {
+                return this.merked = true;
+            } else {
+                return this.merked = false;
+            }
+        }
+
+        public showBlackout() {
+            if (this.bac > .17) {
+                return this.blackout = true;
+            } else {
+                return this.blackout = false;
             }
         }
 
@@ -136,14 +184,21 @@ namespace AlcoholApp.Controllers {
                 this.$state.reload();
             })
         }
-} 
+
+
+    }
+
+
+
+
+
 
     export class AlcoholController {
         public alcohols;
         public bac;
         public maxVal;
         public bacBool;
-        constructor(public $http: ng.IHttpService, public $state: ng.ui.IStateService,public $scope:ng.IScope) {
+        constructor(public $http: ng.IHttpService, public $state: ng.ui.IStateService, public $scope: ng.IScope) {
             $http.get('api/alcohols').then((res) => {
                 this.alcohols = res.data;
             });
@@ -158,17 +213,16 @@ namespace AlcoholApp.Controllers {
                 this.$state.reload();
             })
         }
-        public deleteAlco(id)
-        {
+        public deleteAlco(id) {
             this.$http.delete(`api/Alcohols/${id}`).then((res) => {
                 this.$state.reload();
             });
         }
-        
 
-        
+       
+
     }
-        
+
 
 
     export class SecretController {
@@ -193,12 +247,14 @@ namespace AlcoholApp.Controllers {
                 this.alcohols = res.data;
             });
         }
-        public editAlcohol()
-        {
+        public editAlcohol() {
             this.$http.put(`/api/Alcohols/${this.$stateparams["id"]}`, this.alcohols).then((res) => {
                 this.$state.go('addalcohol');
             });
         }
-            
+
     }
+
 }
+
+

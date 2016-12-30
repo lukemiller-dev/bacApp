@@ -12,6 +12,7 @@
     border-top: 0px;
 }
 
+
 #mAnav {
     background-color: #b33c00;
     width:100%;
@@ -33,25 +34,29 @@
     float: right;   
 }
 
+.dropAlcInfo {
+    font-size: 13px;
+
+}
+
 
 .searchInputField {
     /*margin-right: 100px;*/
     margin-top: 3px;
 }
 
+
+
 /************ Angular Progress Bar *************/
 
 
 
-.pBar {
-    height: 100px;
-    width: auto;
- 
-}
+
 
 progress {
     height: 40px;
-    width: 100%;
+    width: 80%;
+    margin-left: 40px;
 }
 
 progress[value]::-webkit-progress-bar {
@@ -75,29 +80,52 @@ progress[value]::-webkit-progress-value {
     background-size: 35px 40px, 100% 100%, 100% 100%;  
 }
 
-#exclamation {
-    font-size: 30px;
+
+#blackout {
+  
+   margin-left: 420px;
+   margin-top: -50px;
+}
+
+
+.merked {
+    float: left;
+    margin-top: 10px;
+    margin-left: 90px;
+    padding-top: 10px;
+}
+
+.falling {
+    float: left;
+    margin-left: 70px;
+    margin-top: 10px;
+}
+
+#exclamation {  
+    font-size: 40px;
     color: red;
-    position: relative;    
+    padding-top: 20px;
+    margin-left: 50px; 
+    float: left;  
 }
 
 .exclamationDiv {
-    margin-top: 10px;
-    margin-left: 100px;
+    margin-top: 0px;
+    margin-left: 0px;
     height: 50px;
     width: 100%;
-    position: relative;   
+     
 }
 
-.noDriving {
-    margin-top: 20px;
-   float: left;
-}
+
 
 .skull{ 
-    
-    float: right;
+     margin-top: -60px;
+     margin-left: 570px;   
 }
+
+
+
 
 .iconList li {
     display: inline;
@@ -106,8 +134,127 @@ progress[value]::-webkit-progress-value {
 
 .iconList {
     list-style-type: none;
+    width: 80%;
+    
 }
 
+/*popups*/
+
+.floatPopParent {
+    position: relative;
+    display: inline-block;
+}
+
+.floatPopParent .floatPopYield {
+    visibility: hidden;
+    width: 150px;
+    background-color: rgba(255, 136, 77, 0.9);
+    color: #fff;
+    text-align: left;
+    border-radius: 6px;
+    padding-left: 7px;
+    padding-top: 7px;
+    height: 150px;
+    margin-top: -150px;
+    font-size: 14px;
+    margin-left: 0px;
+    position: absolute;
+}
+
+.floatPopParent:hover .floatPopYield {
+    visibility: visible;
+}
+
+.floatPopParent .floatPopFalling {
+     visibility: hidden;
+    width: 150px;
+    background-color: rgba(255, 136, 77, 0.9);
+    color: #fff;
+    text-align: left;
+    border-radius: 6px;
+    padding-left: 7px;
+    padding-top: 7px;
+    height: 150px;
+    margin-top: -150px;
+    font-size: 14px;
+    margin-left: 110px;
+    position: absolute;
+}
+
+.floatPopParent:hover .floatPopFalling {
+    visibility: visible;
+}
+
+.floatPopParent .floatPopMerked {
+    visibility: hidden;
+    width: 150px;
+    background-color: rgba(255, 136, 77, 0.9);
+    color: #fff;
+    text-align: left;
+    border-radius: 6px;
+    padding-left: 7px;
+    padding-top: 7px;
+    height: 150px;
+    margin-top: -150px;
+    font-size: 14px;
+    margin-left: 250px;
+    position: absolute;
+}
+
+.floatPopParent:hover .floatPopMerked {
+    visibility: visible;
+}
+
+.floatPopParentBo {
+    position: relative;   
+    width: 40px;
+}
+
+
+
+.floatPopParentWeird .floatPopWeird {
+    visibility: hidden;
+    width: 150px;
+    height: 165px;
+    background-color: rgba(255, 136, 77, 0.9);
+    color: #fff;
+    border-radius: 6px;
+    margin-left: 400px;
+    margin-top: -155px;
+    font-size: 14px;
+    padding-left: 7px;
+    padding-top: 7px;
+    position: absolute;
+    text-align: left;
+    padding-right: 2px;
+}
+
+.floatPopParentWeird:hover .floatPopWeird {
+    visibility: visible;
+}
+
+.floatPopParentWeird .floatPopWeirdTwo {
+    visibility: hidden;
+    width: 150px;
+    height: 150px;
+    border-radius: 6px;
+    background-color: rgba(255, 136, 77, 0.9);
+    color: #fff;
+    margin-left: 545px;
+    margin-top: -230px;
+    position: absolute;
+    padding-left: 7px;
+    padding-top: 7px;
+    text-align: left;
+
+}
+
+.floatPopParentWeird:hover .floatPopWeirdTwo {
+    visibility: visible;
+}
+.popDivParent {
+    font-size: 8px;
+}
 
 
 
@@ -124,27 +271,45 @@ progress[value]::-webkit-progress-value {
     background-color: transparent;
     border:none;
     border-bottom: 2px solid #ff884d; 
-    margin-right: 10px; 
+    margin-right: 5px; 
+    width: 100px;
+    margin-left: 20px;
 }
 
 .weight:focus {
     outline:none;
 }
 
-.weightBtn {
+#weightBtn {
     height: 30px;
-    width: 30px;
+    width: 100px;
+    border: none;
+    border-radius: 5px;    
+    outline: none;    
+}
+
+
+
+.weightSubmit {
+    height: 25px;
+    width: 25px;
     background-color: #ff884d;
     border: none;
     border-radius: 2px;
-    margin-right: 50px;
+    color: #fff;
+}
+
+.addWeightP {
+    font-size: 15px;   
+    color: black;
 }
 .bacAccountPercent {
-    font-family: 'Righteous', cursive;
+    
     font-size: 60px;   
-    height: 70px;
-    border-radius: 5px;
-    margin-top: 0px;  
+    margin-top: 30px; 
+    padding-bottom: 30px; 
+    border-bottom: 2px solid rgb(255, 136, 77);
+   
 }
 
 
@@ -156,6 +321,12 @@ selectedDiv {
 
 .selectedHeader {
     
+}
+
+
+.glassList {
+    list-style-type: none;
+    margin-left: -15px;
 }
 
 .selectedDropdown {
@@ -171,4 +342,53 @@ selectedDiv {
 
 .ozP {
     font-size: 30px;
+}
+
+.drinkIcons {
+    height: 200px;
+    width: 200px;
+}
+
+.drinkTallyAccount {
+    
+    height: auto;
+    width: 310px;
+    background-color: #f2f2f2;
+    margin-top: 20px;
+    border-radius: 5px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: white;
+    border: 2px solid rgba(255, 136, 77, 0.9);
+   
+}
+
+.bacDiv {
+    height: auto;
+    width: 300px;
+    background-color: white;
+}
+
+.drinkTallyP {
+    
+}
+
+.drinkTallyP span {
+    margin-left: 15px;
+}
+
+#deleteGlassI {
+    margin-left: 20px;
+}
+
+.dAllG {
+    border: none;
+    height: 35px;
+    margin-top: 10px;
+    margin-left: 15px;
+    width: 70px;
+    border-radius: 3px;
+    background-color: #b33c00; 
+    color: white;
+    font-size: 10px;
 }
