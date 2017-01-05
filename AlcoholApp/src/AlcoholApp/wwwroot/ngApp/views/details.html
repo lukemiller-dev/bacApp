@@ -1,10 +1,17 @@
-﻿<form ng-submit="controller.editAlcohol">
-    
-    <input ng-model="controller.alcohol.type"/>
-    <input ng-model="controller.alcohol.style"/>
-    <input ng-model="controller.alcohol.abv"/>
-    <input ng-model="controller.alcohol.brand"/>
-    <input type="submit" value="Edit"/>
-    
-      
+﻿
+
+
+<form ng-submit="controller.editAlcohol()">
+    <ul class="detailsList">
+        <li>
+            <input ng-model="controller.alcoholses.type" /></li>
+            <li><input ng-model="controller.alcoholses.style" /></li>
+            <li><input ng-model="controller.alcoholses.abv" /></li>
+            <li><input ng-model="controller.alcoholses.brand" />
+            <input type="submit" value="Edit" /></li>
+       
+
+    </ul>
+
+
 </form>
