@@ -14,5 +14,6 @@ namespace AlcoholApp.ViewModels
         public bool IsFavorite { get; set; }
         public AlcoholDTO Alcohol { get; set; }
         public ApplicationUserDTO AppUser { get; set; }
+        public List<string> Volumes { get; set; }
     }
 }

@@ -14,7 +14,7 @@ namespace AlcoholApp.ViewModels
         public string Style { get; set; }
         public double ABV { get; set; }
         public string Icon { get; set; }
-        public List<decimal> Volumes { get; set; }
+        public List<string> Volumes { get; set; }
         public ICollection<GlassDTO> Glasses { get; set; }
         
     }

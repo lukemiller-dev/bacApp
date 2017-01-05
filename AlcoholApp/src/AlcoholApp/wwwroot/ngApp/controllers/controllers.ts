@@ -47,7 +47,12 @@ namespace AlcoholApp.Controllers {
         public merked;
         public blackout;
         public firstValB;
-       
+        public lastGlass;
+        public noGlassShow = false;
+        public firstGlassShow = false;
+        public lastGlassShow = false;
+
+
 
         constructor(public $http: ng.IHttpService, public $state: ng.ui.IStateService, public $scope) {
             this.dropDownToggle = false;
@@ -60,7 +65,27 @@ namespace AlcoholApp.Controllers {
             })
             $http.get('api/glasses/falseGlasses').then((res) => {
                 this.fGlasses = res.data;
-            })
+            }).then((res) => {
+                this.lastGlass = this.fGlasses[0];
+
+             
+
+                if (this.fGlasses.length == 0) {
+                    this.noGlassShow = true;
+                } else {
+                    this.lastGlassShow = true;
+                }
+
+                for (var i = 0; i < this.lastGlass.alcohol.volumes.length; i++) {
+
+                    if (this.lastGlass.volume == parseFloat(this.lastGlass.alcohol.volumes[i].split(' ')[0])) {
+                        this.volume = this.lastGlass.alcohol.volumes[i];
+
+                    }
+
+                }
+             })
+
             $http.get('api/glasses/trueGlasses').then((res) => {
                 this.tGlasses = res.data;
             })
@@ -69,23 +94,46 @@ namespace AlcoholApp.Controllers {
                 this.bac = res.data;
             })
             this.maxVal = 0.2;
+
         }
 
+
+
         public addGlass() {
+            
             this.$http.post(`api/glasses/newGlasses/${this.volume}`, this.alcoholInfo).then((res) => {
                 this.$state.reload();
-            })
+                });
         }
+
+        public addLastGlass() {
+            if (isNaN(this.volume)) {
+                this.$http.post(`api/glasses/newGlasses/${this.volume}`, this.lastGlass.alcohol).then((res) => {
+                    this.$state.reload();
+                })
+                }else {
+                var splitVol = this.volume.split(' ');
+                console.log(splitVol[0]);
+                console.log(this.volume);
+                this.$http.post(`api/glasses/newGlasses/${parseFloat(splitVol[0])}`, this.lastGlass.alcohol).then((res) => {                  
+                    this.$state.reload();
+                    
+                })
+            }
+        }
+    
 
         public selectAlcohol(alcoholId) {
             this.$http.get(`api/alcohols/${alcoholId}`).then((res) => {
                 this.alcoholInfo = res.data;
                 this.defIcon = true;
                 this.defDrink = true;
+                this.noGlassShow = false;
+                this.firstGlassShow = true;
                 //this.firstValB = this.alcoholInfo.volumes[0];
                 //console.log(this.firstValB);
                 this.volume = this.alcoholInfo.volumes[0];
-
+                this.lastGlassShow = false;
             });
 
             this.firstValB = this.alcoholInfo.volumes[0];
@@ -93,6 +141,7 @@ namespace AlcoholApp.Controllers {
 
         public addFav(drink) {
             this.$http.post('api/glasses', drink).then((res) => {
+               
                 this.$state.reload();
             }).catch((reason) => {
                 this.reason = reason.data;
@@ -140,6 +189,8 @@ namespace AlcoholApp.Controllers {
             }
         }
 
+        
+
         public showSkull() {
             if (this.bac > .19) {
                 return this.skull = true;
@@ -185,8 +236,11 @@ namespace AlcoholApp.Controllers {
             })
         }
 
+        
+        }
 
-    }
+
+    
 
 
 

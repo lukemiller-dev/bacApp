@@ -21,11 +21,13 @@ namespace AlcoholApp.Services
             _AlcRepo = AlcRepo;
         }
 
-        public List<decimal> GetAlcoholTypeVolumes(string type)
+       
+
+        public List<string> GetAlcoholTypeVolumes(string type)
         {
-            var beer = new List<decimal> { 8, 12, 16 };
-            var spirit = new List<decimal> { 1.5m, 3, 4.5m };
-            var wine = new List<decimal> { 5, 12, 16 };
+            var beer = new List<string> { "8 oz (Can)", "12 oz","16 oz" };
+            var spirit = new List<string> { "1.5 oz Shot", "3 oz Double Shot"};
+            var wine = new List<string> { "5 oz", "12 oz", "16 oz" };
 
             switch (type)
             {
@@ -42,9 +44,9 @@ namespace AlcoholApp.Services
 
         public string GetDrinkIcons(string type)
         {
-            var beerI = "http://imgur.com/Vjrcg7e";
-            var spiritI = "http://imgur.com/986C8hy";
-            var wineI = "http://imgur.com/Go2pKGt";
+            var beerI = "http://i.imgur.com/Vjrcg7e.png";
+            var spiritI = "http://i.imgur.com/sHH0r9w.png";
+            var wineI = "http://i.imgur.com/csqRohq.png";
 
             switch (type)
             {
@@ -156,7 +158,9 @@ namespace AlcoholApp.Services
                                         Brand = fg.Alcohol.Brand,
                                         Id = fg.Alcohol.Id,
                                         Style = fg.Alcohol.Style,
-                                        Type = fg.Alcohol.Type
+                                        Type = fg.Alcohol.Type,
+                                        Icon = GetDrinkIcons(fg.Alcohol.Type),
+                                        Volumes = GetAlcoholTypeVolumes(fg.Alcohol.Type)
                                     }
                                 }).ToList();
             return falseGlasses;
@@ -186,11 +190,14 @@ namespace AlcoholApp.Services
 
 
         //Add
-        public void Add(string userId, double volume, int alcId)
+        public void Add(string userId, string volume, int alcId)
         {
+            var stringVol = volume.Split(' ').ToList();
+     
+           
             var glass = new Glass
             {
-                Volume = volume,
+                Volume = Double.Parse(stringVol[0]),
                 TimeConsumed = DateTime.Now,
                 Alcohol = _AlcRepo.GetById(alcId).FirstOrDefault(),
                 AppUser = _AppUserRepo.GetUserByUserName(userId).FirstOrDefault(),

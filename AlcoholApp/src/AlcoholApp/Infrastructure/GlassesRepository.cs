@@ -45,5 +45,10 @@ namespace AlcoholApp.Infrastructure
             return (from g in _db.Glasses where (g.AppUser.UserName == userName) select g).ToList();
         }
 
+        public IQueryable<Glass> GetLastGlass()
+        {
+            return (from g in _db.Glasses orderby g.TimeConsumed ascending select g);
+        }
+
     }
 }
