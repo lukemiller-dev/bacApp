@@ -23,11 +23,16 @@ namespace AlcoholApp.Services
             _glassService = glassService;
         }
 
-        public List<decimal> GetAlcoholTypeVolumes(string type)
+        //public GlassDTO GetLastGlass()
+        //{
+        //    var l
+        //}
+
+        public List<string> GetAlcoholTypeVolumes(string type)
         {
-            var beer = new List<decimal> { 8, 12, 16 };
-            var spirit = new List<decimal> { 1.5m, 3, 4.5m };
-            var wine = new List<decimal> { 5, 12, 16 };
+            var beer = new List<string> { "8 oz (Can)", "12 oz", "16 oz" };
+            var spirit = new List<string> { "1.5 oz Shot", "3 oz Double Shot" };
+            var wine = new List<string> { "5", "12", "16" };
 
             switch (type)
             {
@@ -46,8 +51,8 @@ namespace AlcoholApp.Services
         public string GetDrinkIcons(string type)
         {
             var beerI = "http://i.imgur.com/Vjrcg7e.png";
-            var spiritI = "http://i.imgur.com/986C8hy.png";
-            var wineI = "http://i.imgur.com/Go2pKGt.png";
+            var spiritI = "http://i.imgur.com/sHH0r9w.png";
+            var wineI = "http://i.imgur.com/csqRohq.png";
 
             switch (type)
             {

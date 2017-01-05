@@ -1,4 +1,30 @@
-﻿<div class="mainAccount">
+﻿<nav id="mainAccountNav" class="navbar">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navTitleLink" href="/"><i id="beerIcon" class="fa fa-beer" aria-hidden="true"></i><span id="navTitle"></span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <form class="navbar-form navbar-right">
+                <div class="form-group">
+                    <ul id="rightNavAccount" class="nav navbar-nav">
+
+                      
+                        <li><a class="accountActive" href="/mainAccount" ng-show="account.isLoggedIn()">Account</a></li>
+                        <li class="navAccountList"><a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a></li>
+                        <li class="navAccountList" id="userNameNav" ng-show="account.isLoggedIn()">
+                            {{account.getUserName()}}
+                        </li>
+
+                    </ul>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</nav>
+
+<div class="mainAccount">
     <div class="container-fluid">
         <div class="mainAccountDiv">
             <nav id="mAnav" class="navbar navbar">
@@ -6,85 +32,80 @@
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
                         <a class="navbar-brand" id="favNavTitle" href="#">Favorites</a>
-                    </div>
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
                             <li ng-repeat="favorite in controller.tGlasses"><a ng-click="controller.selectAlcohol(favorite.alcohol.id)" class="navDrinks" href="#">{{favorite.alcohol.style}}</a><i id="navDelete" class="fa fa-window-close" ng-click="controller.deleteFav(favorite.id)" aria-hidden="true"></i></li>
                         </ul>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                       
                         <div class="navbar-form navbar-right">
                             <section id="main">
-                                <div class="search">
-                                    <input ng-model="search" class="searchInputField" type="text" placeholder="Search..." ng-keydown="controller.search(search)" />
-                                    <ul class="results" ng-show="controller.dropDownToggle">
-                                        <li ng-repeat="drink in controller.drinks | filter: search | limitTo:4" ng-click="controller.addFav(drink)">
-                                            <a>
-                                                {{drink.style}}
-                                                <br />
-                                                <span>{{drink.type}}, {{drink.abv}}%</span>
-                                            </a>
-                                        </li>
-                                    </ul>
+                                <table>
+                                    <tr>                                     
+                                        <td><div class="selectedDropdown">
+                                            <button class="btn btn-default dropdown-toggle" type="button" id="weightBtn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                <p class="addWeightP">Weight <i class="fa fa-caret-down"></i></p>
+                                            </button>
+                                            <ul class="dropdown-menu" id="weightDrop" aria-labelledby="weightBtn">
+                                                <li>
+                                                    <table>
+                                                        <tr>
+                                                            <td>
+                                                    <input class="weight" ng-model="controller.weight" />
+                                                            </td>
+                                                            <td>
+                                                    <button ng-click="controller.setWeight()" class="weightSubmit"><i class="fa fa-plus" aria-hidden="true"></i></button>      
+                                                               </td>
+                                                            </tr>
+                                                        </table>                                             
+                                                </li>
+                                            </ul>
+                                        </div></td>
+                                        <td><div class="search">
+                                           <input ng-model="search" class="searchInputField" type="text" placeholder="Search drinks..." ng-keydown="controller.search(search)" />
+                                            
+                                    
+                                <ul class="results" ng-show="controller.dropDownToggle">
+                                    <li ng-repeat="drink in controller.drinks | filter: search | limitTo:4" ng-click="controller.addFav(drink)">
+                                        <a>
+                                            {{drink.style}}
+                                            <br />
+                                            <span class="dropAlcInfo">{{drink.type}}, {{drink.abv}}%</span>
+                                        </a>
+                                    </li>
+                                </ul>
                                 </div>
-                            </section>
+                              </td>
+                            </tr>
+                           </table>
+                          </section>
+                                
                         </div>
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->
             </nav>
 
-            <div class="row">
-                <div class="col-md-12">
-                    
-                    <center>
-
-                        <table>
-                            <tr>
-                        <td><input class="weight" placeholder="Enter Weight" ng-model="controller.weight" /></td>
-                        <td><button class="weightBtn" ng-click="controller.setWeight()"></button></td>
-                        <td><p class="bacAccountPercent">{{controller.bac | number:2}}%</p></td>
-                        </table>
-                    </center>
-                    </div>
-                </div>
-
-         
-                   <div class="row"> 
-                       <div class="col-md-3"></div> 
-                       <div class="col-md-6">                                         
-                  
-                        <div class="exclamationDiv">
-                        <ul class="iconList">
-                                                    
-                        <li ng-show="controller.checkBAC()"><i id="exclamation" class="fa fa-exclamation-triangle" aria-hidden="true"></i>Do Not Drive!</li>
-                               
-                                <li class="skull"><img class="skull" src="../../images/skull3.png" height="50" width="50" /></li>             
-                                
-                            </ul>
-                            <!--<table>
-                                <tr>
-                                    <td class="skull"><img src="../../images/skull3.png" height="50" width="50" /></td>
-                                </tr>
-                            </table>-->
-                                </div>
-                           <div class="pBar">
-                               <progress value="{{controller.bac}}" max="{{controller.maxVal}}" style="color: #f2f2f2; background-color:#f2f2f2; text-align: center"></progress>
-                              
-                           </div>
-                           </div>
-                       <div class="col-md-3"></div>
-                             </div>                         
-                         
-                     
-                     
-               
-              
-               
             
-            <!--<div class="bottomBorder"></div>-->
 
             <div class="row">
-                <div class="selectedDiv">
+                
                 <div class="col-md-6 col-sm-6">
+                    <div class="selectedDrinkDiv" ng-show="controller.noGlassShow">
+                        <center>
+                            <table>
+                                <tr>
+                                    <td><h2 class="selectedHeader">Select a Drink</h2></td>
+                                </tr>
+                            </table>
+
+                            <div class="row">
+                                <img class="drinkIcons" ng-src="http://i.imgur.com/hOQ727c.png" />
+                            </div>
+                        </center>
+                    </div>
+
+                 <div ng-show="controller.firstGlassShow" class="selectedDrinkDiv">
                     <center>
                         <table class="selectedDrinkTable">
                             <tr>
@@ -92,18 +113,13 @@
                                     <h2 class="selectedHeader">
                                         {{controller.alcoholInfo.style}}
                                     </h2>
+                                   
                                 </td>
 
                                 <td>
-                                    <div class="selectedDropdown">
-                                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                            Volume<span class="caret"></span>
-                                        </button>
-                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                            <li ng-repeat="v in controller.alcoholInfo.volumes">
-                                                <a ng-click="controller.volume = v">{{v}} oz</a>
-                                            </li>
-                                        </ul>
+                                    <div id="ozDropDown">
+                                        <select id="ozSelect" ng-model="controller.volume" ng-options="v for v in controller.alcoholInfo.volumes">
+                                        </select>
                                     </div>
                                 </td>
 
@@ -111,37 +127,106 @@
                         </table>
 
                         <div class="row">
-                            <img height="200" width="200" ng-src="{{controller.alcoholInfo.icon}}" ng-click="controller.addGlass()" />
-                            <p class="ozP" ng-hide="controller.check()">{{controller.volume}} oz</p>
+                            <img class="drinkIcons" ng-src="{{controller.alcoholInfo.icon}}" ng-show="controller.check()" ng-click="controller.addGlass()" />
+                            
                         </div>
-                    </center>
+                        </center>
+                     </div>
+
+
+
+
+                    <!--Toggling Default Div-->
+                    <div ng-show="controller.lastGlassShow" class="selectedDrinkDiv">
+                        <center>
+                            <table class="selectedDrinkTable">
+                                <tr>
+                                    <td>
+                                       
+                                        <h2 class="selectedHeader">
+                                            {{controller.lastGlass.alcohol.style}}
+                                        </h2>
+                                        
+                                    </td>
+
+                                    <td>
+                                        <div id="ozDropDown">
+                                            <select ng-model="controller.volume" ng-options="v for v in controller.lastGlass.alcohol.volumes"></select>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <div class="row">
+                                <img class="drinkIcons" ng-src="{{controller.lastGlass.alcohol.icon}}" ng-click="controller.addLastGlass()" />               
+                            </div>
+                        </center>
+                    </div>
+                    <!--End-->
+                        <div class="row">
+                            <div class="exclamationDiv">
+                                <ul class="iconList">
+
+                                    <li class="floatPopParent" ng-show="controller.checkBAC()"><div><p class="floatPopYield">DO NOT DRIVE! You believe you're functioning better than you actually are. Your ability to see and hear clearly is diminished.</p><i id="exclamation" class="fa fa-exclamation-triangle" aria-hidden="true"></i></div>                                   
+                                    </li>
+
+                                    <li class="floatPopParent" ng-show="controller.showFalling()"><div><p class="floatPopFalling">You feel euphoric, but you lack coordination and balance. Your judgement and memory are markedly impaired.</p><img class="falling" src="http://i.imgur.com/mvqEmzl.png" height="50" width="50" /></div></li>
+
+                                    <li ng-show="controller.showMerked()" class="floatPopParent"><div><p class="floatPopMerked">You have difficulty talking, walking, or even standing.Your judgment and perception are severely impaired</p><img class="merked" src="http://i.imgur.com/5xoHYwF.png" height="50" width="50" /></div></li>
+
+                                    <li ng-show="controller.showBlackout()" class="floatPopParentWeird"><p class="floatPopWeird">At this point you may experience nausea and/or start vomiting. If you hurt yourself at this point, you probably won't realize it because you won't feel pain.</p><img id="blackout" src="http://i.imgur.com/a9OYyZP.png" height="70" width="70" /></li>
+
+                                    <li ng-show="controller.showSkull()" class="floatPopParentWeird"><p class="floatPopWeirdTwo">You're F'd</p><img class="skull" src="../../images/skull3.png" height="40" width="40" /></li>                                 
+
+                                </ul>
+
+                            </div>
+                          
+                       
+                                <progress value="{{controller.bac}}" max="{{controller.maxVal}}" style="color: #f2f2f2; background-color:#f2f2f2;"></progress>
+                           
+                                
+                        </div>
+                   
 
                    
                 </div>
 
+                
+
                 <div class="col-md-6 col-sm-6">
-               
-                        <div class="drinkTally">
-                            <h3>Drink Tally</h3>
-                            <table>
+                    <div class="drinkTallyAccount">
+                        <center>
+                          
+                                <p class="bacAccountPercent">{{controller.bac | number:2}}%</p>
+                        <table>
+                            <tr>
+                                <td><h3 class="drinkTallyHeader">Drink Tally</h3></td>                    
+                                <td><button ng-click="controller.deleteAllFalseGs()" class="dAllG"><i class="fa fa-repeat" aria-hidden="true"></i></button></td>
+                            </tr>
+                        </table>
+                        </center>
+                      
+
+
+
+                        <!-- DRINK TALLY -->
+
+                        <ul class="glassList">
+                            
+                            <li ng-repeat="glass in controller.fGlasses">
+                            <table class="tallyTable">
                                 <tr>
-                                    
-                                    <td><button ng-click="controller.deleteAllFalseGs()" class="btn-default">FLN</button></td>
-                                </tr>
-                              
+                                <td><p class="drinkTallyP">{{glass.timeConsumed | date: 'shortTime'}}</p></td>
+                                 <td><p class="drinkTallyP">{{glass.alcohol.style}} {{glass.volume}} oz</p></td>
+    <!--<i id="deleteGlassI" ng-click="controller.deleteFalseG(glass.id)" class="fa fa-window-close" aria-hidden="true"></i>-->
+                            </tr>
                             </table>
-
-                           
-
-                            <!-- DRINK TALLY -->
-                           
-                            <ul>
-                                <li ng-repeat="glass in controller.fGlasses"><p class="drinkTallyP">{{glass.timeConsumed | date: 'short'}} <span>{{glass.alcohol.style}} {{glass.volume}}</span></p><i ng-click="controller.deleteFalseG(glass.id)" class="fa fa-window-close" aria-hidden="true"></i></li>
-                               
-                            </ul>
-                          </div>
-                        </div>
+                            </li>
+                        </ul>
                     </div>
+                        </div>
+                    
                  </div>
              </div>
         </div>

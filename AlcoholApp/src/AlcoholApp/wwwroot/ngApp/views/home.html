@@ -1,150 +1,84 @@
+<nav id="mainNav" class="navbar navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navTitleLink" href="/"><i id="beerIcon" class="fa fa-beer" aria-hidden="true"></i><span id="navTitle"></span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <form class="navbar-form navbar-right">
+                <div class="form-group">
+                    <ul id="rightNav" class="nav navbar-nav">
+
+                        <li class="navList"><a ng-show="!account.isLoggedIn()" href="/register">Register</a></li>
+                        <li><button class="navLogin" ng-click="account.openModal()" ng-show="!account.isLoggedIn()">Login</button></li>
+                        <li><a href="/mainAccount" ng-show="account.isLoggedIn()" class="navList">Account</a></li>
+                        <li><a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()" class="navList">Logout</a></li>
+                        <li class="navList" id="userNameNav" ng-show="account.isLoggedIn()">
+                            [{{account.getUserName()}}]
+                        </li>
+
+                    </ul>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</nav>
 <div class="jumbotron">
     <div class="container-fluid">
         <div class="layer">
-
-            <center>
-                <h1>Alcohol App</h1>
+            <div class="col-md-6">
+                <center>
+         
+                <h1>BacApp</h1>
                 <h3>Helping people keep track of their alcohol consumption</h3>
                 <form method="get" action="/register">
-                    <button id="GetId" type="submit">Get Started</button>
+                    <button id="jumboBtn" type="submit">Get Started</button>
                 </form>
-            </center>
+          </center>
+        </div>
         </div>
     </div>
 </div>
 
 <div class="midSec">
     <div class="container">
-        <center>
+     
             <div class="row">
-                <div class="col-md-4">
-                    <h3>Personalized for your use</h3>
-                    <p class="midSecPs">We adjust all of our services to each individual. We will keep track of how much you are drinking and let you know when you need to slow down.</p>
-                    <div class="row">
-                        <i id="midSecIcons" class="fa fa-user" aria-hidden="true"></i>
-                    </div>
+                <div id="phonePicDiv" data-aos="fade-left" data-aos-duration="1000" class="col-md-6">
+                    <img class="appTemplate" src="http://i.imgur.com/milg8gt.png?1" />
                 </div>
-                <div class="col-md-4">
-                    <h3>Updates and Progress Reports</h3>
-                    <p class="midSecPs">From your consumption over time, you will recieve updates so you can identify your habits and adjust them to a safe level</p>
-                    <div class="row">
-                        <i id="midSecIcons" class="fa fa-area-chart" aria-hidden="true"></i>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <h3>Too much to drive?</h3>
-                    <p class="midSecPs">Use our Uber API to keep the roads safe and get you home in good condition</p>
-                    <div class="row">
-                        <i id="midSecIcons" class="fa fa-car" aria-hidden="true"></i>
+                <div data-aos="fade-right" data-aos-duration="2000" class="col-md-6">
+                    <h3>Know your Limits</h3>
+                    <table>
+                        <tr class="hoverTd">
+                            <td><i id="midSecIconCalc" class="fa fa-calculator" aria-hidden="true"></i></td>
+                            <td><p class="midSecPs">See your current BAC in real time. All you have to do is enter your weight and add drinks as you finish them.</p></td>
+                        </tr>
+                        <tr class="hoverTd">
+                            <td><i id="midSecIconGraph" class="fa fa-area-chart" aria-hidden="true"></i></td>
+                            <td><p class="midSecPs">We will keep you updated and alert you as you pass through stages of your drinking.</p></td>
+                        </tr>
+                        <tr class="hoverTd">
+                            <td><i id="midSecIcons" class="fa fa-glass" aria-hidden="true"></i></i></td>
+                            <td><p class="midSecPs">We offer a large selection of drinks to choose from so that we can give you the most accurate calcualtion fo your BAC.</p></td>
+                        </tr>
+                        </table>
+                  
                     </div>
                 </div>
             </div>
-        </center>
+        
     </div>
-</div>
 
-
-<div class="template">
-    <div class="container-fluid">
-        <div class="accountDiv">
-            <nav id="favNav" class="navbar navbar">
-                <div class="container-fluid">
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="navbar-header">
-                        <a class="navbar-brand" id="favNavTitle" href="#">Favorites</a>
-                    </div>
-
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav">
-                            <li><a class="navDrinks" href="#">Miller Light</a></li>
-                            <li><a class="navDrinks" href="#">Jack Daniels</a></li>
-                            <li><a class="navDrinks" href="#">Blue Moon</a></li>
-                            <li><a class="navDrinks" href="#">Captain Morgan Orginal Spiced Rum</a></li>
-                        </ul>
-                        <form class="navbar-form navbar-right">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Search">
-                                <button id="addDrink">Add Drink</button>
-                            </div>
-                        </form>
-                    </div><!-- /.navbar-collapse -->
-                </div><!-- /.container-fluid -->
-            </nav>
             <div>
-                <div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <center>
-                                <div>
-                                    <div id="beerDiv">
-                                        <center>
                                             <i id="homeBeerIcon" class="fa fa-                                                          beer" aria-hidden="true"></i>
                                             <p class="ozUnderIcon">12 oz</p>
-                                        </center>
-                                    </div>
-                                    <div>
-                                        <center>
-                                            <div class="progress">
-                                                <div class="progress-bar progress-bar-success" role="progressbar" style="width:50%">
-                                                    You are fine &nbsp;&nbsp;                                                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.12
-                                                </div>
-                                                <div class="progress-bar progress-bar-warning" role="progressbar" style="width:30%">
-                                                    Caution&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    0.17
-                                                </div>
-                                                <div class="progress-bar progress-bar-danger" role="progressbar" style="width:20%">
-                                                    Danger&nbsp;&nbsp;&nbsp;
-                                                    0.20
-                                                </div>
-                                            </div>
-                                        </center>
-                                    </div>
-                                </div>
-                            </center>
                         </div>
-                        <div class="col-md-6">
-                            <div>
-                                <center>
-                                    <div>
-                                        <p class="bacPercent">0.14% </p>
-                                    </div>
                                 </center>
-                            </div>
-                            <div>
-                                <center>
                                     <div class="drinkTally">
-                                        <h3>Drink Tally</h3>
-                                        <ul>
-                                            <li><p class="drinkTallyP">7:00 pm <span>Jack Daniels 1.5 oz</span></p></li>
-                                            <li><p class="drinkTallyP">7:08 pm <span>Captain Morgan 1.5 oz</span></p></li>
-                                            <li><p class="drinkTallyP">7:30 pm <span>Miller Light 12 oz</span></p></li>
-                                            <li><p class="drinkTallyP"></p></li>
-                                        </ul>
-                                    </div>
                                 </center>
-                            </div>
-                        </div>
-                        <!--  -->
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="preFooterDiv">
-            <div class="container-fluid">
-                <h3 class="preFooterH">Create your free account today</h3>
-                <button id="preFooterBtn">Sign Up</button>
-            </div>
-        </div>
 
-        <footer class="foot">
-            <p>Posted by:</p>
-            <p>
-                Contact information: <a href="">
-                    someone@example.com
-                </a>.
-            </p>
-        </footer>
+
 
 

@@ -1,6 +1,57 @@
 ﻿body {
     background-color: #f2f2f2;
 }
+#mainNav {
+    height: 70px;
+    background-color: rgba(0,0,0,0.6);
+}
+
+.navList {
+    font-size: 18px;
+    color: #fff;
+}
+
+.navBarDiv {
+   position: relative;
+}
+
+#navTitle {
+    position: absolute;
+    margin-top: 25px;
+    font-size: 18px;
+    color: black;
+}
+
+.navTable td {
+    padding-top: 25px;
+    padding-right: 20px;
+    color: black;  
+}
+
+#beerIcon {
+    font-size: 50px;
+    margin-top: 10px;
+    margin-right: 10px;
+    color: #993333;
+    margin-left: 50px;
+   
+}
+
+
+
+.nav>li>a:focus, .nav>li>a:hover {
+    background-color: transparent;
+    text-decoration: none;
+}
+
+
+#rightNav a {
+    color: #fff;
+}
+
+#rightNav a:hover {
+    background-color: none;
+}
 
 .navBarDiv {
     background-color: #662900;
@@ -8,15 +59,50 @@
 
 .jumbotron {
     color: black;
-    height: 600px;
+    height: 700px;
+    margin-bottom: 0px;
     width: 100%;
     position: relative;
-    background-image: url("http://cdn.images.express.co.uk/img/dynamic/1/590x/Drinkers-425310.jpg");
+    background-image: url("http://i.imgur.com/hugWs4p.jpg");
+    background-attachment: fixed;
+    background-position: center;
     background-size: cover;
+       -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 2s; /* Firefox < 16 */
+    
+         -o-animation: fadein 2s; /* Opera < 12.1 */
+            animation: fadein 2s;
 }
 
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Opera < 12.1 */
+
+
+
 .layer {
-    background-color: rgba(191, 127, 63, 0.5);
+    /*background-color: rgba(191, 127, 63, 0.5);*/
     position: absolute;
     top: 0;
     left: 0;
@@ -26,59 +112,125 @@
 }
 
 .jumbotron h1 {
-    text-align: center;
+    margin-top: 200px;
+    color: #fff;
 }
 
 .jumbotron h3 {
-    text-align: center;
+    color: #fff;
 }
 
-.jumbotron button {
+#jumboBtn {
     margin-top: 30px;
     height: 40px;
     width: 200px;
-    border: 3px solid #b33c00;
-    background-color: transparent;
+    color: #fff;
+    background-color: #993333;
+    border: none;
     border-radius: 5px;
     font-size: 18px;
 }
 
-    .jumbotron button:hover {
-        background-color: #b33c00;
+    #jumboBtn:hover {
+        background-color: #993333;
         color: #fff;
     }
 
-#GetId {
-    background-color: #ffebcc;
-    border-color: black;
-    border-width: 1px;
-    font-family: 'Arial Rounded MT';
-}
+
 
 /*MidSec*/
+.appTemplate {
+    margin-top: 50px;
+}
+
+#phonePicDiv {
+    text-align: right;
+}
+
+.appTemplate {
+    margin-right: 150px;
+}
 
 .midSec {
     width: 100%;
-    height: 350px;
-    background-color: #b33c00;
+    height: auto;
+    background-color: #ffebee;
 }
 
+#midSecIconCalc {
+    font-size: 30px;
+    color: #993333;
+    height: 65px;
+    width: 65px;
+    padding-top: 15px;
+    padding-left: 17px;
+    font-weight: 400;
+    border: 2px solid #993333;
+    border-radius: 65px;
+}
+
+.hoverTd:hover #midSecIconCalc {
+    background-color: #993333;
+    color: #fff;
+    transition: 0.5s;
+}
+
+
+#midSecIconGraph {
+    font-size: 30px;
+    color: #993333;
+    height: 65px;
+    width: 65px;
+    padding-top: 15px;
+    padding-left: 15px;
+    font-weight: 400;
+    border: 2px solid #993333;
+    border-radius: 65px;
+}
+
+.hoverTd:hover #midSecIconGraph {
+    background-color: #993333;
+    color: #fff;
+    transition: 0.5s;
+}
+
+
 #midSecIcons {
-    font-size: 100px;
-    color: white;
-    margin-top: 60px;
+    font-size: 30px;
+    color: #993333;
+    height: 65px;
+    width: 65px;
+    padding-top: 15px;
+    padding-left: 16px;
+    font-weight: 400;
+    border: 2px solid #993333;
+    border-radius: 65px;
+}
+
+.hoverTd:hover #midSecIcons {
+    background-color: #993333;
+    color: #fff;
+    transition: 0.5s;
 }
 
 .midSec h3 {
-    color: #fff;
-    text-decoration: underline;
-    text-align: center;
+    color: #5A646E;   
+    text-align: left;
+    font-size: 52px;
+    margin-bottom: 30px;
+    margin-top: 80px;
 }
 
 .midSecPs {
-    color: #fff;
-    font-size: 15px;
-    text-align: center;
+    color: #5a646e;
+    font-size: 19px;
+    text-align: left;
+    margin-left: 15px;
+    padding-top: 10px;
+}
+
+.midSec td {
+    padding-bottom: 30px;
 }
 
 /*Template*/

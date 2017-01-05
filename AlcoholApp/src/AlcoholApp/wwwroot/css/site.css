@@ -1,64 +1,7 @@
 body {
-    
+    margin-top: -40px;
+    margin-left: -30px;
+    margin-right: -30px;
 }
 
-#mainNav {
-    height: 70px;
-}
-
-.navBarDiv {
-   position: relative;
-}
-
-#navTitle {
-    position: absolute;
-    margin-top: 25px;
-    font-size: 18px;
-    color: black;
-}
-
-.navTable td {
-    padding-top: 25px;
-    padding-right: 20px;
-    color: black;  
-}
-
-#beerIcon {
-    font-size: 50px;
-    margin-top: 10px;
-    margin-right: 10px;
-    color: #ff884d;
-    margin-left: 50px;
-   
-}
-
-.navPs {
-    color: black;
-}
-
-.navPs:hover {
-    color: black;
-}
-
-.navLogin {
-    margin-top: 10px;
-    background-color: #f8f8f8;
-    border: 2px solid #ff884d;
-    color: black;
-    border-radius: 2px;
-    height: 30px;
-    width: 100px;
-    font-size: 15px;
-    margin-right: 100px;
-}
-.navLogin{
-    border: 1px solid #80bfff;
-.navList {
-    font-size: 15px;
-    color: black;
-}
-
-#rightNav a {
-    color: black;
-}
 

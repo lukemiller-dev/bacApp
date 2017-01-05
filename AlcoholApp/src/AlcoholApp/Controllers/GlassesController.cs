@@ -74,7 +74,7 @@ namespace AlcoholApp.Controllers
 
         //Add new glasses
         [HttpPost("newGlasses/{volume}")]
-        public void Post(double volume, [FromBody]AlcoholDTO alcDto)
+        public void Post(string volume, [FromBody]AlcoholDTO alcDto)
         {
             _service.Add(User.Identity.Name, volume, alcDto.Id);
         }
