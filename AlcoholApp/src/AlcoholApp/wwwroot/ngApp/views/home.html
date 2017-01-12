@@ -1,51 +1,92 @@
-<nav id="mainNav" class="navbar navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <a class="navTitleLink" href="/"><i id="beerIcon" class="fa fa-beer" aria-hidden="true"></i><span id="navTitle"></span></a>
-        </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <form class="navbar-form navbar-right">
-                <div class="form-group">
-                    <ul id="rightNav" class="nav navbar-nav">
 
-                        <li class="navList"><a ng-show="!account.isLoggedIn()" href="/register">Register</a></li>
-                        <li><button class="navLogin" ng-click="account.openModal()" ng-show="!account.isLoggedIn()">Login</button></li>
-                        <li><a href="/mainAccount" ng-show="account.isLoggedIn()" class="navList">Account</a></li>
-                        <li><a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()" class="navList">Logout</a></li>
-                        <li class="navList" id="userNameNav" ng-show="account.isLoggedIn()">
-                            [{{account.getUserName()}}]
-                        </li>
+<!-- The overlay -->
 
-                    </ul>
-                </div>
-            </form>
-        </div>
 
-    </div>
-</nav>
+
+
+
 <div class="jumbotron">
     <div class="container-fluid">
         <div class="layer">
-            <div class="col-md-6">
+            <div class="col-md-2">
+              <i id="openMenu" ng-click="controller.openNav()" class="fa fa-bars" aria-hidden="true"></i>
+                <div id="mySidenav" class="sidenav">
+                    <a href="javascript:void(0)" class="closebtn" ng-click="controller.closeNav()">&times;</a>
+                    <ul id="slideList">
+                    <li class="navList"><a ng-show="!account.isLoggedIn()" href="/register">Register</a></li>
+                    <li><button class="navLogin" ng-click="account.openModal()" ng-show="!account.isLoggedIn()">Login</button></li>
+                    <li><a href="/mainAccount" ng-show="account.isLoggedIn()" class="navList">Account</a></li>
+                    <li><a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()" class="navList">Logout</a></li>
+                    <li class="navList" id="userNameNav" ng-show="account.isLoggedIn()">
+                        [{{account.getUserName()}}]
+                    </li>
+                </ul>
+                </div>
+
+                <!-- Use any element to open the sidenav -->
+               
+
+                <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+               </div>
+            <div class="col-md-8">
                 <center>
          
-                <h1>BacApp</h1>
-                <h3>Helping people keep track of their alcohol consumption</h3>
+                <h1 data-aos="fade-down" data-aos-duration="1000">BacApp</h1>
+                <h3 data-aos="fade-down" data-aos-duration="1000">Helping people keep track of their alcohol consumption</h3>
                 <form method="get" action="/register">
-                    <button id="jumboBtn" type="submit">Get Started</button>
+                    <button data-aos="fade-down" data-aos-duration="1000" id="jumboBtn" type="submit">Get Started</button>
                 </form>
+                    <img data-aos="fade-up" data-aos-duration="1000" id="compImg" src="http://i.imgur.com/VtrH4JJ.png?2" width="650" />
           </center>
-        </div>
+        
+               </div>
+            <div class="col-md-2"></div>
+            </div>
         </div>
     </div>
-</div>
+
 
 <div class="midSec">
     <div class="container">
-     
+      <div class="row">
+          <div class="col-md-12">
+              
+        
+              <nav data-aos="fade-down" data-aos-duration="2000" id="secondNav" class="navbar navbar-fixed-top">
+            
+                  <div class="navbar-header">
+
+                      <a class="navTitleLink" href="/"><i id="beerIcon" class="fa fa-beer" aria-hidden="true"></i><span id="navTitle"></span></a>
+                      <ul class="secondNavList">
+
+                          <li class="navList"><a ng-show="!account.isLoggedIn()" href="/register">Register</a></li>
+                          <li><button class="navLogin" ng-click="account.openModal()" ng-show="!account.isLoggedIn()">Login</button></li>
+                          <li><a href="/mainAccount" ng-show="account.isLoggedIn()" class="navList">Account</a></li>
+                          <li><a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()" class="navList">Logout</a></li>
+                          <li class="navList" id="userNameNav" ng-show="account.isLoggedIn()">
+                              [{{account.getUserName()}}]
+                          </li>
+
+                      </ul>
+                  </div>
+                </nav>
+             
+              </div>
+            </div>
+                  
+          </div>
+        
+                
+       
+                <!--<form class="navbar-form navbar-right">-->
+                    <!--<div class="form-group">-->
+                      
+          
+    <div class="container">
             <div class="row">
+              
                 <div id="phonePicDiv" data-aos="fade-left" data-aos-duration="1000" class="col-md-6">
+
                     <img class="appTemplate" src="http://i.imgur.com/milg8gt.png?1" />
                 </div>
                 <div data-aos="fade-right" data-aos-duration="2000" class="col-md-6">
@@ -68,8 +109,10 @@
                     </div>
                 </div>
             </div>
-        
     </div>
+     
+    
+    
 
 
 

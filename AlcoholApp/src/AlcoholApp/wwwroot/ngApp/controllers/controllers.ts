@@ -1,10 +1,18 @@
 namespace AlcoholApp.Controllers {
 
     export class HomeController {
+       
         constructor(public $http: ng.IHttpService, public $state: ng.ui.IStateService, public $uibModal: ng.ui.bootstrap.IModalService, public ModalService: AlcoholApp.Services.ModalService) { }
 
-
+     public openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
     }
+
+    /* Set the width of the side navigation to 0 */
+    public closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+    }
+ }
 
 
     export class ModalController {

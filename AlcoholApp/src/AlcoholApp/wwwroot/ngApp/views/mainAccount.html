@@ -11,7 +11,7 @@
 
                       
                         <li><a class="accountActive" href="/mainAccount" ng-show="account.isLoggedIn()">Account</a></li>
-                        <li class="navAccountList"><a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a></li>
+                        <li class="navAccountList"><a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()" >Logout</a></li>
                         <li class="navAccountList" id="userNameNav" ng-show="account.isLoggedIn()">
                             {{account.getUserName()}}
                         </li>
@@ -40,7 +40,7 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                        
                         <div class="navbar-form navbar-right">
-                            <section id="main">
+                            <section id="section">
                                 <table>
                                     <tr>                                     
                                         <td><div class="selectedDropdown">
@@ -55,7 +55,7 @@
                                                     <input class="weight" ng-model="controller.weight" />
                                                             </td>
                                                             <td>
-                                                    <button ng-click="controller.setWeight()" class="weightSubmit"><i class="fa fa-plus" aria-hidden="true"></i></button>      
+                                                    <button ng-click="controller.setWeight()" class="weightSubmit"><i class="fa fa-plus" aria-hidden="true"></button>      
                                                                </td>
                                                             </tr>
                                                         </table>                                             
@@ -63,7 +63,7 @@
                                             </ul>
                                         </div></td>
                                         <td><div class="search">
-                                           <input ng-model="search" class="searchInputField" type="text" placeholder="Search drinks..." ng-keydown="controller.search(search)" />
+                                           <input ng-model="search" class="searchInputField" type="text" placeholder="Search..." ng-keydown="controller.search(search)" />
                                             
                                     
                                 <ul class="results" ng-show="controller.dropDownToggle">
