@@ -165,7 +165,7 @@ progress[value]::-webkit-progress-value {
 
 #blackout {
   
-   margin-left: 420px;
+   margin-left: 330px;
    margin-top: -50px;
 }
 
@@ -173,13 +173,13 @@ progress[value]::-webkit-progress-value {
 .merked {
     float: left;
     margin-top: 10px;
-    margin-left: 90px;
+    margin-left: 50px;
     padding-top: 10px;
 }
 
 .falling {
     float: left;
-    margin-left: 70px;
+    margin-left: 40px;
     margin-top: 10px;
 }
 
@@ -203,7 +203,7 @@ progress[value]::-webkit-progress-value {
 
 .skull{ 
      margin-top: -60px;
-     margin-left: 570px;   
+     margin-left: 460px;   
 }
 
 
@@ -228,7 +228,7 @@ progress[value]::-webkit-progress-value {
 }
 
 .floatPopParent .floatPopYield {
-    visibility: visible;
+    visibility: hidden;
     width: 150px;
     background-color: rgba(153,51,51,0.9);
     color: #fff;
@@ -248,7 +248,7 @@ progress[value]::-webkit-progress-value {
 }
 
 .floatPopParent .floatPopFalling {
-     visibility: hidden;
+    visibility: hidden;
     width: 150px;
     background-color: rgba(153,51,51,0.9);
     color: #fff;
@@ -259,7 +259,7 @@ progress[value]::-webkit-progress-value {
     height: 150px;
     margin-top: -150px;
     font-size: 14px;
-    margin-left: 110px;
+    margin-left: 90px;
     position: absolute;
 }
 
@@ -279,7 +279,7 @@ progress[value]::-webkit-progress-value {
     height: 150px;
     margin-top: -150px;
     font-size: 14px;
-    margin-left: 250px;
+    margin-left: 170px;
     position: absolute;
 }
 
@@ -301,7 +301,7 @@ progress[value]::-webkit-progress-value {
     background-color: rgba(153,51,51,0.9);
     color: #fff;
     border-radius: 6px;
-    margin-left: 400px;
+    margin-left: 300px;
     margin-top: -155px;
     font-size: 14px;
     padding-left: 7px;
@@ -322,7 +322,7 @@ progress[value]::-webkit-progress-value {
     border-radius: 6px;
     background-color: rgba(153,51,51,0.9);
     color: #fff;
-    margin-left: 545px;
+    margin-left: 415px;
     margin-top: -230px;
     position: absolute;
     padding-left: 7px;
