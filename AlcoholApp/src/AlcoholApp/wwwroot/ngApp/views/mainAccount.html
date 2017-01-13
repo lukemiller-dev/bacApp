@@ -55,7 +55,7 @@
                                                     <input class="weight" ng-model="controller.weight" />
                                                             </td>
                                                             <td>
-                                                    <button ng-click="controller.setWeight()" class="weightSubmit"><i class="fa fa-plus" aria-hidden="true"></button>      
+                                                    <i ng-click="controller.setWeight()" class="weightSubmit fa fa-plus" aria-hidden="true"></i>      
                                                                </td>
                                                             </tr>
                                                         </table>                                             
@@ -201,10 +201,15 @@
                                 <p class="bacAccountPercent">{{controller.bac | number:2}}%</p>
                         <table>
                             <tr>
-                                <td><h3 class="drinkTallyHeader">Drink Tally</h3></td>                    
-                                <td><button ng-click="controller.deleteAllFalseGs()" class="dAllG"><i class="fa fa-repeat" aria-hidden="true"></i></button></td>
+                                <td><h3 class="drinkTallyHeader">Drink Tally</h3></td> 
                             </tr>
-                        </table>
+                           </table> 
+                                 
+                            <ul class="deleteGlassBtns">     
+                                <li><button  ng-click="controller.showRemove()" class="dAllG"><i id="editDeleteBtn" class="fa fa-edit"></i></button></li>
+                                <li><button ng-click="controller.deleteAllFalseGs()" class="dAllG"><i class="fa fa-repeat" aria-hidden="true"></i></button></li>
+                           </ul>
+                      
                         </center>
                       
 
@@ -217,9 +222,10 @@
                             <li ng-repeat="glass in controller.fGlasses">
                             <table class="tallyTable">
                                 <tr>
+                               <td ng-hide="controller.hideRemove"><i id="deleteGlassI" ng-click="controller.deleteFalseG(glass.id)" class="fa fa-window-close" aria-hidden="true"></i></td>
                                 <td><p class="drinkTallyP">{{glass.timeConsumed | date: 'shortTime'}}</p></td>
                                  <td><p class="drinkTallyP">{{glass.alcohol.style}} {{glass.volume}} oz</p></td>
-    <!--<i id="deleteGlassI" ng-click="controller.deleteFalseG(glass.id)" class="fa fa-window-close" aria-hidden="true"></i>-->
+    
                             </tr>
                             </table>
                             </li>

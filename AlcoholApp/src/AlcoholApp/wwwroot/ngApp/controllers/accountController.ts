@@ -33,6 +33,7 @@ namespace AlcoholApp.Controllers {
         public openModal(html) {
             this.ModalService.openModal("login.html");
         }
+
     }
 
     angular.module('AlcoholApp').controller('AccountController', AccountController);
@@ -49,6 +50,10 @@ namespace AlcoholApp.Controllers {
                 this.validationMessages = results;
             });
         }
+
+        //public closeModal() {
+        //    this.$uibModalInstance.close();
+        //}
 
         constructor(private accountService: AlcoholApp.Services.AccountService, private $location: ng.ILocationService) { }
     }

@@ -12,6 +12,11 @@
     background-color: rgb(245,245,245);
 }
 
+#mainAccountNav {
+    background-color: rgba(0,0,0,0.8);
+    border-radius: 0;
+}
+
 .navAccountList {
     font-size: 18px;
     color: black;
@@ -19,18 +24,14 @@
 }
 .navAccountList a {
       font-size: 18px;
-      color: black;
+      color: #fff;
       font-family: 'Questrial', sans-serif;
 }
-.accountActive {
-    font-size: 18px;
-    color: black;
-    font-family: 'Questrial', sans-serif;
-}
+
 
 .accountActive:hover {
     font-size: 18px;
-    color: black;
+    color: #993333;
     font-family: 'Questrial', sans-serif;
 }
 
@@ -43,12 +44,17 @@
 }
 
 .accountActive {
-    color: black;
+    color: #fff;
+    font-family: 'Questrial', sans-serif;
     font-size: 18px;
+    outline: none;
 }
 
 #userNameNav {
     padding-top: 15px;
+    margin-right: 20px;
+    font-family:'Questrial', sans-serif;
+    color: #fff;
 }
 /**mainAccount**/
 
@@ -381,7 +387,8 @@ progress[value]::-webkit-progress-value {
     color: #fff;
     font-size: 15px;
     font-weight: 400;
-    padding-top: 3px;
+    padding-top: 5px;
+    padding-left: 6px;
 }
 
 .addWeightP {
@@ -528,8 +535,29 @@ button, select {
     background-color: #993333; 
     color: white;
     font-size: 20px;
+    outline: none;
+}
+
+.deleteBtnTd {
+    margin-right: -50px
+}
+
+#editDeleteBtn {
+    
+    color: white;
+    font-size: 20px;
 }
 
 .tallyTable td {
     margin-left: 20px;
+}
+
+.deleteGlassBtns {
+    list-style-type: none;
+    margin-left: -50px;
+    margin-top: -10px;
+}
+
+.deleteGlassBtns li {
+    display: inline;
 }

@@ -1,18 +1,18 @@
 namespace AlcoholApp.Controllers {
 
     export class HomeController {
-       
+
         constructor(public $http: ng.IHttpService, public $state: ng.ui.IStateService, public $uibModal: ng.ui.bootstrap.IModalService, public ModalService: AlcoholApp.Services.ModalService) { }
 
-     public openNav() {
-        document.getElementById("mySidenav").style.width = "250px";
-    }
+        public openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
 
-    /* Set the width of the side navigation to 0 */
-    public closeNav() {
-        document.getElementById("mySidenav").style.width = "0";
+        /* Set the width of the side navigation to 0 */
+        public closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
     }
- }
 
 
     export class ModalController {
@@ -20,9 +20,7 @@ namespace AlcoholApp.Controllers {
 
         constructor(public $http: ng.IHttpService, public $state: ng.ui.IStateService, public $uibModalInstance: ng.ui.bootstrap.IModalServiceInstance) { }
 
-        public closeModal() {
-            this.$uibModalInstance.close();
-        }
+     
     }
 
     /**
@@ -59,6 +57,7 @@ namespace AlcoholApp.Controllers {
         public noGlassShow = false;
         public firstGlassShow = false;
         public lastGlassShow = false;
+        public hideRemove = true;
 
 
 
@@ -76,7 +75,7 @@ namespace AlcoholApp.Controllers {
             }).then((res) => {
                 this.lastGlass = this.fGlasses[0];
 
-             
+
 
                 if (this.fGlasses.length == 0) {
                     this.noGlassShow = true;
@@ -92,7 +91,7 @@ namespace AlcoholApp.Controllers {
                     }
 
                 }
-             })
+            })
 
             $http.get('api/glasses/trueGlasses').then((res) => {
                 this.tGlasses = res.data;
@@ -108,10 +107,10 @@ namespace AlcoholApp.Controllers {
 
 
         public addGlass() {
-            
+
             this.$http.post(`api/glasses/newGlasses/${this.volume}`, this.alcoholInfo).then((res) => {
                 this.$state.reload();
-                });
+            });
         }
 
         public addLastGlass() {
@@ -119,17 +118,17 @@ namespace AlcoholApp.Controllers {
                 this.$http.post(`api/glasses/newGlasses/${this.volume}`, this.lastGlass.alcohol).then((res) => {
                     this.$state.reload();
                 })
-                }else {
+            } else {
                 var splitVol = this.volume.split(' ');
                 console.log(splitVol[0]);
                 console.log(this.volume);
-                this.$http.post(`api/glasses/newGlasses/${parseFloat(splitVol[0])}`, this.lastGlass.alcohol).then((res) => {                  
+                this.$http.post(`api/glasses/newGlasses/${parseFloat(splitVol[0])}`, this.lastGlass.alcohol).then((res) => {
                     this.$state.reload();
-                    
+
                 })
             }
         }
-    
+
 
         public selectAlcohol(alcoholId) {
             this.$http.get(`api/alcohols/${alcoholId}`).then((res) => {
@@ -149,7 +148,7 @@ namespace AlcoholApp.Controllers {
 
         public addFav(drink) {
             this.$http.post('api/glasses', drink).then((res) => {
-               
+
                 this.$state.reload();
             }).catch((reason) => {
                 this.reason = reason.data;
@@ -197,7 +196,15 @@ namespace AlcoholApp.Controllers {
             }
         }
 
-        
+        public showBlackout() {
+          
+            if (this.bac > .17) {
+                return this.blackout = true;           
+            } else {
+                this.blackout = false;
+            }
+        }
+
 
         public showSkull() {
             if (this.bac > .19) {
@@ -223,13 +230,6 @@ namespace AlcoholApp.Controllers {
             }
         }
 
-        public showBlackout() {
-            if (this.bac > .17) {
-                return this.blackout = true;
-            } else {
-                return this.blackout = false;
-            }
-        }
 
 
         public deleteFalseG(id) {
@@ -244,8 +244,13 @@ namespace AlcoholApp.Controllers {
             })
         }
 
-        
+        public showRemove() {
+
+            this.hideRemove = !this.hideRemove;
         }
+
+    }
+
 
 
     

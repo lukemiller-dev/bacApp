@@ -1,6 +1,32 @@
 
 <!-- The overlay -->
+<nav id="mainHomeNav" class="navbar navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navTitleLink" href="/"><i id="beerIcon" class="fa fa-beer" aria-hidden="true"></i><span id="navTitle"></span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <form class="navbar-form navbar-right">
+                <div class="form-group">
+                    <ul id="rightNavAccount" class="nav navbar-nav">
 
+
+                        <li><a class="accountActive" href="/mainAccount" ng-show="account.isLoggedIn()">Account</a></li>
+                        <li><a class="accountActive" href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a></li>
+                        <li class="navAccountList" id="userNameNav" ng-show="account.isLoggedIn()">
+                            {{account.getUserName()}}
+                        </li>
+                        <li><a class="accountActive" ng-show="!account.isLoggedIn()" href="#" ng-click="account.openModal()">Login</a></li>
+                        <li><a class="accountActive" ng-show="!account.isLoggedIn()" href="/register">Register</a></li>
+
+                    </ul>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</nav>
 
 
 
@@ -9,7 +35,7 @@
     <div class="container-fluid">
         <div class="layer">
             <div class="col-md-2">
-              <i id="openMenu" ng-click="controller.openNav()" class="fa fa-bars" aria-hidden="true"></i>
+              <!--<i id="openMenu" ng-click="controller.openNav()" class="fa fa-bars" aria-hidden="true"></i>
                 <div id="mySidenav" class="sidenav">
                     <a href="javascript:void(0)" class="closebtn" ng-click="controller.closeNav()">&times;</a>
                     <ul id="slideList">
@@ -21,7 +47,7 @@
                         [{{account.getUserName()}}]
                     </li>
                 </ul>
-                </div>
+                </div>-->
 
                 <!-- Use any element to open the sidenav -->
                
@@ -31,7 +57,7 @@
             <div class="col-md-8">
                 <center>
          
-                <h1 data-aos="fade-down" data-aos-duration="1000">BacApp</h1>
+                <h1 data-aos="fade-down" data-aos-duration="1000">Last Pour</h1>
                 <h3 data-aos="fade-down" data-aos-duration="1000">Helping people keep track of their alcohol consumption</h3>
                 <form method="get" action="/register">
                     <button data-aos="fade-down" data-aos-duration="1000" id="jumboBtn" type="submit">Get Started</button>
@@ -52,24 +78,35 @@
           <div class="col-md-12">
               
         
-              <nav data-aos="fade-down" data-aos-duration="2000" id="secondNav" class="navbar navbar-fixed-top">
+          
             
-                  <div class="navbar-header">
+                  <nav data-aos="fade-down" data-aos-duration="1000" id="secondNav" class="navbar navbar-fixed-top">
+                      <div class="container-fluid">
+                          <!-- Brand and toggle get grouped for better mobile display -->
+                          <div class="navbar-header">
+                              <a class="navTitleLink" href="/"><i id="beerIcon" class="fa fa-beer" aria-hidden="true"></i><span id="navTitle"></span></a>
+                          </div>
+                          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                              <form class="navbar-form navbar-right">
+                                  <div class="form-group">
+                                      <ul id="rightNavAccount" class="nav navbar-nav">
 
-                      <a class="navTitleLink" href="/"><i id="beerIcon" class="fa fa-beer" aria-hidden="true"></i><span id="navTitle"></span></a>
-                      <ul class="secondNavList">
 
-                          <li class="navList"><a ng-show="!account.isLoggedIn()" href="/register">Register</a></li>
-                          <li><button class="navLogin" ng-click="account.openModal()" ng-show="!account.isLoggedIn()">Login</button></li>
-                          <li><a href="/mainAccount" ng-show="account.isLoggedIn()" class="navList">Account</a></li>
-                          <li><a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()" class="navList">Logout</a></li>
-                          <li class="navList" id="userNameNav" ng-show="account.isLoggedIn()">
-                              [{{account.getUserName()}}]
-                          </li>
+                                          <li><a class="secondaryNavA" href="/mainAccount" ng-show="account.isLoggedIn()">Account</a></li>
+                                          <li><a class="secondaryNavA" href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a></li>
+                                          <li class="secondaryNavA" id="userNameNav" ng-show="account.isLoggedIn()">
+                                              {{account.getUserName()}}
+                                          </li>
+                                          <li><a class="accountActive" ng-show="!account.isLoggedIn()" href="#" ng-click="account.openModal()">Login</a></li>
+                                          <li><a class="accountActive" ng-show="!account.isLoggedIn()" href="/register">Register</a></li>
 
-                      </ul>
-                  </div>
-                </nav>
+                                      </ul>
+                                  </div>
+                              </form>
+                          </div>
+
+                      </div>
+                  </nav>
              
               </div>
             </div>
@@ -110,18 +147,16 @@
                 </div>
             </div>
     </div>
+
+<div class="footer">
+    <center>
+        <h2 class="footerHeader">Create a free account.</h2>
+        <button onclick="location.href='/register'" class="signUpFooter">Sign Up</button>
+    </center>
+</div>
      
     
     
 
-            <div>
-                                            <i id="homeBeerIcon" class="fa fa-                                                          beer" aria-hidden="true"></i>
-                                            <p class="ozUnderIcon">12 oz</p>
-                        </div>
-                                </center>
-                                    <div class="drinkTally">
-                                </center>
-
-
-
+          
 
