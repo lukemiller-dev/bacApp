@@ -95,7 +95,7 @@
 
 .navDrinks {
     margin-top: 5px;
-    padding-right: 10px;
+
     font-size: 18px; 
     color: #fff;
     font-family: 'Questrial', sans-serif;
@@ -103,7 +103,7 @@
 
 .navDrinks:hover {
     color: #fff;
-    background-color: #fff;
+  
 }
 
 .navDrinks:focus {
@@ -112,7 +112,8 @@
 }
 
 #navDelete {
-    margin-top: -50px;
+    margin-top: -20px;
+    margin-left: -10px;
     position: relative;
     float: right; 
     color: white;  
@@ -170,31 +171,31 @@ progress[value]::-webkit-progress-value {
 
 
 #blackout {
-  
-   margin-left: 330px;
-   margin-top: -50px;
+    margin-left: 220px;
+    margin-top: -3px;
+    position: absolute;
 }
 
 
 .merked {
-    float: left;
-    margin-top: 10px;
-    margin-left: 50px;
+    position: absolute;
+    margin-top: -3px;
+    margin-left: 140px;
     padding-top: 10px;
 }
 
 .falling {
-    float: left;
-    margin-left: 40px;
-    margin-top: 10px;
+      position: absolute;
+    margin-left: 70px;
+    margin-top: -3px;
 }
 
 #exclamation {  
     font-size: 40px;
     color: red;
-    padding-top: 20px;
-    margin-left: 50px; 
-    float: left;  
+    margin-top: 5px;
+    margin-left: 15px;
+    position: absolute;
 }
 
 .exclamationDiv {
@@ -245,7 +246,7 @@ progress[value]::-webkit-progress-value {
     height: 150px;
     margin-top: -150px;
     font-size: 14px;
-    margin-left: 0px;
+    margin-left: -25px;
     position: absolute;
 }
 
@@ -265,7 +266,7 @@ progress[value]::-webkit-progress-value {
     height: 150px;
     margin-top: -150px;
     font-size: 14px;
-    margin-left: 90px;
+    margin-left: 20px;
     position: absolute;
 }
 
@@ -285,7 +286,7 @@ progress[value]::-webkit-progress-value {
     height: 150px;
     margin-top: -150px;
     font-size: 14px;
-    margin-left: 170px;
+    margin-left: 85px;
     position: absolute;
 }
 
@@ -307,7 +308,7 @@ progress[value]::-webkit-progress-value {
     background-color: rgba(153,51,51,0.9);
     color: #fff;
     border-radius: 6px;
-    margin-left: 300px;
+    margin-left: 175px;
     margin-top: -155px;
     font-size: 14px;
     padding-left: 7px;
@@ -361,7 +362,12 @@ progress[value]::-webkit-progress-value {
     border-bottom: 2px solid #993333; 
     margin-right: 5px; 
     width: 100px;
-    margin-left: 20px;
+    margin-left: 15px;
+}
+
+.dropdown-menu {
+    top: -63px;
+    left: -11px;
 }
 
 .weight:focus {
@@ -373,7 +379,8 @@ progress[value]::-webkit-progress-value {
     width: 100px;
     border: none;
     border-radius: 5px;    
-    outline: none;    
+    outline: none; 
+    position: absolute;   
 }
 
 
@@ -491,13 +498,13 @@ button, select {
 .drinkTallyHeader {
       font-family: 'Questrial', sans-serif;
       font-size: 30px;
-      margin-bottom: 20px;
+      margin-bottom: 2%;
 }
 
 .drinkTallyAccount {
     margin-top: 100px;
     height: auto;
-    width: 70% ;
+    width: 75% ;
     background-color: #f2f2f2; 
     border-radius: 5px;
     margin-right: auto;
@@ -514,50 +521,379 @@ button, select {
     background-color: white;
 }
 
+.glassList {
+   margin: 5% auto;
+}
+
 .drinkTallyP {
-    font-size: 20px;
+    font-size: 1.4em;
     color: black;
     font-family: 'Questrial', sans-serif;
-    margin-left: 13px;
+    margin-left: 8px;
+   
+   
 }
 
 #deleteGlassI {
     margin-left: 20px;
+    padding-bottom: 10px;
 }
 
-.dAllG {
-    border: none;
-    height: 30px;
-    margin-top: 0px;
-    margin-left: 15px;
-    width: 30px;
-    border-radius: 20px;
-    background-color: #993333; 
-    color: white;
+
+#editDelete {
+    margin-left: 10px;
+    color: #993333;
     font-size: 20px;
-    outline: none;
+    padding-top: 22px;
 }
 
-.deleteBtnTd {
-    margin-right: -50px
+#editDelete:hover {
+    cursor: pointer;
 }
 
-#editDeleteBtn {
-    
-    color: white;
-    font-size: 20px;
+#deleteAllDrinks {
+     color: #993333;
+    font-size: 18px;
+    margin-left: 8px;
+    padding-top: 21px;
+}
+
+#deleteAllDrinks:hover {
+    cursor: pointer;
 }
 
 .tallyTable td {
     margin-left: 20px;
 }
 
-.deleteGlassBtns {
-    list-style-type: none;
-    margin-left: -50px;
-    margin-top: -10px;
+#favsTable td {
+    padding-right: 20px;
 }
 
-.deleteGlassBtns li {
-    display: inline;
+#mobileMargintd {
+    visibility: hidden;
 }
+
+
+@media (max-width: 1200px) {
+    .mainAccountDiv {
+        width: 100%;
+        height: auto;
+    }
+
+    #mAnav {
+        margin-top: -43px;
+        height: auto;
+        padding-bottom: 15px;
+    } 
+
+
+
+    #favNavTitle {
+        padding-left: 30px;
+        padding-right: 15px;
+    }
+
+  
+
+ 
+}
+
+@media (max-width: 540px) {
+ 
+    #favNavRight {
+        position: absolute;
+        margin-top: 0px;
+    }
+
+        #favsTable {
+       margin-top: 70px;
+    }
+
+     #favNavTitle {
+        display: none;
+    }
+
+    #mobileMargintd {
+        visibility:hidden;
+        padding-left: 10px;
+    }
+
+    #weightBtn {
+        margin-top: -90px;
+        margin-left: -10px;
+    }
+
+    #favsTable {
+        margin-top: 70px;
+    }
+
+    .selectedHeader {
+    margin-top: 15px;
+    font-size: 2em;
+    margin-bottom: 10px;
+    font-family: 'Questrial', sans-serif;
+}
+
+    .drinkIcons {
+        height: 135px;
+        width: 135px;
+    }
+
+    progress {
+    height: 55px;
+    width: 73.5%;
+    margin-left: 15px;
+    border-radius: 2px;
+    margin-top: 0;
+}
+
+    .drinkTallyAccount {
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    .bacAccountPercent {
+        font-size: 3.5em;
+    }
+
+    .drinkTallyHeader {
+        font-size: 1.8em;
+    }
+
+    #ozDropDown {
+        margin-top: -10px;
+    }
+  
+}
+
+
+
+
+
+@media (min-width: 540px) and (max-width: 767px) {
+    .drinkTallyAccount {
+        width: 85%;
+    }
+
+    #weightBtn {
+        margin-top: -23px;
+    }
+
+    #favsTable {
+        margin-top: 85px;
+        position: absolute;
+    }
+
+    #mAnav {
+        padding-bottom: 55px;
+    }
+
+    #favsTable td {
+        padding-right: 40px;
+    }
+
+    #exclamation {
+        margin-left: 50px;
+    }
+
+    .falling {
+        margin-left: 160px;
+    }
+
+    .merked {
+        margin-left: 275px;
+    }
+
+    #blackout {
+        margin-left: 400px;
+    }
+
+     .floatPopParent .floatPopYield {
+        margin-left: -5px;
+    }
+
+     .floatPopParent .floatPopFalling {
+         margin-left: 113px;
+    }
+
+        .floatPopParent .floatPopMerked {
+            margin-left: 220px;
+        }
+
+        .floatPopParentWeird .floatPopWeird {
+            margin-left: 355px;
+        }
+}
+
+
+@media (min-width: 768px) {
+    #mAnav {
+        height: 70px;
+    }
+
+    #favsTable {
+        margin-top: 30px;
+    }
+
+    #weightBtn {
+        margin-top: -12px;
+
+    }
+
+    .dropdown-menu {
+        top: 20px;
+        margin-left: 200px;
+    }
+
+    .navbar-right .dropdown-menu {
+        left: -200px;
+    }
+
+    .selectedHeader {
+        margin-top: 40px;
+    }
+
+    #ozDropDown {
+        margin-top: -14px;
+    }
+
+    #exclamation {
+        margin-left: 40px;
+    }
+
+ 
+    .floatPopParent .floatPopYield {
+        margin-left: 0px;
+    }
+
+    .falling {
+        margin-left: 200px;
+    }
+
+    .merked {
+        margin-left: 370px;
+    }
+
+    #blackout {
+        margin-left: 540px;
+    }
+
+    .drinkTallyAccount {
+        margin-top: 40px;
+    }
+
+    .drinkTallyHeader {
+        font-size: 2.15em;
+    }
+
+    .floatPopParent .floatPopFalling {
+        margin-left: 150px;
+    }
+
+    .floatPopParent .floatPopMerked {
+        margin-left: 315px;
+    }
+
+    .floatPopParentWeird .floatPopWeird {
+        margin-left: 495px;
+    }
+}
+
+
+    @media(min-width: 992px) and (max-width: 1200px) {
+        #blackout {
+    margin-left: 370px;
+        }
+
+        .merked {
+    margin-left: 265px;
+}
+        .falling {
+    margin-left: 145px;
+}
+
+    #exclamation {
+    margin-left: 40px;
+}
+
+           .floatPopParentWeird .floatPopWeird {
+    margin-left: 325px;
+}
+        .floatPopParent .floatPopMerked {
+    margin-left: 215px;
+}
+
+        .floatPopParent .floatPopFalling {
+    margin-left: 95px;
+}
+
+        .floatPopParent .floatPopYield {
+    margin-left: -13px;
+}
+   
+
+}
+
+    @media(min-width: 1125px) and (max-width: 1350px) {
+        .falling {
+            margin-left: 140px;
+        }
+
+        .merked {
+            margin-left: 250px;
+        }
+
+        #blackout {
+            margin-left: 360px;
+        }
+
+        
+        .floatPopParentWeird .floatPopWeird {
+    margin-left: 325px;
+}
+        .floatPopParent .floatPopMerked {
+    margin-left: 200px;
+}
+
+        .floatPopParent .floatPopFalling {
+    margin-left: 95px;
+}
+
+        .floatPopParent .floatPopYield {
+    margin-left: -13px;
+}
+    }
+
+    @media(min-width: 1350px) {
+        .falling {
+            margin-left: 155px;
+        }
+
+        .merked {
+            margin-left: 285px;
+        }
+
+        #blackout {
+            margin-left: 408px;
+        }
+
+        .floatPopParentWeird .floatPopWeird {
+    margin-left: 370px;
+}
+        .floatPopParent .floatPopMerked {
+    margin-left: 235px;
+}
+
+        .floatPopParent .floatPopFalling {
+    margin-left: 115px;
+}
+
+        .floatPopParent .floatPopYield {
+    margin-left: -13px;
+}
+    }
+
+
+
+

@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <a class="navTitleLink" href="/"><i id="beerIcon" class="fa fa-beer" aria-hidden="true"></i><span id="navTitle"></span></a>
+            <a class="navTitleLink" href="/"><span id="navTitle"><img class="lpIcon" src="http://i.imgur.com/3BBUysg.png?1" /></span></a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <form class="navbar-form navbar-right">
@@ -10,11 +10,11 @@
                     <ul id="rightNavAccount" class="nav navbar-nav">
 
                       
-                        <li><a class="accountActive" href="/mainAccount" ng-show="account.isLoggedIn()">Account</a></li>
-                        <li class="navAccountList"><a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()" >Logout</a></li>
+                       
                         <li class="navAccountList" id="userNameNav" ng-show="account.isLoggedIn()">
                             {{account.getUserName()}}
                         </li>
+                        <li class="navAccountList"><a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()" >Logout</a></li>
 
                     </ul>
                 </div>
@@ -31,15 +31,21 @@
                 <div class="container-fluid">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <a class="navbar-brand" id="favNavTitle" href="#">Favorites</a>
-                        <ul class="nav navbar-nav">
-                            <li ng-repeat="favorite in controller.tGlasses"><a ng-click="controller.selectAlcohol(favorite.alcohol.id)" class="navDrinks" href="#">{{favorite.alcohol.style}}</a><i id="navDelete" class="fa fa-window-close" ng-click="controller.deleteFav(favorite.id)" aria-hidden="true"></i></li>
-                        </ul>
+                        <!--<a class="navbar-brand" id="favNavTitle" href="#">Favorites</a>-->
+                        <table id="favsTable">
+                          
+                            
+                        <tr class="nav navbar-nav">
+                            <!--<td id="favNavTitle">Favorites</td>-->
+                            <td id="mobileMargintd"></td>
+                            <td ng-repeat="favorite in controller.tGlasses"><a ng-click="controller.selectAlcohol(favorite.alcohol.id)" class="navDrinks" href="#">{{favorite.alcohol.style}}</a><i id="navDelete" class="fa fa-window-close" ng-click="controller.deleteFav(favorite.id)" aria-hidden="true"></i></td>
+                        </tr>
+                    </table>
                     </div>
                     <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                   
                        
-                        <div class="navbar-form navbar-right">
+                        <div id="favNavRight" class="navbar-form navbar-right">
                             <section id="section">
                                 <table>
                                     <tr>                                     
@@ -51,7 +57,7 @@
                                                 <li>
                                                     <table>
                                                         <tr>
-                                                            <td>
+                                                            <td id="weightTd">
                                                     <input class="weight" ng-model="controller.weight" />
                                                             </td>
                                                             <td>
@@ -82,7 +88,7 @@
                           </section>
                                 
                         </div>
-                    </div><!-- /.navbar-collapse -->
+                   
                 </div><!-- /.container-fluid -->
             </nav>
 
@@ -90,7 +96,7 @@
 
             <div class="row">
                 
-                <div class="col-md-6 col-sm-6">
+                <div class="col-md-6 col-sm-12 col-xs-12">
                     <div class="selectedDrinkDiv" ng-show="controller.noGlassShow">
                         <center>
                             <table>
@@ -176,7 +182,7 @@
 
                                     <li ng-show="controller.showBlackout()" class="floatPopParentWeird"><p class="floatPopWeird">At this point you may experience nausea and/or start vomiting. If you hurt yourself at this point, you probably won't realize it because you won't feel pain.</p><img id="blackout" src="http://i.imgur.com/a9OYyZP.png" height="70" width="70" /></li>
 
-                                    <li ng-show="controller.showSkull()" class="floatPopParentWeird"><p class="floatPopWeirdTwo">You're F'd</p><img class="skull" src="../../images/skull3.png" height="40" width="40" /></li>                                 
+                                    <!--<li ng-show="controller.showSkull()" class="floatPopParentWeird"><p class="floatPopWeirdTwo">You're F'd</p><img class="skull" src="../../images/skull3.png" height="40" width="40" /></li>-->                                 
 
                                 </ul>
 
@@ -194,21 +200,21 @@
 
                 
 
-                <div class="col-md-6 col-sm-6">
+                <div class="col-md-6 col-sm-12 col-xs-12">
                     <div class="drinkTallyAccount">
                         <center>
                           
                                 <p class="bacAccountPercent">{{controller.bac | number:2}}%</p>
                         <table>
                             <tr>
-                                <td><h3 class="drinkTallyHeader">Drink Tally</h3></td> 
-                            </tr>
+                                <td><h3 class="drinkTallyHeader">Drink Tally</h3></td>
+                               
+                                    <td><i ng-click="controller.showRemove()" id="editDelete" class="fa fa-edit"></i></td>
+                                    <td><i id="deleteAllDrinks" ng-click="controller.deleteAllFalseGs()" class="fa fa-repeat" aria-hidden="true"></i></td>
+                                    </tr>
                            </table> 
                                  
-                            <ul class="deleteGlassBtns">     
-                                <li><button  ng-click="controller.showRemove()" class="dAllG"><i id="editDeleteBtn" class="fa fa-edit"></i></button></li>
-                                <li><button ng-click="controller.deleteAllFalseGs()" class="dAllG"><i class="fa fa-repeat" aria-hidden="true"></i></button></li>
-                           </ul>
+                          
                       
                         </center>
                       
