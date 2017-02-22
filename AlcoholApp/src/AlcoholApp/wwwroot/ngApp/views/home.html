@@ -1,10 +1,10 @@
 
 <!-- The overlay -->
-<nav id="mainHomeNav" class="navbar navbar-fixed-top">
+<nav id="mainHomeNav" class="bg transition navbar navbar-fixed-top">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <a class="navTitleLink" href="/"><span id="navTitle"><img class="lpIcon" src="http://i.imgur.com/3BBUysg.png?1" height="50" /></span></a>
+         
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <form class="navbar-form navbar-right">
@@ -12,148 +12,54 @@
                     <ul id="rightNavAccount" class="nav navbar-nav">
 
 
-                        <li><a class="accountActive" href="/mainAccount" ng-show="account.isLoggedIn()">Account</a></li>
-                        <li><a class="accountActive" href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a></li>
+                        <li><a class="homeNavP" href="/mainAccount" ng-show="account.isLoggedIn()">Account</a></li>
+                        <li><a class="homeNavP" href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a></li>
                         <li class="navAccountList" id="userNameNav" ng-show="account.isLoggedIn()">
                             {{account.getUserName()}}
                         </li>
-                        <li><a class="accountActive" ng-show="!account.isLoggedIn()" href="#" ng-click="account.openModal()">Login</a></li>
-                        <li><a class="accountActive" ng-show="!account.isLoggedIn()" href="/register">Register</a></li>
-
+                        <li><button class="navButton" ng-show="!account.isLoggedIn()" href="#" ng-click="account.openModal()">Log In</button></li>
+                        <li><a class="homeNavP" ng-show="!account.isLoggedIn()" href="/register">Sign Up</a></li>
+                      
                     </ul>
                 </div>
             </form>
         </div>
-
+    
     </div>
 </nav>
 
 
 
 
-<div class="jumbotron">
-    <div class="container-fluid">
-        <div class="layer">
-            <div class="col-md-2">
-              <!--<i id="openMenu" ng-click="controller.openNav()" class="fa fa-bars" aria-hidden="true"></i>
-                <div id="mySidenav" class="sidenav">
-                    <a href="javascript:void(0)" class="closebtn" ng-click="controller.closeNav()">&times;</a>
-                    <ul id="slideList">
-                    <li class="navList"><a ng-show="!account.isLoggedIn()" href="/register">Register</a></li>
-                    <li><button class="navLogin" ng-click="account.openModal()" ng-show="!account.isLoggedIn()">Login</button></li>
-                    <li><a href="/mainAccount" ng-show="account.isLoggedIn()" class="navList">Account</a></li>
-                    <li><a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()" class="navList">Logout</a></li>
-                    <li class="navList" id="userNameNav" ng-show="account.isLoggedIn()">
-                        [{{account.getUserName()}}]
-                    </li>
-                </ul>
-                </div>-->
 
-                <!-- Use any element to open the sidenav -->
-               
 
-                <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
-               </div>
-            <div class="col-md-8">
-                <center>
-         
-                <h1 data-aos="fade-down" data-aos-duration="1000">Last Pour</h1>
-                <h3 data-aos="fade-down" data-aos-duration="1000">Helping people keep track of their alcohol consumption</h3>
-                <form method="get" action="/register">
-                    <button data-aos="fade-down" data-aos-duration="1000" id="jumboBtn" type="submit">Get Started</button>
-                </form>
-                    <img data-aos="fade-up" data-aos-duration="1000" id="compImg" src="http://i.imgur.com/VtrH4JJ.png?2" width="650" />
-          </center>
-        
-               </div>
-            <div class="col-md-2"></div>
+
+<div class="main">
+    <div class="faded">
+        <div class="row">
+            <div id="bigScreenSplit" class="col-md-5 col-xs-0 col-sm-0 col-lg-5">
+                <img class="phone" src="http://i.imgur.com/zr5AXFq.png" />
+            </div>
+            <div class="col-md-6 col-xs-12 col-sm-12 col-lg-6">
+                <h1 class="homeh1">Last Pour</h1>
+                <h2 class="homeh2">Don't be a fool. We've dumbed down the process of checking your BAC, even when you are at your most vulnerable state.</h2>
+                <button onclick="location.href='/register'" class="getStarted">Get Started</button>
+
+
+
+              
+
+            </div>
+            <div class="col-md-1 col-lg-1"></div>
+            <div id="littleScreenSplit" class="col-xs-12 col-sm-12">
+                <img class="phone2" src="http://i.imgur.com/zr5AXFq.png" />
             </div>
         </div>
     </div>
-
-
-<div class="midSec">
-    <div class="container">
-      <div class="row">
-          <div class="col-md-12">
-              
-        
-          
-            
-                  <nav data-aos="fade-down" data-aos-duration="1000" id="secondNav" class="navbar navbar-fixed-top">
-                      <div class="container-fluid">
-                          <!-- Brand and toggle get grouped for better mobile display -->
-                          <div class="navbar-header">
-                              <a class="navTitleLink" href="/"><i id="beerIcon" class="fa fa-beer" aria-hidden="true"></i><span id="navTitle"></span></a>
-                          </div>
-                          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                              <form class="navbar-form navbar-right">
-                                  <div class="form-group">
-                                      <ul id="rightNavAccount" class="nav navbar-nav">
-
-
-                                          <li><a class="secondaryNavA" href="/mainAccount" ng-show="account.isLoggedIn()">Account</a></li>
-                                          <li><a class="secondaryNavA" href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a></li>
-                                          <li class="secondaryNavA" id="userNameNav" ng-show="account.isLoggedIn()">
-                                              {{account.getUserName()}}
-                                          </li>
-                                          <li><a class="accountActive" ng-show="!account.isLoggedIn()" href="#" ng-click="account.openModal()">Login</a></li>
-                                          <li><a class="accountActive" ng-show="!account.isLoggedIn()" href="/register">Register</a></li>
-
-                                      </ul>
-                                  </div>
-                              </form>
-                          </div>
-
-                      </div>
-                  </nav>
-             
-              </div>
-            </div>
-                  
-          </div>
-        
-                
-       
-                <!--<form class="navbar-form navbar-right">-->
-                    <!--<div class="form-group">-->
-                      
-          
-    <div class="container">
-            <div class="row">
-              
-                <div id="phonePicDiv" data-aos="fade-left" data-aos-duration="1000" class="col-md-6">
-
-                    <img class="appTemplate" src="http://i.imgur.com/milg8gt.png?1" />
-                </div>
-                <div data-aos="fade-right" data-aos-duration="2000" class="col-md-6">
-                    <h3>Know your Limits</h3>
-                    <table>
-                        <tr class="hoverTd">
-                            <td><i id="midSecIconCalc" class="fa fa-calculator" aria-hidden="true"></i></td>
-                            <td><p class="midSecPs">See your current BAC in real time. All you have to do is enter your weight and add drinks as you finish them.</p></td>
-                        </tr>
-                        <tr class="hoverTd">
-                            <td><i id="midSecIconGraph" class="fa fa-area-chart" aria-hidden="true"></i></td>
-                            <td><p class="midSecPs">We will keep you updated and alert you as you pass through stages of your drinking.</p></td>
-                        </tr>
-                        <tr class="hoverTd">
-                            <td><i id="midSecIcons" class="fa fa-glass" aria-hidden="true"></i></i></td>
-                            <td><p class="midSecPs">We offer a large selection of drinks to choose from so that we can give you the most accurate calcualtion fo your BAC.</p></td>
-                        </tr>
-                        </table>
-                  
-                    </div>
-                </div>
-            </div>
-    </div>
-
-<div class="footer">
-    <center>
-        <h2 class="footerHeader">Create a free account.</h2>
-        <button onclick="location.href='/register'" class="signUpFooter">Sign Up</button>
-    </center>
 </div>
+
+
+
      
     
     

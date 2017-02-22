@@ -1,20 +1,10 @@
 <div class="modal-body">
     <div class="global">
         
+      
+        <i ng-click="modal.closeModal()" id="closeModalI" class="fa fa-times" aria-hidden="true"></i>
         <fieldset>
-
-            <h3>Login with a Social Provider</h3>
-
-            <ul>
-                <li ng-repeat="externalLogin in account.externalLogins">
-                    <a target="_self" href="/api/account/ExternalLogin?provider={{externalLogin.authenticationScheme}}&returnUrl=/">{{externalLogin.displayName}}</a>
-                </li>
-            </ul>
-
-        </fieldset>
-
-        <fieldset>
-            <legend>Login Locally</legend>
+            <legend class="loginLegend">Log In to Last Pour</legend>
             <ul>
                 <li ng-repeat="error in controller.validationMessages">
                     {{error}}
@@ -29,28 +19,15 @@
                 <!--<label>Password:</label>-->
 
                 <div>
-                    <input type="password" class="password" ng-model="controller.loginUser.password" placeholder="Password" />
+                    <input type="password" class="modalFields" ng-model="controller.loginUser.password" placeholder="Password" />
                 </div>
 
                 <div>
-                    <input type="submit" class="regiBtn" value="Log In" />
+                    <input type="submit" class="regiBtn" ng-click="modal.closeModal()" value="Log In" />
                   
                 </div>
             
-                    <!--<a href="/register">Register</a>-->
-                
-
-                <label>or</label>
-                
-                <div>
-                    <button class="facebookBtn" type="submit"><i id="facebookIcon"class="fa fa-facebook" aria-hidden="true"></i>
-                     Continue with Facebook</button>
-                </div>
-
-                <button class="googleBtn" type="submit"><i id="googleIcon" class="fa fa-google" aria-hidden="true"></i> Continue with Google</button>
-                
-
-               <h6>Don't have an account? Register></h6>
+                    <h6>Don't have an account? <a href="/register">Sign Up</a></h6>
 
            </form>
 

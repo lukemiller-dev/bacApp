@@ -7,54 +7,39 @@
 
 /**Nav**/
 
-.navbar {
-    margin-bottom: 0px;
-    background-color: rgb(245,245,245);
+.lastPourNav {
+   
+    font-size: 1.7em;
+    font-family: "Berkshire Swash", sans-serif;
+    position: absolute;
+    margin-left: 45%;
+    margin-top: -25px;
+    color: #fff;
 }
+
+@media(max-width:600px) {
+    .lastPourNav {
+        margin-left: 43%;
+    }
+}
+
+
+
 
 #mainAccountNav {
     background-color: rgba(0,0,0,0.8);
     border-radius: 0;
+    margin-bottom: -20px;
+    height: 80px;
 }
 
-.navAccountList {
-    font-size: 18px;
-    color: black;
-    font-family: 'Questrial', sans-serif;
-}
-.navAccountList a {
-      font-size: 18px;
-      color: #fff;
-      font-family: 'Questrial', sans-serif;
-}
-
-
-.accountActive:hover {
-    font-size: 18px;
-    color: #993333;
-    font-family: 'Questrial', sans-serif;
-}
-
-.navAccountList:hover {
-    color: black;
-}
-
-.navAccountList:focus{
-    color: black;
-}
-
-.accountActive {
-    color: #fff;
-    font-family: 'Questrial', sans-serif;
-    font-size: 18px;
-    outline: none;
-}
 
 #userNameNav {
     padding-top: 15px;
     margin-right: 20px;
     font-family:'Questrial', sans-serif;
     color: #fff;
+    font-size: 15px;
 }
 /**mainAccount**/
 
@@ -62,6 +47,7 @@
     height: 1000px;
     width: 100%;
     background-color: #ffebee;
+    margin-top: -20px;
 }
 
 .mainAccountDiv {
@@ -448,7 +434,7 @@ selectedDiv {
 
 }
 
-button, select {
+/*button, select {
     text-transform: none;
     width: 120px;
     height: 40px;
@@ -458,7 +444,7 @@ button, select {
     border: none;
     border-radius: 2px;
       font-family: 'Questrial', sans-serif;
-}
+}*/
 
 
 #ozDropDown {

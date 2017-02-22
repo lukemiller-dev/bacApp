@@ -20,6 +20,9 @@ namespace AlcoholApp.Controllers {
 
         constructor(public $http: ng.IHttpService, public $state: ng.ui.IStateService, public $uibModalInstance: ng.ui.bootstrap.IModalServiceInstance) { }
 
+        public closeModal() {
+            this.$uibModalInstance.close();
+        }
      
     }
 

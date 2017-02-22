@@ -4,543 +4,242 @@
 }
 
 
-#mainHomeNav {
-    height: 70px;
+
+a {
+  color: #2d6a9f;
+}
+
+
+
+.homeNavP {
+    padding-top: 15px;
+    margin-right: 20px;
+    font-family: 'Questrial', sans-serif;
+    color: #fff;
+    font-size: 15px;
+}
+
+.homeNavP:hover {
+    text-decoration: underline;
+    color: #fff;
+}
+
+.nav > li > a:hover {
+  text-decoration: underline;
     background-color: transparent;
 }
-#mainNav {
-    height: 70px;
-    background-color: rgba(0,0,0,0.6);
-    width: 100%;   
-}
-
-.navList {
-    font-size: 18px;
-    color: #fff;
+#rightNavAccount {
+    margin-right: 70px;
 }
 
 
-
-#navTitle {
-    position: absolute;
-    margin-top: 25px;
-    font-size: 18px;
-    color: black;
+.show {
+  background-color: rgba(0,0,0,0.8);
+ 
 }
 
-.navTable td {
-    padding-top: 25px;
-    padding-right: 20px;
-    color: black;
-    background-color: blue;   
+.transition {    
+  -webkit-transition: all 1s ease-in-out;
+	-moz-transition: all 1s ease-in-out;
+	-o-transition: all 1s ease-in-out;
+	transition: all 1s ease-in-out;
 }
-
-.test {
-    height: 70px;
-    width: 80px;
-
-}
-#beerIcon {
-    font-size: 50px;
-    margin-top: 10px;
-    margin-right: 10px;
-    color: #993333;
-    margin-left: 50px;
-   
+.main {
+  background-image: url("http://i.imgur.com/EHEd7th.jpg");
+  background-position: center 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  height: 800px;
+  width: 100%;
+  background-color: rgba(255,255,255,0.4);
 }
 
 
 
-.nav>li>a:focus, .nav>li>a:hover {
-    background-color: transparent;
-    text-decoration: none;
+.faded {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 0, 0, 0.5);
+  padding-top: 100px;
+}
+
+.homeh1 {
+  font-family: 'Berkshire Swash', cursive;
+  font-size: 4.5em;
+  text-align: center;
+  color: #fff;
+  margin-top: 10px;
+
+}
+
+.homeh2 {
+  font-family: 'Sansita', sans-serif;
+  font-size: 2.5em;
+  color: #ffffff;
+  margin-top: 30px;
+  text-align: center;
+
 }
 
 
-#rightNav a {
-    color: #fff;
-}
-
-#rightNav a:hover {
-    background-color: none;
-}
-
-.navBarDiv {
-    background-color: #662900;
-}
-
-/*Slide Menu*/
-
-#slideList {
-    list-style-type:none;
-
-}
-#openMenu {
-    margin-top: 20px;
-    padding-left: 20px;
-    color: white;
-    font-size: 35px;
-}
-
-.sidenav {
-    height: 810px; 
-    width: 0; 
-   position: inherit;   
-    top: -60px;
-    left: 0;
-    background-color: #111; 
-    overflow-x: hidden; 
-    padding-top: 60px; 
-    transition: 0.5s;
-}
-
-/* The navigation menu links */
-.sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s
-}
 
 
-.sidenav a:hover, .offcanvas a:focus{
-    color: #f1f1f1;
-}
-
-/* Position and style the close button (top right corner) */
-.sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 5px;
-    font-size: 36px;
-    margin-left: 50px;
-}
-
-/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-#main {
-    transition: margin-left .5s;
-    padding: 20px;
-   
-    
-}
-
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-}
-/*End*/
-
-
-.container .jumbotron, .container-fluid .jumbotron {
-    padding-right: 15px;
-    padding-left: 15px;
-    border-radius: 0;
-}
-
-.jumbotron {
-    color: black;
-    height: 800px;
-    margin-bottom: 0px;
-    top: 0;
-    border-radius: 0;
-    width: 100%;
-    position: relative;
-    background-image: url("http://i.imgur.com/hugWs4p.jpg");
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
-       -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadein 2s; /* Firefox < 16 */
-    
-         -o-animation: fadein 2s; /* Opera < 12.1 */
-            animation: fadein 2s;
-}
-
-@keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-
-/* Firefox < 16 */
-@-moz-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-
-/* Safari, Chrome and Opera > 12.1 */
-@-webkit-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-
-/* Internet Explorer */
-@-ms-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-
-/* Opera < 12.1 */
-
-
-
-.layer {
-    /*background-color: rgba(191, 127, 63, 0.5);*/
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    font-family: 'Orbitron', sans-serif;
-}
-
-.jumbotron h1 {
-    margin-top: 90px;
-    color: #fff;
-}
-
-.jumbotron h3 {
-    color: #fff;
-}
-
-#jumboBtn {
-    margin-top: 20px;
+.getStarted {
+    width: 250px;
     height: 40px;
-    width: 200px;
+    background-color: rgba(243,243,243,0.2);
     color: #fff;
-    background-color: #993333;
+    font-size: 16px;
+    margin: 20px auto;
+    display: block;
+    outline: none;
     border: none;
-    border-radius: 5px;
-    font-size: 18px;
+    border-radius: 2px;
 }
 
-    #jumboBtn:hover {
-        background-color: #993333;
-        color: #fff;
+.getStarted:hover {
+    border: 2px solid #993333;
+}
+.phone {
+  width: 55%;
+  height: auto;
+  margin-left: 20%;
+  margin-top: -5%;
+}
+
+.phone2 {
+  visibility: hidden;
+  width: 55%;
+  height: auto;
+  margin-left: 20%;
+}
+
+
+
+#gitHub {
+font-size: 1.5em;
+margin-left: 10px;
+position: absolute;
+margin-top: -3px;
+
+}
+
+#arrowRight {
+  font-size: 1.5em;
+  color: #ffffff;
+  text-align: center;
+  margin-left: 5px;
+  position:absolute;
+}
+
+.codeLink {
+  font-size: 1.7em;
+  font-family: 'Signika', sans-serif;
+  margin-top: 20px;
+  text-align: center;
+  color: #ffffff;
+  margin-right: 10%;
+}
+
+#littleScreenSplit {
+    display: none;
+}
+
+@media (max-width: 991px) {
+  
+
+  
+.show {
+    background-color: transparent;
+}
+
+
+.navbar-fixed-top {
+    z-index: 1;
+}
+
+.navbar navbar-fixed-top {
+    display: none;
+}
+  .phone {
+    visibility: hidden;
+  }
+
+  .homeh1 {
+    margin-right: 0;
+  }
+
+  .homeh2 {
+    margin-right: 0;
+    margin-top: 20px;
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+
+
+
+  .codeLink {
+    margin-right: 0;
+  }
+
+.phone2 {
+  visibility: visible;
+  display: block;
+  margin: 0 auto;
+}
+  #bigScreenSplit {
+    display: none;
+  }
+
+  #littleScreenSplit {
+    display:initial;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 825px) {
+
+     .phone2 {
+       max-width: 50%;
     }
 
-#compImg {
-    margin-top: 30px;
+    .main {
+        height: 1075px;
+    }
 }
 
+@media (min-width: 825px) and (max-width: 991px) {
+    
 
+    .phone2 {
+        max-width: 40%;
+    }
+
+    .main {
+        height: 1150px;
+    }
+}
+
+@media(min-width: 991px) and (max-width: 992px) {
+     .phone2 {
+        max-width: 40%;
+    }
+
+    .main {
+        height: 1150px;
+    }
+}
 
 /*MidSec*/
 
-.navContainer {
-    position: relative;
-    display: inline-block;
-    height: 200px;
-    width: 100%;
-}
-
-.midSec #secondNav {
-    background-color: rgba(0,0,0,0.8);
-    visibility: hidden;
-    height: 70px;   
-}
-
-.midSec:hover #secondNav {
-    visibility: visible;   
-}
-
-.secondaryNavA {
-    font-size: 18px;
-    color: #fff;
-    font-family: 'Questrial', sans-serif;
-}
-
-.secondaryNavA:hover {
-    color:#993333;
-}
-
-.secondNavList li {
-    display: inline-block;
-    margin-left: 20px;
-}
-.appTemplate {
-    margin-top: 50px;
-}
-
-#phonePicDiv {
-    text-align: right;
-}
-
-.appTemplate {
-    margin-right: 150px;
-}
-
 .midSec {
+    height: 800px;
     width: 100%;
-    height: 700px;
-    background-color: #ffebee;
-    bottom:0;
-}
-
-#midSecIconCalc {
-    font-size: 30px;
-    color: #993333;
-    height: 65px;
-    width: 65px;
-    padding-top: 15px;
-    padding-left: 17px;
-    font-weight: 400;
-    border: 2px solid #993333;
-    border-radius: 65px;
-}
-
-.hoverTd:hover #midSecIconCalc {
-    background-color: #993333;
-    color: #fff;
-    transition: 0.5s;
-}
-
-
-#midSecIconGraph {
-    font-size: 30px;
-    color: #993333;
-    height: 65px;
-    width: 65px;
-    padding-top: 15px;
-    padding-left: 15px;
-    font-weight: 400;
-    border: 2px solid #993333;
-    border-radius: 65px;
-}
-
-.hoverTd:hover #midSecIconGraph {
-    background-color: #993333;
-    color: #fff;
-    transition: 0.5s;
-}
-
-
-#midSecIcons {
-    font-size: 30px;
-    color: #993333;
-    height: 65px;
-    width: 65px;
-    padding-top: 15px;
-    padding-left: 16px;
-    font-weight: 400;
-    border: 2px solid #993333;
-    border-radius: 65px;
-}
-
-.hoverTd:hover #midSecIcons {
-    background-color: #993333;
-    color: #fff;
-    transition: 0.5s;
-}
-
-.midSec h3 {
-    color: #5A646E;   
-    text-align: left;
-    font-size: 48px;
-    margin-bottom: 30px;
-    margin-top: 130px;
-}
-
-.midSecPs {
-    color: #5a646e;
-    font-size: 19px;
-    text-align: left;
-    margin-left: 15px;
-    padding-top: 10px;
-}
-
-.midSec td {
-    padding-bottom: 30px;
-}
-
-/*Template*/
-
-.template {
-    height: 670px;
-    background-color: #f2f2f2;
-    width: 100%;
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 0px;
-}
-
-.accountDiv {
-    height: 625px;
-    width: 100%;
-    background-color: #ffddcc;
-    border-radius: 0px;
-    margin-top: 50px;
-}
-
-#favNav {
-    background-color: #b33c00;
-}
-
-.navDrinks {
-    color: white;
-    font-size: 15px;
-}
-
-#favNavTitle {
-    color: white;
-}
-
-
-.drinkHeader {
-    text-align: center;
-    margin-top: 25px;
-}
-
-.dropdown {
-    margin-top: 10px;
-    position: relative;
-    margin-left: 20px;
-}
-
-.headerNdropdown td {
-    margin-right: 20px;
-}
-#beerDiv{
-    margin-right:20px;
-}
-#homeBeerIcon {
-    font-size: 200px;
-    margin-top: 50px;
-    margin-left: 300px;
-}
-
-.ozUnderIcon {
-    font-size: 30px;
-    padding-left:350px;
-}
-
-#homeProgressBar {
-    padding-top: 10px;
-    height: 40px;
-    width: 400px;
-    background-color: #ff884d;
-    width: 60%;
-}
-
-.progress {
-    width: 850px;
-    height: 40px;
-    margin-top: 40px;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-.drinkTally {
-    height: 300px;
-    width: 310px;
-    background-color: #f2f2f2;
-    margin-top: 20px;
-    border-radius: 3px;
-    margin-right: auto;
-    margin-left: 20px;
-    border: 1px solid black;
-}
-
-    .drinkTally h3 {
-        padding-top: 10px;
-        text-decoration: underline;
-        text-align: center;
-        border-color: black;
-    }
-
-.drinkTallyP {
-    font-size: 15px;
-}
-
-
-
-.bacPercent {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 100px;
-    color: black;
-    border: 2px solid black;
-    border-radius: 5px;
-    height: 100px;
-    width: 500px;
-    padding-top: 37px;
-}
-
-/*Progress Bar*/
-
-
-
-.progress {
-    text-align:justify;
-    margin-top: 35px;
-    width: 500px;
-    height: 19px;
-    border:2px solid black;
-    margin-right:auto;   
-}
-
-.spanProg{
-   text-align:right;
-    background-color: rgba(100,50,100,.60);
-    width: 65%;  
-    height: 50px;  
-}
-
-
-
-.preFooterDiv {
-    position: relative;
-    text-align: center;
-    height: 150px;
-    width: 100%;
-    background-color: #ce937e;
-    border-color: #f1e0da;
-}
-
-#preFooterBtn {
-    font-size: 25px;
-    height: 40px;
-    margin-top: 10px;
-    width: 200px;
-    background-color: #ffebcc;
-    border-color: black;
-    border-width: 1px;
-}
-
-.preFooterH {
-    vertical-align: middle;
-}
-
-.foot {
-    height: 100px;
-    width: auto;
-    text-align: center;
     background-color: #f2f2f2;
 }
 
-.footer {
-    height: 200px;
-    background-color: #993333;
-    width: 100%;
-}
 
-.footerHeader {
-    margin-top: 40px;
-    font-family: 'Questrial', sans-serif;
-    padding-top: 50px;
-    padding-bottom: 20px;
-    margin-top: 0;
-    color: #fff;
-}
-
-.signUpFooter {
-    height: 30px;
-    width: 200px;
-    color: #fff;
-    font-family: 'Questrial', sans-serif;
-    background-color: rgba(243,243,243,0.5);
-    border: none;
-    outline: none;
-}

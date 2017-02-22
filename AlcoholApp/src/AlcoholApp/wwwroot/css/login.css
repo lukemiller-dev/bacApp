@@ -3,48 +3,74 @@
     text-align: center;
 }
 
+#closeModalI {
+    top: 10px;
+    right: 10px;
+    position: absolute;
+    font-size: 16px;
+    color: #8899a6;
+
+}
+
+#closeModalI:hover {
+    cursor: pointer;
+}
 .modalFields{
-    border: 1px solid ;
+    margin-top: 10px;
     height:35px;
-    width:250px;
+    width:350px;
     border-radius:2px;
     font-size:16px;
     text-indent:20px;
+    border: 1px solid #e1e8ed;
     
 }
-.modalFields {
-    border: 1px solid #80bfff;
-}
-
-/*::-webkit-input-placeholder {
-    padding-left: 20px;*/
-    
+.modalFields:focus {
+    border: 1px solid #993333;
 }
 
 
 
-.loginBtn{
+.regiBtn{
     border:none;
-    height:35px;
-    width:250px;
-    border-radius:5px;
-    font-size:18px;
-    background-color:aqua;
-    text-align:center;
-
-}
-.password{
-    border: 1px solid ;
+    color:white;    
     margin-top:4px;
     height:35px;
+    width:350px;
+    border-radius:2px;
+    font-size:16px;
+    background-color:#993333;
+    margin-top: 10px;
+}
+
+.loginLegend {
+     font-size: 15px;
+    color: #8899a6;
+    padding-bottom: 5px;
+}
+
+@media (max-width: 992px) {
+    .modal-content {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .modalFields{
+    margin-top: 10px;
+    height:35px;
     width:250px;
     border-radius:2px;
     font-size:16px;
     text-indent:20px;
+    border: 1px solid #e1e8ed;
+    
 }
-.password {
-    border: 1px solid #80bfff;
+.modalFields:focus {
+    border: 1px solid #993333;
 }
+
+
+
 .regiBtn{
     border:none;
     color:white;    
@@ -53,46 +79,14 @@
     width:250px;
     border-radius:2px;
     font-size:16px;
-    background-color:#09B8E8;
+    background-color:#993333;
+    margin-top: 10px;
 }
-.regiBtn {
-    border: 1px solid #80bfff;
-}
-.facebookBtn{
-    border:none;
-    color:white; 
-    margin-top:2px;
-    height:35px;
-    width:250px;
-    border-radius:2px;
-    font-size:16px;
-    background-color:#0A19C2;
-}
-.facebookBtn{
-    border: 1px solid #80bfff;
-}
-.googleBtn{
-    border:none;
-    color:white; 
-    margin-top:2px;
-    height:35px;
-    width:250px;
-    border-radius:2px;
-    font-size:16px;
-    background-color:#E8093D;
-    
-}
-.googleBtn{
-    border: 1px solid #80bfff;
-}
-#facebookIcon{
-    color:white;
-    font-size:18px;
-    margin-right:5px;
-}
-#googleIcon{
-    color:white;
-    font-size:18px;
-    margin-right:5px;
 
+.loginLegend {
+     font-size: 15px;
+    color: #8899a6;
+    padding-bottom: 5px;
 }
+}
+

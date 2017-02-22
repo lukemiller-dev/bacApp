@@ -13,15 +13,19 @@
     <link href="~/css/search.css" rel="stylesheet" />
     <link href="~/css/details.css" rel="stylesheet" />
     <link href="~/bower_components/font-awesome/css/font-awesome.css" rel="stylesheet" />  
+    <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash|Sansita|Signika" rel="stylesheet">
 
-
-    <link href="~/bower_components/aos/dist/aos.css" rel="stylesheet" />
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"> 
     <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
-
-    <script src="~/scripts/jQuery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+    <link href="~/bower_components/aos/dist/aos.css" rel="stylesheet" />
+    <script src="~/scripts/animation.js"></script>
     <script src="~/bower_components/aos/src/js/aos.js"></script>
     <script src="~/bower_components/aos/dist/aos.js"></script>  
+  
+
 
       
 </head>
@@ -30,6 +34,21 @@
     <div class="container-fluid">
      
 
+        <div id="sidenav" class="sideNav">       
+                <p class="pushDown" id="userName" ng-show="account.isLoggedIn()">{{account.getUserName()}}</p>
+                <p>{{account.validationMessages}}</p>
+            <a class="pushDown" ng-show="!account.isLoggedIn()" href="#" ng-click="account.openModal()">Log In</a>
+            <a ng-show="!account.isLoggedIn()" href="/register">Register</a>
+            <a href="/mainAccount" ng-show="account.isLoggedIn()">Account</a>
+            <a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a>
+
+
+
+        </div>
+        <span class="hamburger">
+            <span></span>
+            <span class="line"></span>
+        </span>
 
  
 

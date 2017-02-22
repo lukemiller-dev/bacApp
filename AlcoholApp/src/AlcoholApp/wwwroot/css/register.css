@@ -24,40 +24,10 @@
 
 .regiHeader {
     margin-top: 100px;
-
+    font-family: 'Questrial', sans-serif;
+    font-size: 2em;
 }
 
-.facebookBtn{
-    border:none;
-    color:white; 
-    margin-top:2px;
-    height:35px;
-    width:100px;
-    border-radius:5px;
-    font-size:10px;
-    background-color:#0A19C2;
-}
-.googleBtn{
-    border:none;
-    color:white; 
-    margin-top:2px;
-    height:35px;
-    width:250px;
-    border-radius:5px;
-    font-size:16px;
-    background-color:#E8093D;
-    
-}
-.regiBtn{
-    border:none;
-    color:white;    
-    margin-top:4px;
-    height:35px;
-    width:250px;
-    border-radius:5px;
-    font-size:16px;
-    background-color:black;
-}
 
 
 .personal{

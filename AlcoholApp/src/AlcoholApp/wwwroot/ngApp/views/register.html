@@ -1,10 +1,36 @@
+
+<nav id="mainAccountNav" class="navbar">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navTitleLink" href="/"><span id="navTitle"><img class="lpIcon" src="http://i.imgur.com/3BBUysg.png?1" /></span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <form class="navbar-form navbar-right">
+                <div class="form-group">
+                    <ul id="rightNavAccount" class="nav navbar-nav">
+
+
+
+                        <li class="navAccountList" id="userNameNav" ng-show="account.isLoggedIn()">
+                            {{account.getUserName()}}
+                        </li>
+                        <li class="navAccountList"><a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a></li>
+
+                    </ul>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</nav>
 <div id="globalId">
     
     <div class="container">
         
-        <div class="mainDiv">
+  
 
-                <h4 class="regiHeader"><b>Local Registration</b> </h4>
+                <p class="regiHeader">Sign Up</p>
                 
                 <ul>
                     <li ng-repeat="message in controller.validationMessages">
@@ -14,50 +40,26 @@
 
                 <form class="registerForm" ng-submit="controller.register()" id="formId">
                     <div>
-                        <input class="personal" placeholder="First Name" ng-model="controller.registerUser.firstName" />
-                    </div>
-                    
+                        <input class="modalFields" placeholder="Username" ng-model="controller.registerUser.userName" />
+                    </div>                   
                     <div>
-                        <input class="personal" placeholder="Last Name" ng-model="controller.registerUser.lastName" />
-                    </div>
-                    
-                    <div>
-                       <input class="personal" placeholder="Email" ng-model="controller.registerUser.email" />
+                       <input class="modalFields" placeholder="Email" ng-model="controller.registerUser.email" />
                     </div>
                     
 
                     <div>
-                        <input type="password" class="personal" placeholder="Password:" ng-model="controller.registerUser.password" />
+                        <input type="password" class="modalFields" placeholder="Password" ng-model="controller.registerUser.password" />
                     </div>
                     
                     <div>
-                        <input type="password" class="personal" placeholder="Confirm Password:" ng-model="controller.registerUser.confirmPassword" />
+                        <input type="password" class="modalFields" placeholder="Confirm Password" ng-model="controller.registerUser.confirmPassword" />
                     </div>
                     
                     <button class="regiBtn" type="submit">Submit</button>
-                    <div id="smallDivId"><label>or</label>
-                    </div>
-                    
-                    <div>
-                        <button class="facebookBtn" type="submit"><i id="facebookIcon" class="fa fa-facebook" aria-hidden="true"></i>
-                            Continue with Facebook
-                        </button>
-                    </div>
-                    
-                    <div>
-                        <button class="googleBtn" type="submit"><i id="googleIcon" class="fa fa-google" aria-hidden="true"></i> Continue with Google</button>
-                    </div>
+               
 
-                </form>
-            <ul>
-                <li ng-repeat="externalLogin in account.externalLogins">
-                    <a target="_self" href="{{externalLogin.url}}">{{externalLogin.name}}</a>
-                </li>
-            </ul>
-            
-
-            
+                </form>          
         </div>
     </div>
-</div>
+
 
