@@ -3,7 +3,7 @@
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <a class="navTitleLink" href="/"><span id="navTitle"><img class="lpIcon" src="http://i.imgur.com/3BBUysg.png?1" /></span></a>
-            <p class="lastPourNav">Last Pour</p>
+            <p class="lastPourNav">Last Pourr</p>
         </div>
      
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -40,7 +40,8 @@
                         <tr class="nav navbar-nav">
                             <!--<td id="favNavTitle">Favorites</td>-->
                             <td id="mobileMargintd"></td>
-                            <td ng-repeat="favorite in controller.tGlasses"><a ng-click="controller.selectAlcohol(favorite.alcohol.id)" class="navDrinks" href="#">{{favorite.alcohol.style}}</a><i id="navDelete" class="fa fa-window-close" ng-click="controller.deleteFav(favorite.id)" aria-hidden="true"></i></td>
+                            <!--<td ng-repeat="favorite in controller.tGlasses"><a ng-click="controller.selectAlcohol(favorite.alcohol.id)" class="navDrinks" href="#">{{favorite.alcohol.style}}</a><i id="navDelete" class="fa fa-window-close" ng-click="controller.deleteFav(favorite.id)" aria-hidden="true"></i></td>-->
+                            <td ng-repeat="alcohols in controller.alcohols"><a ng-click="controller.selectAlcohol(favorite.alcohol.id)" class="navDrinks" href="#">{{favorite.alcohol.style}}</a></td>
                         </tr>
                     </table>
                     </div>
@@ -72,6 +73,7 @@
                                         </div></td>
                                         <td><div class="search">
                                            <input ng-model="search" class="searchInputField" type="text" placeholder="Search..." ng-keydown="controller.search(search)" />
+                                            
                                             
                                     
                                 <ul class="results" ng-show="controller.dropDownToggle">
